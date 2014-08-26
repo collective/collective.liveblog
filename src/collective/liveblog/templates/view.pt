@@ -1,0 +1,48 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    xmlns:metal="http://xml.zope.org/namespaces/metal"
+    metal:use-macro="context/main_template/macros/master"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    i18n:domain="collective.liveblog">
+<body>
+  <metal:block fill-slot="content-core">
+    <div tal:condition="view/can_add_microupdate">
+      <h2 i18n:translate="">Add micro-update</h2>
+      <form action="@@add-microupdate"
+          tal:attributes="action string:${context/absolute_url}/@@add-microupdate">
+        <input placeholder="Title" title="Title" name="title" size="80" />
+        <tal:editor define="here nocall:context;
+                            portal_url nocall:context/portal_url;
+                            portal portal_url/getPortalObject;
+                            id nothing;
+                            inputname string:text;
+                            inputvalue nothing;
+                            here_url request/getURL;
+                            member context/portal_membership/getAuthenticatedMember;
+                            tabindex nothing;">
+          <div metal:use-macro="context/wysiwyg_support/macros/wysiwygEditorBox">
+              The WYSIWYG code
+          </div>
+        </tal:editor>
+        <input type="submit" i18n:attributes="value" value="Publish" />
+      </form>
+    </div>
+
+    <div tal:condition="view/has_updates" tal:repeat="update view/updates">
+      <div>
+        <strong tal:content="update/title" />
+      </div>
+      <div>
+        <p tal:content="structure update/text" />
+      </div>
+      <div i18n:translate="">
+        By <span tal:content="update/creator" />
+        <span tal:content="update/time_only" tal:attributes="title update/created" />
+      </div>
+    </div>
+    <p tal:condition="not:view/has_updates" i18n:translate="">
+        No micro-updates yet for this Liveblog.
+    </p>
+  </metal:block>
+</body>
+</html>
