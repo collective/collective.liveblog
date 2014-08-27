@@ -12,13 +12,11 @@ class Fixture(PloneSandboxLayer):
     defaultBases = (PLONE_FIXTURE,)
 
     def setUpZope(self, app, configurationContext):
-        # Load ZCML
         import collective.liveblog
         self.loadZCML(package=collective.liveblog)
 
     def setUpPloneSite(self, portal):
-        self.applyProfile(
-            portal, 'collective.liveblog:default')
+        self.applyProfile(portal, 'collective.liveblog:default')
 
 
 FIXTURE = Fixture()

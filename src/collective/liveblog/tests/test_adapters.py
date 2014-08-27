@@ -15,8 +15,8 @@ class ContentTypeTestCase(unittest.TestCase):
     def setUp(self):
         self.portal = self.layer['portal']
         with api.env.adopt_roles(['Manager']):
-            self.folder = api.content.create(self.portal, 'Folder', 'test')
-        self.liveblog = api.content.create(self.folder, 'Liveblog', 'liveblog')
+            self.liveblog = api.content.create(
+                self.portal, 'Liveblog', 'liveblog')
 
     def test_adding(self):
         adapter = IMicroUpdateContainer(self.liveblog)

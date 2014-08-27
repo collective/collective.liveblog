@@ -17,8 +17,8 @@ class AddMicroUpdateViewTestCase(unittest.TestCase):
         self.request = self.layer['request']
         directlyProvides(self.request, IBrowserLayer)
         with api.env.adopt_roles(['Manager']):
-            self.folder = api.content.create(self.portal, 'Folder', 'test')
-        self.liveblog = api.content.create(self.folder, 'Liveblog', 'liveblog')
+            self.liveblog = api.content.create(
+                self.portal, 'Liveblog', 'liveblog')
 
     def test_add_microupdate_no_parameters(self):
         # invoke the view and check the status message
