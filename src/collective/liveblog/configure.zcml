@@ -30,6 +30,7 @@
   <include file="profiles.zcml" />
 
   <browser:resourceDirectory name="collective.liveblog" directory="static" />
+  <include package=".browser" />
 
   <adapter
       for=".interfaces.ILiveblog"

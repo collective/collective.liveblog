@@ -5,6 +5,7 @@
     xmlns:i18n="http://xml.zope.org/namespaces/i18n"
     i18n:domain="collective.liveblog">
 <body>
+  <!-- TODO: https://schema.org/BlogPosting -->
   <metal:block fill-slot="content-core">
     <div tal:condition="view/can_add_microupdate">
       <h2 i18n:translate="">Add micro-update</h2>
@@ -28,21 +29,37 @@
       </form>
     </div>
 
-    <div tal:condition="view/has_updates" tal:repeat="update view/updates">
-      <div>
-        <strong tal:content="update/title" />
+    <div id="micro-updates">
+      <div class="microupdate" data-timestamp=""
+          tal:repeat="update view/updates"
+          tal:attributes="data-timestamp update/timestamp">
+        <p class="microupdate-title">
+          <strong tal:content="update/title" />
+        </p>
+        <div class="microupdate-text" tal:content="structure update/text" />
+        <p class="microupdate-byline" i18n:translate="">
+          By <span tal:content="update/creator" />
+          <span tal:content="update/time_only" tal:attributes="title update/created" />
+        </p>
       </div>
-      <div>
-        <p tal:content="structure update/text" />
-      </div>
-      <div i18n:translate="">
-        By <span tal:content="update/creator" />
-        <span tal:content="update/time_only" tal:attributes="title update/created" />
+      <div class="microupdate" data-timestamp=""
+          tal:condition="not:view/has_updates"
+          tal:attributes="data-timestamp view/now">
+        <p class="microupdate-title">
+          <strong i18n:translate="">No micro-updates yet for this Liveblog.</strong>
+        </p>
+        <div class="microupdate-text" />
+        <p class="microupdate-byline" />
       </div>
     </div>
-    <p tal:condition="not:view/has_updates" i18n:translate="">
-        No micro-updates yet for this Liveblog.
-    </p>
+    <script type="text/javascript">
+        setInterval(function() {
+            var timestamp = $(".microupdate").attr("data-timestamp");
+            $.get("updates?timestamp=" + timestamp, function(data) {
+                $("#micro-updates").prepend(data).fadeIn("slow");
+            });
+        }, 1000 * 60);
+    </script>
   </metal:block>
 </body>
 </html>

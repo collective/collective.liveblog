@@ -1,0 +1,22 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    tal:omit-tag=""
+    i18n:domain="collective.liveblog">
+<body tal:omit-tag="">
+    <div id="micro-updates" tal:omit-tag="">
+      <div class="microupdate" data-timestamp=""
+          tal:repeat="update view/updates_since_timestamp"
+          tal:attributes="data-timestamp update/timestamp">
+        <p class="microupdate-title">
+          <strong tal:content="update/title" />
+        </p>
+        <div class="microupdate-text" tal:content="structure update/text" />
+        <p class="microupdate-byline" i18n:translate="">
+          By <span tal:content="update/creator" />
+          <span tal:content="update/time_only" tal:attributes="title update/created" />
+        </p>
+      </div>
+    </div>
+</body>
+</html>
