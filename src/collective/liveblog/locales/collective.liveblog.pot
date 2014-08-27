@@ -1,0 +1,52 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2014-08-27 13:53+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: DOMAIN\n"
+
+#: collective/liveblog/profiles/default/types/Liveblog.xml
+msgid "A liveblog is a blog post which is intended to provide a rolling textual coverage of an ongoing event."
+msgstr ""
+
+#: collective/liveblog/templates/view.pt:10
+msgid "Add micro-update"
+msgstr ""
+
+#: collective/liveblog/templates/view.pt:40
+msgid "By <span>${DYNAMIC_CONTENT}</span> <span title=\"${DYNAMIC_CONTENT}\">${DYNAMIC_CONTENT}</span>"
+msgstr ""
+
+#: collective/liveblog/browser.py:83
+msgid "Item published."
+msgstr ""
+
+#: collective/liveblog/profiles/default/types/Liveblog.xml
+msgid "Liveblog"
+msgstr ""
+
+#: collective/liveblog/templates/view.pt:43
+msgid "No micro-updates yet for this Liveblog."
+msgstr ""
+
+#: collective/liveblog/templates/view.pt:27
+msgid "Publish"
+msgstr ""
+
+#: collective/liveblog/browser.py:75
+msgid "There were some errors. Required input is missing."
+msgstr ""
+
+#: collective/liveblog/templates/view.pt:13
+msgid "Title"
+msgstr ""
+

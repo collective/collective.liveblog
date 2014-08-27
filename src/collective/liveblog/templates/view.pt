@@ -10,7 +10,7 @@
       <h2 i18n:translate="">Add micro-update</h2>
       <form action="@@add-microupdate"
           tal:attributes="action string:${context/absolute_url}/@@add-microupdate">
-        <input placeholder="Title" title="Title" name="title" size="80" />
+        <input placeholder="Title" title="Title" name="title" size="80" i18n:attributes="placeholder; title" />
         <tal:editor define="here nocall:context;
                             portal_url nocall:context/portal_url;
                             portal portal_url/getPortalObject;
@@ -24,7 +24,7 @@
               The WYSIWYG code
           </div>
         </tal:editor>
-        <input type="submit" i18n:attributes="value" value="Publish" />
+        <input type="submit" value="Publish" i18n:attributes="value" />
       </form>
     </div>
 
