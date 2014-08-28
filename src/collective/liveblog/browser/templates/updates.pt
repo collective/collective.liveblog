@@ -8,17 +8,18 @@
       <article class="microupdate" data-timestamp="" itemprop="comment" itemscope itemtype="http://schema.org/Comment"
           tal:repeat="update view/updates_since_timestamp"
           tal:attributes="data-timestamp update/timestamp">
-        <p class="microupdate-title">
-          <strong tal:content="update/title" />
-        </p>
-        <div class="microupdate-text" tal:content="structure update/text" />
-        <p class="microupdate-byline" i18n:translate="">
-          By <span itemprop="author" tal:content="update/creator" />
+        <h2 class="microupdate-title" itemprop="headline"
+            tal:condition="update/title"
+            tal:content="update/title" />
+        <div class="microupdate-text" itemprop="text"
+            tal:content="structure update/text" />
+        <div class="microupdate-byline" i18n:translate="">
+          <p>By <span itemprop="author" tal:content="update/creator" /></p>
           <time itemprop="datePublished" title="2014-08-28 14h31" datetime="2014-08-28T14:31:02.402278"
               tal:content="update/time"
               tal:attributes="datetime update/isoformat;
                               title update/datetime" />
-        </p>
+        </div>
       </article>
     </section>
 </body>

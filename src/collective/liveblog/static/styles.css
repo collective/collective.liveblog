@@ -1,0 +1,44 @@
+#liveblog-header img {
+    max-width: 100%;
+    height: auto;
+}
+
+.field input[type="text"] {
+    width: 100%;
+}
+
+form {
+    padding-bottom: 1em;
+}
+
+#micro-updates article {
+    border-top: 1px solid #ccc;
+    padding: 1em 0 0 0;
+    clear: both;
+    margin-bottom: 1em;
+    position: relative;
+}
+
+.microupdate-byline time {
+    width: 90px;
+    position: absolute;
+    top: 0;
+    background: #f1f1f1;
+    text-align: center;
+    line-height: 1.2em;
+    font-size: 2em;
+    display: block;
+    color: #c9c9c9;
+    line-height: 2em;
+    padding: 0.3em 0;
+}
+
+.microupdate-title,
+.microupdate-text,
+.microupdate-byline p {
+    margin-left: 110px;
+}
+.microupdate-byline p {
+    margin-top: -1em;
+    color: #666;
+}
