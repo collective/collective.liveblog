@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2014-08-27 13:53+0000\n"
+"POT-Creation-Date: 2014-08-28 15:08+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,15 +18,20 @@ msgstr ""
 msgid "A liveblog is a blog post which is intended to provide a rolling textual coverage of an ongoing event."
 msgstr ""
 
-#: collective/liveblog/templates/view.pt:10
+#: collective/liveblog/browser/templates/view.pt:11
 msgid "Add micro-update"
 msgstr ""
 
-#: collective/liveblog/templates/view.pt:40
+#: collective/liveblog/browser/templates/updates.pt:17
+#: collective/liveblog/browser/templates/view.pt:42
 msgid "By <span>${DYNAMIC_CONTENT}</span> <span title=\"${DYNAMIC_CONTENT}\">${DYNAMIC_CONTENT}</span>"
 msgstr ""
 
-#: collective/liveblog/browser.py:83
+#: collective/liveblog/interfaces.py:20
+msgid "Image"
+msgstr ""
+
+#: collective/liveblog/browser/add_microupdate.py:36
 msgid "Item published."
 msgstr ""
 
@@ -34,19 +39,23 @@ msgstr ""
 msgid "Liveblog"
 msgstr ""
 
-#: collective/liveblog/templates/view.pt:43
+#: collective/liveblog/browser/templates/view.pt:49
 msgid "No micro-updates yet for this Liveblog."
 msgstr ""
 
-#: collective/liveblog/templates/view.pt:27
+#: collective/liveblog/browser/templates/view.pt:28
 msgid "Publish"
 msgstr ""
 
-#: collective/liveblog/browser.py:75
+#: collective/liveblog/browser/add_microupdate.py:28
 msgid "There were some errors. Required input is missing."
 msgstr ""
 
-#: collective/liveblog/templates/view.pt:13
+#: collective/liveblog/interfaces.py:21
+msgid "This image will be used as a header on the Liveblog."
+msgstr ""
+
+#: collective/liveblog/browser/templates/view.pt:14
 msgid "Title"
 msgstr ""
 

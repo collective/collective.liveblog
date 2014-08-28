@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: 2014-08-27 13:53+0000\n"
-"PO-Revision-Date: 2014-08-27 10:53-0300\n"
+"POT-Creation-Date: 2014-08-28 15:08+0000\n"
+"PO-Revision-Date: 2014-08-28 12:10-0300\n"
 "Last-Translator: Héctor Velarde <hector.velarde@gmail.com>\n"
 "Language-Team: Plone Collective\n"
 "MIME-Version: 1.0\n"
@@ -24,11 +24,12 @@ msgstr ""
 "Um blog ao vivo é um post de blog que pretende fornecer uma cobertura amplia "
 "de um evento em curso."
 
-#: collective/liveblog/templates/view.pt:10
+#: collective/liveblog/browser/templates/view.pt:11
 msgid "Add micro-update"
 msgstr "Adicionar atualização"
 
-#: collective/liveblog/templates/view.pt:40
+#: collective/liveblog/browser/templates/updates.pt:17
+#: collective/liveblog/browser/templates/view.pt:42
 msgid ""
 "By <span>${DYNAMIC_CONTENT}</span> <span title=\"${DYNAMIC_CONTENT}\">"
 "${DYNAMIC_CONTENT}</span>"
@@ -36,7 +37,11 @@ msgstr ""
 "Por <span>${DYNAMIC_CONTENT}</span> <span title=\"${DYNAMIC_CONTENT}\">"
 "${DYNAMIC_CONTENT}</span>"
 
-#: collective/liveblog/browser.py:83
+#: collective/liveblog/interfaces.py:20
+msgid "Image"
+msgstr "Imagem"
+
+#: collective/liveblog/browser/add_microupdate.py:36
 msgid "Item published."
 msgstr "Item publicado."
 
@@ -44,18 +49,22 @@ msgstr "Item publicado."
 msgid "Liveblog"
 msgstr "Blog ao vivo"
 
-#: collective/liveblog/templates/view.pt:43
+#: collective/liveblog/browser/templates/view.pt:49
 msgid "No micro-updates yet for this Liveblog."
 msgstr "Este blog ao vivo ainda não tem atualizações."
 
-#: collective/liveblog/templates/view.pt:27
+#: collective/liveblog/browser/templates/view.pt:28
 msgid "Publish"
 msgstr "Publicar"
 
-#: collective/liveblog/browser.py:75
+#: collective/liveblog/browser/add_microupdate.py:28
 msgid "There were some errors. Required input is missing."
 msgstr "Ocurreu um erro. Falta informação requerida."
 
-#: collective/liveblog/templates/view.pt:13
+#: collective/liveblog/interfaces.py:21
+msgid "This image will be used as a header on the Liveblog."
+msgstr "Esta imagem será usada como o cabeçalho do blog ao vivo."
+
+#: collective/liveblog/browser/templates/view.pt:14
 msgid "Title"
 msgstr "Título"

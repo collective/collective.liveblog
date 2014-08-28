@@ -1,8 +1,8 @@
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en"
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
     xmlns:tal="http://xml.zope.org/namespaces/tal"
     xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-    tal:omit-tag=""
-    i18n:domain="collective.liveblog">
+    i18n:domain="collective.liveblog"
+    tal:omit-tag="">
 <body tal:omit-tag="">
     <div id="micro-updates" tal:omit-tag="">
       <div class="microupdate" data-timestamp=""

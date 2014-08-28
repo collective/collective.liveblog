@@ -1,0 +1,14 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="collective.liveblog">
+<body>
+  <tal:viewlet condition="viewlet/available">
+    <div id="liveblog-header">
+      <img tal:define="scale context/@@images"
+          tal:replace="structure python:scale.scale('image').tag()" />
+    </div>
+  </tal:viewlet>
+</body>
+</html>
