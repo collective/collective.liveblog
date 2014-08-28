@@ -7,6 +7,10 @@ from Products.GenericSetup.upgrade import listUpgradeSteps
 
 import unittest
 
+CSS = (
+    '++resource++collective.liveblog/styles.css',
+)
+
 ADD_PERMISSIONS = (
     dict(
         title='collective.liveblog: Add Liveblog',
@@ -42,6 +46,11 @@ class InstallTestCase(BaseTestCase):
 
     def test_browser_layer_installed(self):
         self.assertIn(IBrowserLayer, registered_layers())
+
+    def test_cssregistry(self):
+        resource_ids = self.portal.portal_css.getResourceIds()
+        for id in CSS:
+            self.assertIn(id, resource_ids, '{0} not installed'.format(id))
 
     def test_add_permissions(self):
         for permission in ADD_PERMISSIONS:
@@ -84,3 +93,8 @@ class UninstallTestCase(BaseTestCase):
 
     def test_browser_layer_removed(self):
         self.assertNotIn(IBrowserLayer, registered_layers())
+
+    def test_cssregistry_removed(self):
+        resource_ids = self.portal.portal_css.getResourceIds()
+        for id in CSS:
+            self.assertNotIn(id, resource_ids, '{0} not removed'.format(id))
