@@ -11,6 +11,12 @@ A liveblog is a blog post which is intended to provide a rolling textual coverag
 
 A liveblog is continuously updated with timestamped micro-updates which are placed above previous micro-updates.
 
+Typical use case is the following:
+
+- the publisher of a news site creates a liveblog
+- editors add micro-updates to the liveblog as the event goes on
+- visitors of the liveblog get micro-updates automatically via AJAX calls
+
 Mostly Harmless
 ===============
 
@@ -26,14 +32,26 @@ Mostly Harmless
     :alt: Downloads
     :target: https://pypi.python.org/pypi/collective.liveblog/
 
+Known issues
+------------
+
+- Only users with role Manager can add micro-updates
+
+Todo list
+---------
+
+- Do not update from the default view; create a new one and register it as an action
+- Do not load all micro-updates by default as the page could grow huge
+- Implement infinite scrolling
+- Prettify the prepend of micro-updates
+- Use fuzzy dates
+
 Got an idea? Found a bug? Let us know by `opening a support ticket`_.
 
 .. _`opening a support ticket`: https://github.com/collective/collective.liveblog/issues
 
 Don't Panic
 ===========
-
-TBD.
 
 Installation
 ------------
@@ -55,3 +73,8 @@ Check the box next to ``collective.liveblog`` and click the 'Activate' button.
 
 .. Note::
     You may have to empty your browser cache and save your resource registries in order to see the effects of the product installation.
+
+Usage
+-----
+
+TBD
