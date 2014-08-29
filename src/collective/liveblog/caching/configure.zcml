@@ -1,0 +1,19 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:cache="http://namespaces.zope.org/cache">
+
+  <include package="z3c.caching" />
+  <include package="z3c.caching" file="meta.zcml" />
+
+  <cache:rulesetType
+      name="collective.liveblog"
+      title="Liveblog"
+      description=""
+      />
+
+  <cache:ruleset
+      for="collective.liveblog.browser.View"
+      ruleset="collective.liveblog"
+      />
+
+</configure>
