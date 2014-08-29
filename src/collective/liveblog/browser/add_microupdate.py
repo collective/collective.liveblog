@@ -36,4 +36,5 @@ class AddMicroUpdateView(grok.View):
             msg = _(u'Item published.')
             api.portal.show_message(msg, self.request)
 
-        self.request.response.redirect(self.context.absolute_url())
+        update_url = self.context.absolute_url() + '/update'
+        self.request.response.redirect(update_url)
