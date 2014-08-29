@@ -7,8 +7,8 @@
 
   <cache:rulesetType
       name="collective.liveblog"
-      title="Liveblog"
-      description=""
+      title="Liveblog Public View"
+      description="Configure caching for the public view of a Liveblog"
       />
 
   <cache:ruleset
