@@ -13,6 +13,7 @@
   <include package="five.grok" />
   <include package="plone.app.dexterity" />
   <include package="plone.app.referenceablebehavior" />
+  <include package="z3c.caching" />
   <include package="z3c.caching" file="meta.zcml" />
 
   <permission
