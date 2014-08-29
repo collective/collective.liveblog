@@ -1,44 +1,56 @@
 #liveblog-header img {
-    max-width: 100%;
     height: auto;
+    max-width: 100%;
 }
-
-.field input[type="text"] {
+.portaltype-liveblog .field input[type="text"] {
     width: 100%;
 }
-
-form {
+.portaltype-liveblog form {
     padding-bottom: 1em;
 }
-
+.portaltype-liveblog textarea {
+    height: 100px;
+}
+.portaltype-liveblog #content header {
+    margin-bottom: 1em;
+}
 #micro-updates article {
     border-top: 1px solid #ccc;
-    padding: 1em 0 0 0;
     clear: both;
     margin-bottom: 1em;
+    padding: 1em 0 0 0;
     position: relative;
 }
-
 .microupdate-byline time {
-    width: 90px;
-    position: absolute;
-    top: 0;
     background: #f1f1f1;
-    text-align: center;
-    line-height: 1.2em;
-    font-size: 2em;
-    display: block;
     color: #c9c9c9;
-    line-height: 2em;
-    padding: 0.3em 0;
+    font-size: 1.8em;
+    padding: 1em 0;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 90px;
 }
-
-.microupdate-title,
-.microupdate-text,
-.microupdate-byline p {
+.microupdate-title, .microupdate-text, .microupdate-byline p {
     margin-left: 110px;
 }
 .microupdate-byline p {
-    margin-top: -1em;
     color: #666;
+}
+.microupdate-text p:last-child {
+    margin-bottom: 0 !important;
+}
+/* Mobile */
+@media all and (max-width: 680px) {
+    .microupdate-byline time {
+        font-size: 1.2em;
+        padding: 0.5em 0;
+        width: 60px;
+    }
+    .microupdate-title, .microupdate-text, .microupdate-byline p {
+        margin-left: 70px;
+    }
+    #micro-updates article {
+        padding-top: 0.3em;
+    }
 }
