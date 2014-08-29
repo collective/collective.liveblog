@@ -18,7 +18,7 @@ ADD_PERMISSIONS = (
     ),
     dict(
         title='collective.liveblog: Add MicroUpdate',
-        expected=['Contributor', 'Manager', 'Owner', 'Site Administrator'],
+        expected=['Editor', 'Manager', 'Owner', 'Site Administrator'],
     ),
 )
 
