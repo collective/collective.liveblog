@@ -69,11 +69,12 @@ class UpdateViewTestCase(ViewTestCase):
         self.assertIn('update', actions)
 
 
-class UpdatesViewTestCase(ViewTestCase):
+class RecentUpdatesViewTestCase(ViewTestCase):
 
     def setUp(self):
-        super(UpdatesViewTestCase, self).setUp()
-        self.view = api.content.get_view('updates', self.liveblog, self.request)
+        super(RecentUpdatesViewTestCase, self).setUp()
+        self.view = api.content.get_view(
+            'recent-updates', self.liveblog, self.request)
 
     def test_updates_since_timestamp(self):
         from collective.liveblog.utils import _timestamp

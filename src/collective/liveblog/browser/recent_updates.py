@@ -8,13 +8,15 @@ from time import time
 grok.templatedir('templates')
 
 
-class Updates(grok.View):
+class RecentUpdates(grok.View):
 
     """Helper view for Liveblog."""
 
     grok.context(ILiveblog)
     grok.layer(IBrowserLayer)
+    grok.name('recent-updates')
     grok.require('zope2.View')
+    grok.template('recent_updates')
 
     def _updates_since_timestamp(self):
         """Return the list of micro-updates since the specified timestamp."""

@@ -81,7 +81,7 @@
     <script type="text/javascript">
         setInterval(function() {
             var timestamp = $(".microupdate").attr("data-timestamp");
-            $.get("updates?timestamp=" + timestamp, function(data) {
+            $.get("recent-updates?timestamp=" + timestamp, function(data) {
                 $("#micro-updates").prepend(data).fadeIn("slow");
             });
         }, 1000 * 60);
