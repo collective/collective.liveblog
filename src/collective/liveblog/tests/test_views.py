@@ -45,14 +45,6 @@ class DefaultViewTestCase(ViewTestCase):
         super(DefaultViewTestCase, self).setUp()
         self.view = api.content.get_view('view', self.liveblog, self.request)
 
-    def test_can_add_microupdate(self):
-        with api.env.adopt_roles(['Manager']):
-            self.assertTrue(self.view.can_add_microupdate)
-        with api.env.adopt_roles(['Reader']):
-            self.assertFalse(self.view.can_add_microupdate)
-        with api.env.adopt_roles(['Reviewer']):
-            self.assertFalse(self.view.can_add_microupdate)
-
     def test_updates(self):
         self.assertEqual(len(self.view._updates()), 0)
         self._create_updates()
@@ -62,6 +54,19 @@ class DefaultViewTestCase(ViewTestCase):
         self.assertFalse(self.view.has_updates)
         self._create_updates()
         self.assertTrue(self.view.has_updates)
+
+
+class UpdateViewTestCase(ViewTestCase):
+
+    def setUp(self):
+        super(UpdateViewTestCase, self).setUp()
+        self.view = api.content.get_view('update', self.liveblog, self.request)
+
+    def test_view_listed_in_actions(self):
+        portal_types = api.portal.get_tool('portal_types')
+        actions = portal_types['Liveblog'].listActions()
+        actions = [a.id for a in actions]
+        self.assertIn('update', actions)
 
 
 class UpdatesViewTestCase(ViewTestCase):

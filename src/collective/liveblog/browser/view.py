@@ -23,13 +23,6 @@ class View(grok.View):
     grok.layer(IBrowserLayer)
     grok.require('zope2.View')
 
-    @property
-    def can_add_microupdate(self):
-        """Return True if the user has permission to add a micro-update."""
-        mt = api.portal.get_tool('portal_membership')
-        return mt.checkPermission(
-            'collective.liveblog.AddMicroUpdate', self.context)
-
     def _updates(self):
         """Return the list of micro-updates in the Liveblog in reverse order."""
         container = IMicroUpdateContainer(self.context)

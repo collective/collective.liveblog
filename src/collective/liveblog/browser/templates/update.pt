@@ -19,8 +19,35 @@
           Description
         </div>
       </header>
+
       <div tal:replace="structure provider:plone.abovecontentbody" />
       <div id="content-core" itemprop="articleBody">
+
+      <h2 i18n:translate="">Add micro-update</h2>
+      <form action="@@add-microupdate"
+          tal:attributes="action string:${context/absolute_url}/@@add-microupdate">
+        <div class="field">
+          <input placeholder="Title" title="Title" name="title" type="text" class="update-title" i18n:attributes="placeholder; title" />
+        </div>
+        <div class="field">
+          <tal:editor define="here nocall:context;
+                              portal_url nocall:context/portal_url;
+                              portal portal_url/getPortalObject;
+                              id nothing;
+                              inputname string:text;
+                              inputvalue nothing;
+                              here_url request/getURL;
+                              member context/portal_membership/getAuthenticatedMember;
+                              tabindex nothing;
+                              rows python:15">
+            <div metal:use-macro="context/wysiwyg_support/macros/wysiwygEditorBox">
+              The WYSIWYG code
+            </div>
+          </tal:editor>
+        </div>
+        <input type="submit" value="Publish" i18n:attributes="value" />
+      </form>
+
     <section id="micro-updates">
       <article class="microupdate" data-timestamp="" itemprop="comment" itemscope itemtype="http://schema.org/Comment"
           tal:repeat="update view/updates"
@@ -46,6 +73,7 @@
         </p>
       </div>
     </section>
+
       </div>
       <div tal:replace="structure provider:plone.belowcontentbody" />
     </article>

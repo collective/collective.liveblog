@@ -32,15 +32,9 @@ Mostly Harmless
     :alt: Downloads
     :target: https://pypi.python.org/pypi/collective.liveblog/
 
-Known issues
-------------
-
-- Only users with role Manager can add micro-updates
-
 Todo list
 ---------
 
-- Do not update from the default view; create a new one and register it as an action
 - Do not load all micro-updates by default as the page could grow huge
 - Implement infinite scrolling
 - Prettify the prepend of micro-updates
