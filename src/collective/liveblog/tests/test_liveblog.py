@@ -42,3 +42,7 @@ class ContentTypeTestCase(unittest.TestCase):
     def test_is_referenceable(self):
         self.assertTrue(IReferenceable.providedBy(self.liveblog))
         self.assertTrue(IAttributeUUID.providedBy(self.liveblog))
+
+    def test_content_types_constrains(self):
+        allowed_types = [t.getId() for t in self.liveblog.allowedContentTypes()]
+        self.assertListEqual(allowed_types, ['Image'])
