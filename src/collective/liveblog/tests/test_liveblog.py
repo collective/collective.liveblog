@@ -39,6 +39,10 @@ class ContentTypeTestCase(unittest.TestCase):
         new_object = createObject(factory)
         self.assertTrue(ILiveblog.providedBy(new_object))
 
+    def test_exclude_from_navigation_behavior(self):
+        from plone.app.dexterity.behaviors.exclfromnav import IExcludeFromNavigation
+        self.assertTrue(IExcludeFromNavigation.providedBy(self.liveblog))
+
     def test_is_referenceable(self):
         self.assertTrue(IReferenceable.providedBy(self.liveblog))
         self.assertTrue(IAttributeUUID.providedBy(self.liveblog))
