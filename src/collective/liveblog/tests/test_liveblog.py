@@ -2,9 +2,7 @@
 from collective.liveblog.interfaces import ILiveblog
 from collective.liveblog.testing import INTEGRATION_TESTING
 from plone import api
-from plone.app.referenceablebehavior.referenceable import IReferenceable
 from plone.dexterity.interfaces import IDexterityFTI
-from plone.uuid.interfaces import IAttributeUUID
 from zope.component import createObject
 from zope.component import queryUtility
 
@@ -44,6 +42,8 @@ class ContentTypeTestCase(unittest.TestCase):
         self.assertTrue(IExcludeFromNavigation.providedBy(self.liveblog))
 
     def test_is_referenceable(self):
+        from plone.app.referenceablebehavior.referenceable import IReferenceable
+        from plone.uuid.interfaces import IAttributeUUID
         self.assertTrue(IReferenceable.providedBy(self.liveblog))
         self.assertTrue(IAttributeUUID.providedBy(self.liveblog))
 
