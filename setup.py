@@ -42,9 +42,8 @@ setup(
     install_requires=[
         'five.grok',
         'plone.api',
-        'plone.app.dexterity [grok, relations]',
+        'plone.app.dexterity [grok]',
         'plone.app.layout',
-        'plone.app.referenceablebehavior',
         'plone.dexterity',
         'plone.directives.form',
         'plone.memoize',
@@ -61,6 +60,9 @@ setup(
         'zope.lifecycleevent',
     ],
     extras_require={
+        'referenceable': [
+            'plone.app.referenceablebehavior',
+        ],
         'test': [
             'plone.app.robotframework',
             'plone.app.testing [robot] >=4.2.2',

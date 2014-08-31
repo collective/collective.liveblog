@@ -41,11 +41,22 @@ class ContentTypeTestCase(unittest.TestCase):
         from plone.app.dexterity.behaviors.exclfromnav import IExcludeFromNavigation
         self.assertTrue(IExcludeFromNavigation.providedBy(self.liveblog))
 
+    def _enable_behavior(self, portal_type, behavior):
+        from plone.dexterity.schema import SchemaInvalidatedEvent
+        from zope.event import notify
+        fti = queryUtility(IDexterityFTI, name=portal_type)
+        behaviors = list(fti.behaviors)
+        behaviors.append(behavior)
+        fti.behaviors = tuple(behaviors)
+        notify(SchemaInvalidatedEvent(portal_type))
+
+    @unittest.skipIf(
+        api.env.plone_version() >= '5.0', 'Not supported in Plone >=5.0')
     def test_is_referenceable(self):
         from plone.app.referenceablebehavior.referenceable import IReferenceable
-        from plone.uuid.interfaces import IAttributeUUID
+        self.assertFalse(IReferenceable.providedBy(self.liveblog))
+        self._enable_behavior('Liveblog', IReferenceable.__identifier__)
         self.assertTrue(IReferenceable.providedBy(self.liveblog))
-        self.assertTrue(IAttributeUUID.providedBy(self.liveblog))
 
     def test_content_types_constrains(self):
         allowed_types = [t.getId() for t in self.liveblog.allowedContentTypes()]
