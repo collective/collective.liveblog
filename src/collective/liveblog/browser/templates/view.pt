@@ -6,6 +6,7 @@
     i18n:domain="collective.liveblog">
 <body>
   <metal:block fill-slot="main">
+    <div id="spinner" i18n:translate="">Live updating</div>
     <article itemscope itemtype="http://schema.org/BlogPosting">
       <header>
         <div tal:replace="structure provider:plone.abovecontenttitle" />

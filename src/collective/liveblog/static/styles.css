@@ -14,6 +14,11 @@
 .portaltype-liveblog #content header {
     margin-bottom: 1em;
 }
+#spinner {
+    background: url('++resource++collective.liveblog/spinner.gif') no-repeat center right;
+    float: right;
+    padding-right: 20px;
+}
 #micro-updates article {
     border-top: 1px solid #ccc;
     clear: both;
