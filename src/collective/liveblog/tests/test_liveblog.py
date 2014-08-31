@@ -58,6 +58,10 @@ class ContentTypeTestCase(unittest.TestCase):
         self._enable_behavior('Liveblog', IReferenceable.__identifier__)
         self.assertTrue(IReferenceable.providedBy(self.liveblog))
 
+    @unittest.skipIf(
+        api.env.plone_version() >= '5.0',
+        'No content types installed by default in Plone >=5.0'
+    )
     def test_content_types_constrains(self):
         allowed_types = [t.getId() for t in self.liveblog.allowedContentTypes()]
         self.assertListEqual(allowed_types, ['Image'])
