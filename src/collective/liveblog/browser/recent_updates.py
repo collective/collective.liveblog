@@ -3,9 +3,13 @@ from collective.liveblog.interfaces import IBrowserLayer
 from collective.liveblog.interfaces import ILiveblog
 from five import grok
 from plone.memoize import ram
-from time import time
 
 grok.templatedir('templates')
+
+
+def _updates_since_timestamp_cachekey(method, self, timestamp):
+    return (
+        self.context.absolute_url_path(), int(self.context.modified()), timestamp)
 
 
 class RecentUpdates(grok.View):
@@ -18,10 +22,8 @@ class RecentUpdates(grok.View):
     grok.require('zope2.View')
     grok.template('recent_updates')
 
-    def _updates_since_timestamp(self):
+    def _updates_since_timestamp(self, timestamp):
         """Return the list of micro-updates since the specified timestamp."""
-        timestamp = self.request.get('timestamp', None)
-
         # timestamp should a string representing a float
         try:
             float(timestamp)
@@ -32,9 +34,9 @@ class RecentUpdates(grok.View):
         updates = [u for u in updates if u['timestamp'] > timestamp]
         return updates
 
-    @ram.cache(lambda *args: time() // 20)
-    def updates_since_timestamp(self):
+    @ram.cache(_updates_since_timestamp_cachekey)
+    def updates_since_timestamp(self, timestamp):
         """Return the list of micro-updates since the specified timestamp;
-        the list is cached for 20 seconds.
+        the list is cached until a new update is published.
         """
-        return self._updates_since_timestamp()
+        return self._updates_since_timestamp(timestamp)

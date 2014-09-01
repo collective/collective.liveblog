@@ -11,8 +11,8 @@ from plone.memoize import ram
 grok.templatedir('templates')
 
 
-def _render_updates_cachekey(method, self):
-    return len(self._updates())
+def _updates_cachekey(method, self):
+    return (self.context.absolute_url_path(), int(self.context.modified()))
 
 
 class View(grok.View):
@@ -44,7 +44,7 @@ class View(grok.View):
         updates.reverse()  # show micro-updates in reverse order
         return updates
 
-    @ram.cache(_render_updates_cachekey)
+    @ram.cache(_updates_cachekey)
     def updates(self):
         """Return the list of micro-updates in the Liveblog in reverse order;
         the list is cached until a new update is published.

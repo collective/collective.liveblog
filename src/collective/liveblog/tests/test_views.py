@@ -6,7 +6,9 @@ from collective.liveblog.testing import INTEGRATION_TESTING
 from datetime import datetime
 from plone import api
 from time import sleep
+from zope.event import notify
 from zope.interface import alsoProvides
+from zope.lifecycleevent import ObjectModifiedEvent
 
 import unittest
 
@@ -21,14 +23,17 @@ class ViewTestCase(unittest.TestCase):
         updates."""
         adapter = IMicroUpdateContainer(self.liveblog)
         for i in range(1, 11):
-            sleep(0.01)
+            sleep(0.05)
             adapter.add(MicroUpdate(str(i), str(i)))
 
         self.timestamp = datetime.now()
 
         for i in range(11, 21):
-            sleep(0.01)
+            sleep(0.05)
             adapter.add(MicroUpdate(str(i), str(i)))
+
+        # update Liveblog modification time to invalidate the cache
+        notify(ObjectModifiedEvent(self.liveblog))
 
     def setUp(self):
         self.portal = self.layer['portal']
@@ -83,17 +88,17 @@ class RecentUpdatesViewTestCase(ViewTestCase):
         self._create_updates()
 
         # before all elements were created
-        self.request['timestamp'] = _timestamp(timestamp)
-        self.assertEqual(len(self.view._updates_since_timestamp()), 20)
+        timestamp = _timestamp(timestamp)
+        self.assertEqual(len(self.view._updates_since_timestamp(timestamp)), 20)
         # middle of the creation
-        self.request['timestamp'] = _timestamp(self.timestamp)
-        self.assertEqual(len(self.view._updates_since_timestamp()), 10)
+        timestamp = _timestamp(self.timestamp)
+        self.assertEqual(len(self.view._updates_since_timestamp(timestamp)), 10)
         # after all elements were created
-        self.request['timestamp'] = _timestamp(datetime.now())
-        self.assertEqual(len(self.view._updates_since_timestamp()), 0)
+        timestamp = _timestamp(datetime.now())
+        self.assertEqual(len(self.view._updates_since_timestamp(timestamp)), 0)
 
-        self.request['timestamp'] = _timestamp(self.timestamp)
-        updates = self.view._updates_since_timestamp()
+        timestamp = _timestamp(self.timestamp)
+        updates = self.view._updates_since_timestamp(timestamp)
         updates = [u['title'] for u in updates]
         self.assertIn('20', updates)
         self.assertIn('11', updates)
