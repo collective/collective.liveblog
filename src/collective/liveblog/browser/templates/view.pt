@@ -52,6 +52,15 @@
     </article>
 
     <script type="text/javascript">
+        var today = new Date().toISOString().substr(0, 10);
+        $("time").each(function(index) {
+            var datetime = $(this).attr("datetime").substr(0, 10);
+            var title = $(this).attr("title");
+            if (today > datetime) {
+                $(this).text(title);
+            };
+        });
+
         setInterval(function() {
             var timestamp = $(".microupdate").attr("data-timestamp");
             $.get("recent-updates?timestamp=" + timestamp, function(data) {
