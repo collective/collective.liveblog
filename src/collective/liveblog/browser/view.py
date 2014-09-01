@@ -35,6 +35,7 @@ class View(grok.View):
                 creator=update.creator,
                 timestamp=_timestamp(update.created),  # 1409223490.21,
                 datetime=api.portal.get_localized_time(update.created, True),  # 28/08/2014 10h58
+                date=api.portal.get_localized_time(update.created),  # 28/08/2014
                 time=api.portal.get_localized_time(update.created, time_only=True),  # 10h58
                 isoformat=update.created.isoformat(),  # 2014-08-28T10:58:10.209468
                 title=update.title,
