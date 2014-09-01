@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2014-08-28 15:08+0000\n"
+"POT-Creation-Date: 2014-09-01 02:11+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,40 +14,59 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
 
+#: collective/liveblog/browser/templates/recent_updates.pt:18
+#: collective/liveblog/browser/templates/update.pt:69
+#: collective/liveblog/browser/templates/view.pt:36
+msgid "<p>By <span itemprop=\"author\">${DYNAMIC_CONTENT}</span></p> <time itemprop=\"datePublished\" title=\"${DYNAMIC_CONTENT}\" datetime=\"${DYNAMIC_CONTENT}\">${DYNAMIC_CONTENT}</time>"
+msgstr ""
+
 #: collective/liveblog/profiles/default/types/Liveblog.xml
 msgid "A liveblog is a blog post which is intended to provide a rolling textual coverage of an ongoing event."
 msgstr ""
 
-#: collective/liveblog/browser/templates/view.pt:11
+#: collective/liveblog/browser/templates/update.pt:27
 msgid "Add micro-update"
 msgstr ""
 
-#: collective/liveblog/browser/templates/updates.pt:17
-#: collective/liveblog/browser/templates/view.pt:42
-msgid "By <span>${DYNAMIC_CONTENT}</span> <span title=\"${DYNAMIC_CONTENT}\">${DYNAMIC_CONTENT}</span>"
+#: collective/liveblog/browser/templates/update.pt:57
+msgid "Delete"
 msgstr ""
 
 #: collective/liveblog/interfaces.py:20
 msgid "Image"
 msgstr ""
 
-#: collective/liveblog/browser/add_microupdate.py:36
+#: collective/liveblog/browser/microupdates.py:62
+msgid "Invalid id specified."
+msgstr ""
+
+#: collective/liveblog/browser/microupdates.py:72
+msgid "Item deleted."
+msgstr ""
+
+#: collective/liveblog/browser/microupdates.py:36
 msgid "Item published."
+msgstr ""
+
+#: collective/liveblog/browser/templates/update.pt:9
+#: collective/liveblog/browser/templates/view.pt:9
+msgid "Live updating"
 msgstr ""
 
 #: collective/liveblog/profiles/default/types/Liveblog.xml
 msgid "Liveblog"
 msgstr ""
 
-#: collective/liveblog/browser/templates/view.pt:49
+#: collective/liveblog/browser/templates/update.pt:79
+#: collective/liveblog/browser/templates/view.pt:46
 msgid "No micro-updates yet for this Liveblog."
 msgstr ""
 
-#: collective/liveblog/browser/templates/view.pt:28
+#: collective/liveblog/browser/templates/update.pt:49
 msgid "Publish"
 msgstr ""
 
-#: collective/liveblog/browser/add_microupdate.py:28
+#: collective/liveblog/browser/microupdates.py:28
 msgid "There were some errors. Required input is missing."
 msgstr ""
 
@@ -55,7 +74,11 @@ msgstr ""
 msgid "This image will be used as a header on the Liveblog."
 msgstr ""
 
-#: collective/liveblog/browser/templates/view.pt:14
+#: collective/liveblog/browser/templates/update.pt:31
 msgid "Title"
+msgstr ""
+
+#: collective/liveblog/profiles/default/types/Liveblog.xml
+msgid "Update"
 msgstr ""
 

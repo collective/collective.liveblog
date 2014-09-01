@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: 2014-08-28 15:08+0000\n"
-"PO-Revision-Date: 2014-08-28 12:10-0300\n"
+"POT-Creation-Date: 2014-09-01 02:11+0000\n"
+"PO-Revision-Date: 2014-08-31 23:13-0300\n"
 "Last-Translator: Héctor Velarde <hector.velarde@gmail.com>\n"
 "Language-Team: Plone Collective\n"
 "MIME-Version: 1.0\n"
@@ -16,6 +16,18 @@ msgstr ""
 "Language: Spanish\n"
 "X-Generator: Poedit 1.5.4\n"
 
+#: collective/liveblog/browser/templates/recent_updates.pt:18
+#: collective/liveblog/browser/templates/update.pt:69
+#: collective/liveblog/browser/templates/view.pt:36
+msgid ""
+"<p>By <span itemprop=\"author\">${DYNAMIC_CONTENT}</span></p> <time itemprop="
+"\"datePublished\" title=\"${DYNAMIC_CONTENT}\" datetime="
+"\"${DYNAMIC_CONTENT}\">${DYNAMIC_CONTENT}</time>"
+msgstr ""
+"<p>Por <span itemprop=\"author\">${DYNAMIC_CONTENT}</span></p> <time "
+"itemprop=\"datePublished\" title=\"${DYNAMIC_CONTENT}\" datetime="
+"\"${DYNAMIC_CONTENT}\">${DYNAMIC_CONTENT}</time>"
+
 #: collective/liveblog/profiles/default/types/Liveblog.xml
 msgid ""
 "A liveblog is a blog post which is intended to provide a rolling textual "
@@ -24,40 +36,49 @@ msgstr ""
 "Un blog en vivo es una entrada de blog que pretende proporcionar una "
 "cobertura amplia de un evento en curso."
 
-#: collective/liveblog/browser/templates/view.pt:11
+#: collective/liveblog/browser/templates/update.pt:27
 msgid "Add micro-update"
 msgstr "Agregar actualización"
 
-#: collective/liveblog/browser/templates/updates.pt:17
-#: collective/liveblog/browser/templates/view.pt:42
-msgid ""
-"By <span>${DYNAMIC_CONTENT}</span> <span title=\"${DYNAMIC_CONTENT}\">"
-"${DYNAMIC_CONTENT}</span>"
-msgstr ""
-"Por <span>${DYNAMIC_CONTENT}</span> <span title=\"${DYNAMIC_CONTENT}\">"
-"${DYNAMIC_CONTENT}</span>"
+#: collective/liveblog/browser/templates/update.pt:57
+msgid "Delete"
+msgstr "Eliminar"
 
 #: collective/liveblog/interfaces.py:20
 msgid "Image"
 msgstr "Imagen"
 
-#: collective/liveblog/browser/add_microupdate.py:36
+#: collective/liveblog/browser/microupdates.py:62
+msgid "Invalid id specified."
+msgstr "El id especificado no es válido."
+
+#: collective/liveblog/browser/microupdates.py:72
+msgid "Item deleted."
+msgstr "Elemento eliminado."
+
+#: collective/liveblog/browser/microupdates.py:36
 msgid "Item published."
 msgstr "Elemento publicado."
+
+#: collective/liveblog/browser/templates/update.pt:9
+#: collective/liveblog/browser/templates/view.pt:9
+msgid "Live updating"
+msgstr "Actualizando en vivo"
 
 #: collective/liveblog/profiles/default/types/Liveblog.xml
 msgid "Liveblog"
 msgstr "Blog en vivo"
 
-#: collective/liveblog/browser/templates/view.pt:49
+#: collective/liveblog/browser/templates/update.pt:79
+#: collective/liveblog/browser/templates/view.pt:46
 msgid "No micro-updates yet for this Liveblog."
 msgstr "Todavía no hay actualizaciones para este blog en vivo."
 
-#: collective/liveblog/browser/templates/view.pt:28
+#: collective/liveblog/browser/templates/update.pt:49
 msgid "Publish"
 msgstr "Publicar"
 
-#: collective/liveblog/browser/add_microupdate.py:28
+#: collective/liveblog/browser/microupdates.py:28
 msgid "There were some errors. Required input is missing."
 msgstr "Ocurrió un error. Falta información requerida."
 
@@ -65,6 +86,10 @@ msgstr "Ocurrió un error. Falta información requerida."
 msgid "This image will be used as a header on the Liveblog."
 msgstr "Esta imagen será usada como encabezado del blog en vivo."
 
-#: collective/liveblog/browser/templates/view.pt:14
+#: collective/liveblog/browser/templates/update.pt:31
 msgid "Title"
 msgstr "Título"
+
+#: collective/liveblog/profiles/default/types/Liveblog.xml
+msgid "Update"
+msgstr "Actualizar"
