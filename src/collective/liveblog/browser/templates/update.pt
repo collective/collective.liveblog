@@ -68,11 +68,12 @@
         <div class="microupdate-byline" i18n:translate="">
           <p>By <span itemprop="author" tal:content="update/creator" /></p>
           <time itemprop="datePublished" title="2014-08-28 14h31" datetime="2014-08-28T14:31:02.402"
-              tal:content="update/time"
               tal:attributes="datetime update/isoformat;
                               title update/datetime;
                               data-date update/date;
-                              data-time update/time" />
+                              data-time update/time">
+            <span class="microupdate-time" tal:content="update/time" />
+          </time>
         </div>
       </article>
       <div class="microupdate" data-timestamp=""
