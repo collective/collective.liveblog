@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "POT-Creation-Date: 2014-09-01 18:07+0000\n"
-"PO-Revision-Date: 2014-09-01 11:25-0300\n"
-"Last-Translator: Héctor Velarde <hector.velarde@gmail.com>\n"
+"PO-Revision-Date: 2014-09-01 16:09-0300\n"
+"Last-Translator: André Nogueira <agnogueira@gmail.com>\n"
 "Language-Team: Plone Collective\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,16 +18,32 @@ msgstr ""
 
 #: collective/liveblog/browser/templates/update.pt:70
 #: collective/liveblog/browser/templates/view.pt:36
-msgid "<p>By <span itemprop=\"author\">${DYNAMIC_CONTENT}</span></p> <time itemprop=\"datePublished\" title=\"${DYNAMIC_CONTENT}\" datetime=\"${DYNAMIC_CONTENT}\" data-date=\"${DYNAMIC_CONTENT}\" data-time=\"${DYNAMIC_CONTENT}\">${DYNAMIC_CONTENT}</time>"
-msgstr "<p>Por <span itemprop=\"author\">${DYNAMIC_CONTENT}</span></p> <time itemprop=\"datePublished\" title=\"${DYNAMIC_CONTENT}\" datetime=\"${DYNAMIC_CONTENT}\" data-date=\"${DYNAMIC_CONTENT}\" data-time=\"${DYNAMIC_CONTENT}\">${DYNAMIC_CONTENT}</time>"
+msgid ""
+"<p>By <span itemprop=\"author\">${DYNAMIC_CONTENT}</span></p> <time itemprop="
+"\"datePublished\" title=\"${DYNAMIC_CONTENT}\" datetime="
+"\"${DYNAMIC_CONTENT}\" data-date=\"${DYNAMIC_CONTENT}\" data-time="
+"\"${DYNAMIC_CONTENT}\">${DYNAMIC_CONTENT}</time>"
+msgstr ""
+"<p>Por <span itemprop=\"author\">${DYNAMIC_CONTENT}</span></p> <time "
+"itemprop=\"datePublished\" title=\"${DYNAMIC_CONTENT}\" datetime="
+"\"${DYNAMIC_CONTENT}\" data-date=\"${DYNAMIC_CONTENT}\" data-time="
+"\"${DYNAMIC_CONTENT}\">${DYNAMIC_CONTENT}</time>"
 
 #: collective/liveblog/browser/templates/recent_updates.pt:19
-msgid "<p>By <span itemprop=\"author\">${DYNAMIC_CONTENT}</span></p> <time itemprop=\"datePublished\" title=\"${DYNAMIC_CONTENT}\" datetime=\"${DYNAMIC_CONTENT}\">${DYNAMIC_CONTENT}</time>"
-msgstr "<p>Por <span itemprop=\"author\">${DYNAMIC_CONTENT}</span></p> <time itemprop=\"datePublished\" title=\"${DYNAMIC_CONTENT}\" datetime=\"${DYNAMIC_CONTENT}\">${DYNAMIC_CONTENT}</time>"
+msgid ""
+"<p>By <span itemprop=\"author\">${DYNAMIC_CONTENT}</span></p> <time itemprop="
+"\"datePublished\" title=\"${DYNAMIC_CONTENT}\" datetime="
+"\"${DYNAMIC_CONTENT}\">${DYNAMIC_CONTENT}</time>"
+msgstr ""
+"<p>Por <span itemprop=\"author\">${DYNAMIC_CONTENT}</span></p> <time "
+"itemprop=\"datePublished\" title=\"${DYNAMIC_CONTENT}\" datetime="
+"\"${DYNAMIC_CONTENT}\">${DYNAMIC_CONTENT}</time>"
 
 #: collective/liveblog/profiles/default/types/Liveblog.xml
-msgid "A liveblog is a blog post which is intended to provide a rolling textual coverage of an ongoing event."
-msgstr "Um blog ao vivo é um post de blog que pretende fornecer uma cobertura amplia de um evento em curso."
+msgid ""
+"A liveblog is a blog post which is intended to provide a rolling textual "
+"coverage of an ongoing event."
+msgstr "Liveblog é uma ferramenta para cobertura ampla de um evento em curso."
 
 #: collective/liveblog/browser/templates/update.pt:27
 msgid "Add micro-update"
@@ -39,7 +55,7 @@ msgstr "Excluir"
 
 #: collective/liveblog/browser/update.py:25
 msgid "Do you really want to delete this item?"
-msgstr "Você realmente quer apagar este item?"
+msgstr "Você realmente quer excluir este item?"
 
 #: collective/liveblog/interfaces.py:20
 msgid "Image"
@@ -64,12 +80,12 @@ msgstr "Atualizando ao vivo"
 
 #: collective/liveblog/profiles/default/types/Liveblog.xml
 msgid "Liveblog"
-msgstr "Blog ao vivo"
+msgstr "Liveblog"
 
 #: collective/liveblog/browser/templates/update.pt:82
 #: collective/liveblog/browser/templates/view.pt:48
 msgid "No micro-updates yet for this Liveblog."
-msgstr "Este blog ao vivo ainda não tem atualizações."
+msgstr "Este Liveblog ainda não tem atualizações."
 
 #: collective/liveblog/browser/templates/update.pt:49
 msgid "Publish"
@@ -77,11 +93,11 @@ msgstr "Publicar"
 
 #: collective/liveblog/browser/microupdates.py:28
 msgid "There were some errors. Required input is missing."
-msgstr "Ocurreu um erro. Falta informação requerida."
+msgstr "Ocurreu um erro. Falta a informação requerida."
 
 #: collective/liveblog/interfaces.py:21
 msgid "This image will be used as a header on the Liveblog."
-msgstr "Esta imagem será usada como o cabeçalho do blog ao vivo."
+msgstr "Esta imagem será usada como o cabeçalho do Liveblog."
 
 #: collective/liveblog/browser/templates/update.pt:31
 msgid "Title"
@@ -90,4 +106,3 @@ msgstr "Título"
 #: collective/liveblog/profiles/default/types/Liveblog.xml
 msgid "Update"
 msgstr "Atualizar"
-
