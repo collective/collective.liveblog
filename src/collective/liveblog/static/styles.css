@@ -34,13 +34,21 @@
 }
 .microupdate-byline time {
     background: #f1f1f1;
-    color: #c9c9c9;
-    font-size: 1.8em;
     padding: 1em 0;
     position: absolute;
     text-align: center;
     top: 0;
     width: 90px;
+}
+.microupdate-date {
+    color: #666;
+    display: block;
+    font-size: 0.8em;
+}
+.microupdate-time {
+    color: #c9c9c9;
+    display: block;
+    font-size: 1.8em;
 }
 .microupdate-title, .microupdate-text, .microupdate-byline p {
     margin-left: 110px;
