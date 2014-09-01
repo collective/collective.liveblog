@@ -38,3 +38,39 @@ class AddMicroUpdateView(grok.View):
 
         update_url = self.context.absolute_url() + '/update'
         self.request.response.redirect(update_url)
+
+
+class DeleteMicroUpdateView(grok.View):
+
+    """Delete a micro-update from the Liveblog."""
+
+    grok.context(ILiveblog)
+    grok.layer(IBrowserLayer)
+    grok.name('delete-microupdate')
+    grok.require('zope2.DeleteObjects')
+
+    def render(self):
+        id = self.request.form.get('id', None)
+        if not id:
+            msg = _(u'There were some errors. Required input is missing.')
+            api.portal.show_message(msg, self.request, type='error')
+            return
+        else:
+            try:
+                id = int(id)
+            except ValueError:
+                msg = _(u'Invalid id specified.')
+                api.portal.show_message(msg, self.request, type='error')
+                return
+            adapter = IMicroUpdateContainer(self.context)
+            if id >= len(adapter):
+                msg = _(u'Invalid id specified.')
+                api.portal.show_message(msg, self.request, type='error')
+                return
+            else:
+                adapter.delete(id)
+                msg = _(u'Item deleted.')
+                api.portal.show_message(msg, self.request)
+
+        update_url = self.context.absolute_url() + '/update'
+        self.request.response.redirect(update_url)

@@ -31,7 +31,7 @@ class View(grok.View):
             if update is None:
                 continue  # update has been removed
             updates.append(dict(
-                id=id + 1,
+                id=id,
                 creator=update.creator,
                 timestamp=_timestamp(update.created),  # 1409223490.21,
                 datetime=api.portal.get_localized_time(update.created, True),  # 28/08/2014 10h58

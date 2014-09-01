@@ -53,6 +53,12 @@
       <article class="microupdate" data-timestamp="" itemprop="comment" itemscope itemtype="http://schema.org/Comment"
           tal:repeat="update view/updates"
           tal:attributes="data-timestamp update/timestamp">
+        <div class="microupdate-helpers">
+          <a href="@@delete-microupdate"
+              tal:condition="view/can_delete_objects"
+              tal:attributes="href string:@@delete-microupdate?id=${update/id}"
+              i18n:translate="">Delete</a>
+        </div>
         <h2 class="microupdate-title" itemprop="headline"
             tal:condition="update/title"
             tal:content="update/title" />
