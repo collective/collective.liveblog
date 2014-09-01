@@ -43,12 +43,13 @@
 .microupdate-date {
     color: #666;
     display: block;
-    font-size: 0.8em;
+    margin-bottom: 0.2em;
 }
 .microupdate-time {
     color: #c9c9c9;
     display: block;
     font-size: 1.8em;
+    font-weight: bold;
 }
 .microupdate-title, .microupdate-text, .microupdate-byline p {
     margin-left: 110px;
