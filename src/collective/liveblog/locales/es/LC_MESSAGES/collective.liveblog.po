@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: 2014-09-01 18:07+0000\n"
-"PO-Revision-Date: 2014-09-01 11:24-0300\n"
+"POT-Creation-Date: 2014-09-01 21:02+0000\n"
+"PO-Revision-Date: 2014-09-01 18:02-0300\n"
 "Last-Translator: Héctor Velarde <hector.velarde@gmail.com>\n"
 "Language-Team: Plone Collective\n"
 "MIME-Version: 1.0\n"
@@ -16,18 +16,29 @@ msgstr ""
 "Language: Spanish\n"
 "X-Generator: Poedit 1.5.4\n"
 
-#: collective/liveblog/browser/templates/update.pt:70
-#: collective/liveblog/browser/templates/view.pt:36
-msgid "<p>By <span itemprop=\"author\">${DYNAMIC_CONTENT}</span></p> <time itemprop=\"datePublished\" title=\"${DYNAMIC_CONTENT}\" datetime=\"${DYNAMIC_CONTENT}\" data-date=\"${DYNAMIC_CONTENT}\" data-time=\"${DYNAMIC_CONTENT}\">${DYNAMIC_CONTENT}</time>"
-msgstr "<p>Por <span itemprop=\"author\">${DYNAMIC_CONTENT}</span></p> <time itemprop=\"datePublished\" title=\"${DYNAMIC_CONTENT}\" datetime=\"${DYNAMIC_CONTENT}\" data-date=\"${DYNAMIC_CONTENT}\" data-time=\"${DYNAMIC_CONTENT}\">${DYNAMIC_CONTENT}</time>"
-
-#: collective/liveblog/browser/templates/recent_updates.pt:19
-msgid "<p>By <span itemprop=\"author\">${DYNAMIC_CONTENT}</span></p> <time itemprop=\"datePublished\" title=\"${DYNAMIC_CONTENT}\" datetime=\"${DYNAMIC_CONTENT}\">${DYNAMIC_CONTENT}</time>"
-msgstr "<p>Por <span itemprop=\"author\">${DYNAMIC_CONTENT}</span></p> <time itemprop=\"datePublished\" title=\"${DYNAMIC_CONTENT}\" datetime=\"${DYNAMIC_CONTENT}\">${DYNAMIC_CONTENT}</time>"
+#: collective/liveblog/browser/templates/recent_updates.pt:24
+#: collective/liveblog/browser/templates/update.pt:75
+#: collective/liveblog/browser/templates/view.pt:41
+msgid ""
+"<p>By <span itemprop=\"author\">${DYNAMIC_CONTENT}</span></p> <time itemprop="
+"\"datePublished\" title=\"${DYNAMIC_CONTENT}\" datetime="
+"\"${DYNAMIC_CONTENT}\" data-date=\"${DYNAMIC_CONTENT}\" data-time="
+"\"${DYNAMIC_CONTENT}\"> <span class=\"microupdate-time\">${DYNAMIC_CONTENT}</"
+"span> </time>"
+msgstr ""
+"<p>Por <span itemprop=\"author\">${DYNAMIC_CONTENT}</span></p> <time "
+"itemprop=\"datePublished\" title=\"${DYNAMIC_CONTENT}\" datetime="
+"\"${DYNAMIC_CONTENT}\" data-date=\"${DYNAMIC_CONTENT}\" data-time="
+"\"${DYNAMIC_CONTENT}\"> <span class=\"microupdate-time\">${DYNAMIC_CONTENT}</"
+"span> </time>"
 
 #: collective/liveblog/profiles/default/types/Liveblog.xml
-msgid "A liveblog is a blog post which is intended to provide a rolling textual coverage of an ongoing event."
-msgstr "Un blog en vivo es una entrada de blog que pretende proporcionar una cobertura amplia de un evento en curso."
+msgid ""
+"A liveblog is a blog post which is intended to provide a rolling textual "
+"coverage of an ongoing event."
+msgstr ""
+"Un blog en vivo es una entrada de blog que pretende proporcionar una "
+"cobertura amplia de un evento en curso."
 
 #: collective/liveblog/browser/templates/update.pt:27
 msgid "Add micro-update"
@@ -66,8 +77,8 @@ msgstr "Actualizando en vivo"
 msgid "Liveblog"
 msgstr "Blog en vivo"
 
-#: collective/liveblog/browser/templates/update.pt:82
-#: collective/liveblog/browser/templates/view.pt:48
+#: collective/liveblog/browser/templates/update.pt:83
+#: collective/liveblog/browser/templates/view.pt:49
 msgid "No micro-updates yet for this Liveblog."
 msgstr "Todavía no hay actualizaciones para este blog en vivo."
 
@@ -90,4 +101,3 @@ msgstr "Título"
 #: collective/liveblog/profiles/default/types/Liveblog.xml
 msgid "Update"
 msgstr "Actualizar"
-

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2014-09-01 18:07+0000\n"
+"POT-Creation-Date: 2014-09-01 21:02+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,13 +14,10 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
 
-#: collective/liveblog/browser/templates/update.pt:70
-#: collective/liveblog/browser/templates/view.pt:36
-msgid "<p>By <span itemprop=\"author\">${DYNAMIC_CONTENT}</span></p> <time itemprop=\"datePublished\" title=\"${DYNAMIC_CONTENT}\" datetime=\"${DYNAMIC_CONTENT}\" data-date=\"${DYNAMIC_CONTENT}\" data-time=\"${DYNAMIC_CONTENT}\">${DYNAMIC_CONTENT}</time>"
-msgstr ""
-
-#: collective/liveblog/browser/templates/recent_updates.pt:19
-msgid "<p>By <span itemprop=\"author\">${DYNAMIC_CONTENT}</span></p> <time itemprop=\"datePublished\" title=\"${DYNAMIC_CONTENT}\" datetime=\"${DYNAMIC_CONTENT}\">${DYNAMIC_CONTENT}</time>"
+#: collective/liveblog/browser/templates/recent_updates.pt:24
+#: collective/liveblog/browser/templates/update.pt:75
+#: collective/liveblog/browser/templates/view.pt:41
+msgid "<p>By <span itemprop=\"author\">${DYNAMIC_CONTENT}</span></p> <time itemprop=\"datePublished\" title=\"${DYNAMIC_CONTENT}\" datetime=\"${DYNAMIC_CONTENT}\" data-date=\"${DYNAMIC_CONTENT}\" data-time=\"${DYNAMIC_CONTENT}\"> <span class=\"microupdate-time\">${DYNAMIC_CONTENT}</span> </time>"
 msgstr ""
 
 #: collective/liveblog/profiles/default/types/Liveblog.xml
@@ -64,8 +61,8 @@ msgstr ""
 msgid "Liveblog"
 msgstr ""
 
-#: collective/liveblog/browser/templates/update.pt:82
-#: collective/liveblog/browser/templates/view.pt:48
+#: collective/liveblog/browser/templates/update.pt:83
+#: collective/liveblog/browser/templates/view.pt:49
 msgid "No micro-updates yet for this Liveblog."
 msgstr ""
 

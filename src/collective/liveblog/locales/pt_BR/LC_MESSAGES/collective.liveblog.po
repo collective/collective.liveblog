@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: 2014-09-01 18:07+0000\n"
-"PO-Revision-Date: 2014-09-01 16:09-0300\n"
-"Last-Translator: André Nogueira <agnogueira@gmail.com>\n"
+"POT-Creation-Date: 2014-09-01 21:02+0000\n"
+"PO-Revision-Date: 2014-09-01 18:03-0300\n"
+"Last-Translator: Héctor Velarde <hector.velarde@gmail.com>\n"
 "Language-Team: Plone Collective\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -16,28 +16,21 @@ msgstr ""
 "Language: Brazilian Portuguese\n"
 "X-Generator: Poedit 1.5.4\n"
 
-#: collective/liveblog/browser/templates/update.pt:70
-#: collective/liveblog/browser/templates/view.pt:36
+#: collective/liveblog/browser/templates/recent_updates.pt:24
+#: collective/liveblog/browser/templates/update.pt:75
+#: collective/liveblog/browser/templates/view.pt:41
 msgid ""
 "<p>By <span itemprop=\"author\">${DYNAMIC_CONTENT}</span></p> <time itemprop="
 "\"datePublished\" title=\"${DYNAMIC_CONTENT}\" datetime="
 "\"${DYNAMIC_CONTENT}\" data-date=\"${DYNAMIC_CONTENT}\" data-time="
-"\"${DYNAMIC_CONTENT}\">${DYNAMIC_CONTENT}</time>"
+"\"${DYNAMIC_CONTENT}\"> <span class=\"microupdate-time\">${DYNAMIC_CONTENT}</"
+"span> </time>"
 msgstr ""
 "<p>Por <span itemprop=\"author\">${DYNAMIC_CONTENT}</span></p> <time "
 "itemprop=\"datePublished\" title=\"${DYNAMIC_CONTENT}\" datetime="
 "\"${DYNAMIC_CONTENT}\" data-date=\"${DYNAMIC_CONTENT}\" data-time="
-"\"${DYNAMIC_CONTENT}\">${DYNAMIC_CONTENT}</time>"
-
-#: collective/liveblog/browser/templates/recent_updates.pt:19
-msgid ""
-"<p>By <span itemprop=\"author\">${DYNAMIC_CONTENT}</span></p> <time itemprop="
-"\"datePublished\" title=\"${DYNAMIC_CONTENT}\" datetime="
-"\"${DYNAMIC_CONTENT}\">${DYNAMIC_CONTENT}</time>"
-msgstr ""
-"<p>Por <span itemprop=\"author\">${DYNAMIC_CONTENT}</span></p> <time "
-"itemprop=\"datePublished\" title=\"${DYNAMIC_CONTENT}\" datetime="
-"\"${DYNAMIC_CONTENT}\">${DYNAMIC_CONTENT}</time>"
+"\"${DYNAMIC_CONTENT}\"> <span class=\"microupdate-time\">${DYNAMIC_CONTENT}</"
+"span> </time>"
 
 #: collective/liveblog/profiles/default/types/Liveblog.xml
 msgid ""
@@ -82,8 +75,8 @@ msgstr "Atualizando ao vivo"
 msgid "Liveblog"
 msgstr "Liveblog"
 
-#: collective/liveblog/browser/templates/update.pt:82
-#: collective/liveblog/browser/templates/view.pt:48
+#: collective/liveblog/browser/templates/update.pt:83
+#: collective/liveblog/browser/templates/view.pt:49
 msgid "No micro-updates yet for this Liveblog."
 msgstr "Este Liveblog ainda não tem atualizações."
 
