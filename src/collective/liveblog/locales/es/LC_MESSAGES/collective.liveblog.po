@@ -44,6 +44,10 @@ msgstr "Agregar actualización"
 msgid "Delete"
 msgstr "Eliminar"
 
+#: collective/liveblog/browser/update.py:25
+msgid "Do you really want to delete this item?"
+msgstr "¿Está seguro de que quiere eliminar este elemento?"
+
 #: collective/liveblog/interfaces.py:20
 msgid "Image"
 msgstr "Imagen"

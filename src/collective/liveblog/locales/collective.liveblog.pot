@@ -32,6 +32,10 @@ msgstr ""
 msgid "Delete"
 msgstr ""
 
+#: collective/liveblog/browser/update.py:25
+msgid "Do you really want to delete this item?"
+msgstr ""
+
 #: collective/liveblog/interfaces.py:20
 msgid "Image"
 msgstr ""
