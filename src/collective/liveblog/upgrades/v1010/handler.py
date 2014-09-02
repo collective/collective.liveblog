@@ -6,8 +6,8 @@ import logging
 
 
 def apply_profile(context):
-    """Atualiza perfil para versao 1010."""
+    """Update Liveblog to v1010."""
     logger = logging.getLogger(PROJECTNAME)
     profile = 'profile-collective.liveblog.upgrades.v1010:default'
     loadMigrationProfile(context, profile)
-    logger.info('Atualizado para versao 1010')
+    logger.info('Updated to v1010.')

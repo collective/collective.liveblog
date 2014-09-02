@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: 2014-09-01 21:02+0000\n"
-"PO-Revision-Date: 2014-09-01 18:03-0300\n"
+"POT-Creation-Date: 2014-09-02 14:01+0000\n"
+"PO-Revision-Date: 2014-09-02 11:04-0300\n"
 "Last-Translator: Héctor Velarde <hector.velarde@gmail.com>\n"
 "Language-Team: Plone Collective\n"
 "MIME-Version: 1.0\n"
@@ -42,6 +42,14 @@ msgstr "Liveblog é uma ferramenta para cobertura ampla de um evento em curso."
 msgid "Add micro-update"
 msgstr "Adicionar atualização"
 
+#: collective/liveblog/profiles.zcml
+msgid ""
+"Adds a Liveblog content type to the site. A liveblog is a blog post which is "
+"intended to provide a rolling textual coverage of an ongoing event."
+msgstr ""
+"Adiciona um tipo de conteúdo Liveblog no site. Liveblog é uma ferramenta "
+"para cobertura ampla de um evento em curso."
+
 #: collective/liveblog/browser/templates/update.pt:57
 msgid "Delete"
 msgstr "Excluir"
@@ -58,7 +66,7 @@ msgstr "Imagem"
 msgid "Invalid id specified."
 msgstr "O id especificado é inválido."
 
-#: collective/liveblog/browser/microupdates.py:72
+#: collective/liveblog/browser/microupdates.py:74
 msgid "Item deleted."
 msgstr "Item excluído."
 
@@ -83,6 +91,14 @@ msgstr "Este Liveblog ainda não tem atualizações."
 #: collective/liveblog/browser/templates/update.pt:49
 msgid "Publish"
 msgstr "Publicar"
+
+#: collective/liveblog/profiles.zcml
+msgid "Remove Liveblog"
+msgstr "Remove Liveblog"
+
+#: collective/liveblog/profiles.zcml
+msgid "Removes the Liveblog content type from the site."
+msgstr "Remove o tipo de conteúdo Liveblog do site."
 
 #: collective/liveblog/browser/microupdates.py:28
 msgid "There were some errors. Required input is missing."

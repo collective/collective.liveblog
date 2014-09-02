@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2014-09-01 21:02+0000\n"
+"POT-Creation-Date: 2014-09-02 14:01+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -28,6 +28,10 @@ msgstr ""
 msgid "Add micro-update"
 msgstr ""
 
+#: collective/liveblog/profiles.zcml
+msgid "Adds a Liveblog content type to the site. A liveblog is a blog post which is intended to provide a rolling textual coverage of an ongoing event."
+msgstr ""
+
 #: collective/liveblog/browser/templates/update.pt:57
 msgid "Delete"
 msgstr ""
@@ -44,7 +48,7 @@ msgstr ""
 msgid "Invalid id specified."
 msgstr ""
 
-#: collective/liveblog/browser/microupdates.py:72
+#: collective/liveblog/browser/microupdates.py:74
 msgid "Item deleted."
 msgstr ""
 
@@ -68,6 +72,14 @@ msgstr ""
 
 #: collective/liveblog/browser/templates/update.pt:49
 msgid "Publish"
+msgstr ""
+
+#: collective/liveblog/profiles.zcml
+msgid "Remove Liveblog"
+msgstr ""
+
+#: collective/liveblog/profiles.zcml
+msgid "Removes the Liveblog content type from the site."
 msgstr ""
 
 #: collective/liveblog/browser/microupdates.py:28

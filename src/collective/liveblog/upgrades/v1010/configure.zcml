@@ -9,7 +9,7 @@
       name="default"
       title="collective.liveblog: v1010"
       directory="profile"
-      description="Atualiza o pacote collective.liveblog para versao 1010"
+      description="Updates Liveblog to v1010."
       provides="Products.GenericSetup.interfaces.EXTENSION"
       i18n:attributes="title; description"
       />
@@ -19,8 +19,8 @@
       destination="1010"
       profile="collective.liveblog:default">
     <genericsetup:upgradeStep
-        title="Atualiza portal para versao 1010"
-        description="Aplica profile v1010."
+        title="Do something"
+        description="Some description of something."
         handler=".handler.apply_profile"
         />
   </genericsetup:upgradeSteps>

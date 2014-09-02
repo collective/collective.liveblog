@@ -7,18 +7,18 @@
 
   <genericsetup:registerProfile
       name="default"
-      title="collective.liveblog: Instalação do Pacote"
+      title="Liveblog"
       directory="profiles/default"
-      description="Instala o pacote collective.liveblog dentro de um portal Plone"
+      description="Adds a Liveblog content type to the site. A liveblog is a blog post which is intended to provide a rolling textual coverage of an ongoing event."
       provides="Products.GenericSetup.interfaces.EXTENSION"
       i18n:attributes="title; description"
       />
 
   <genericsetup:registerProfile
       name="uninstall"
-      title="collective.liveblog: Remoção do Pacote"
+      title="Remove Liveblog"
       directory="profiles/uninstall"
-      description="Remove o pacote collective.liveblog de dentro de um portal Plone"
+      description="Removes the Liveblog content type from the site."
       provides="Products.GenericSetup.interfaces.EXTENSION"
       i18n:attributes="title; description"
       />
