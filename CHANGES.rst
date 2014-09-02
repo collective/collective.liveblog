@@ -4,6 +4,9 @@ Changelog
 1.0a2 (unreleased)
 ------------------
 
+- Lack of ``id`` attribute on field ``text`` was preventing TinyMCE editor from loading on Plone 4.2.
+  [hvelarde]
+
 - Fire ``ObjectModifiedEvent`` event on micro-updates deletion to invalidate caching on views.
   [hvelarde]
 

@@ -34,7 +34,7 @@
           <tal:editor define="here nocall:context;
                               portal_url nocall:context/portal_url;
                               portal portal_url/getPortalObject;
-                              id nothing;
+                              id string:text;
                               inputname string:text;
                               inputvalue nothing;
                               here_url request/getURL;
