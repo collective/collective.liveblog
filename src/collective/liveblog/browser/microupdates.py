@@ -69,6 +69,8 @@ class DeleteMicroUpdateView(grok.View):
                 return
             else:
                 adapter.delete(id)
+                # notify a micro-update was deleted from the Liveblog
+                notify(ObjectModifiedEvent(self.context))
                 msg = _(u'Item deleted.')
                 api.portal.show_message(msg, self.request)
 

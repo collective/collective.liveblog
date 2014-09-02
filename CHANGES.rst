@@ -4,6 +4,9 @@ Changelog
 1.0a2 (unreleased)
 ------------------
 
+- Fire ``ObjectModifiedEvent`` event on micro-updates deletion to invalidate caching on views.
+  [hvelarde]
+
 - Implement handling of ``If-Modified-Since`` request header on ``recent-updates`` view.
   [hvelarde]
 
