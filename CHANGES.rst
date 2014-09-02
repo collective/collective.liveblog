@@ -4,6 +4,9 @@ Changelog
 1.0a2 (unreleased)
 ------------------
 
+- The header viewlet was including the html and body tags on rendering.
+  [hvelarde]
+
 - Lack of ``id`` attribute on field ``text`` was preventing TinyMCE editor from loading on Plone 4.2.
   [hvelarde]
 
