@@ -61,6 +61,13 @@ class DefaultViewTestCase(ViewTestCase):
         self._create_updates()
         self.assertTrue(self.view.has_updates)
 
+    def test_automatic_updates_enabled(self):
+        self.assertFalse(self.view.automatic_updates_enabled)
+        api.content.transition(self.liveblog, 'activate')
+        self.assertTrue(self.view.automatic_updates_enabled)
+        api.content.transition(self.liveblog, 'inactivate')
+        self.assertFalse(self.view.automatic_updates_enabled)
+
 
 class UpdateViewTestCase(ViewTestCase):
 

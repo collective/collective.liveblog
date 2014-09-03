@@ -6,7 +6,8 @@
     i18n:domain="collective.liveblog">
 <body>
   <metal:block fill-slot="main">
-    <div id="spinner" i18n:translate="">Live updating</div>
+    <div id="spinner" tal:condition="view/automatic_updates_enabled"
+        i18n:translate="">Live updating</div>
     <article itemscope itemtype="http://schema.org/BlogPosting">
       <header>
         <div tal:replace="structure provider:plone.abovecontenttitle" />
@@ -54,7 +55,7 @@
       <div tal:replace="structure provider:plone.belowcontentbody" />
     </article>
 
-    <script type="text/javascript">
+    <script type="text/javascript" tal:condition="view/automatic_updates_enabled">
         /* show dates for micro-updates older than today */
         var today = new Date().toISOString().substr(0, 10);
         $("time").each(function () {

@@ -57,6 +57,13 @@ class View(grok.View):
         return len(self.updates()) > 0
 
     @property
+    def automatic_updates_enabled(self):
+        """Return True if the Livelog must be updated automatically.
+        Automatic updates should be enabled in active state only.
+        """
+        return api.content.get_state(self.context) == 'active'
+
+    @property
     def now(self):
         """Return a timestamp for the current date and time."""
         return _timestamp(datetime.now())
