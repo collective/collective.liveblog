@@ -4,6 +4,9 @@ Changelog
 1.0a2 (unreleased)
 ------------------
 
+- Add a workflow specific to liveblogs. The workflow defines 3 states: private, active and inactive.
+  [hvelarde]
+
 - Refresh the whole view when a micro-update has been deleted to avoid displaying invalid content.
   [hvelarde]
 

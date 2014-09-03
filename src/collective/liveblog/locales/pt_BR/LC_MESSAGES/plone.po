@@ -1,16 +1,58 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: YEAR-MO-DA HO:MI +ZONE\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Project-Id-Version: 1.0\n"
+"POT-Creation-Date: 2014-09-03 21:00+0000\n"
+"PO-Revision-Date: 2014-09-03 18:01-0300\n"
+"Last-Translator: Héctor Velarde <hector.velarde@gmail.com>\n"
+"Language-Team: Collective\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 "Language-Code: en\n"
 "Language-Name: English\n"
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
+"Language: Brazilian Portuguese\n"
+"X-Generator: Poedit 1.5.4\n"
+"X-Poedit-SourceCharset: UTF-8\n"
 
+#: collective/liveblog/profiles/default/workflows/liveblog_workflow/definition.xml
+msgid "Inactivate"
+msgstr "Desativar"
+
+#: collective/liveblog/profiles/default/workflows/liveblog_workflow/definition.xml
+msgid "Liveblog Workflow"
+msgstr "Workflow do Liveblog"
+
+#: collective/liveblog/profiles/default/workflows/liveblog_workflow/definition.xml
+msgid "Member retracts submission"
+msgstr "O membro retrae o liveblog para o estado privado"
+
+#: collective/liveblog/profiles/default/workflows/liveblog_workflow/definition.xml
+msgid "Publish and activate"
+msgstr "Publicar e ativar"
+
+#: collective/liveblog/profiles/default/workflows/liveblog_workflow/definition.xml
+msgid "Retract"
+msgstr "Retraer"
+
+#: collective/liveblog/profiles/default/workflows/liveblog_workflow/definition.xml
+msgid "Reviewer makes the liveblog active"
+msgstr "O revisor ativa o liveblog"
+
+#: collective/liveblog/profiles/default/workflows/liveblog_workflow/definition.xml
+msgid "Reviewer makes the liveblog inactive"
+msgstr "O revisor desativa o liveblog"
+
+#: collective/liveblog/profiles/default/workflows/liveblog_workflow/definition.xml
+msgid ""
+"Simple workflow to be used with liveblogs. A liveblog starts on the private "
+"state and can be activated (published) to allow the addition of micro-"
+"updates. When the liveblog is no longer going to be updated, we just simply "
+"inactivate it."
+msgstr ""
+"Um workflow simples para ser usado con liveblogs. Um liveblog começa no "
+"estado privado e pode ser publicado y ativado para permitir a adição de "
+"atualizações. Cuando o liveblog não vai ser mais atualizado, simplesmente "
+"podemos desativá-lo."
