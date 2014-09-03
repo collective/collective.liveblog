@@ -89,7 +89,16 @@
       <div tal:replace="structure provider:plone.belowcontentbody" />
     </article>
 
+    <dl class="portalMessage info" id="updateMessage" style="display:none">
+        <dt i18n:domain="plone" i18n:translate="">Info</dt>
+        <dd i18n:translate="">Some micro-updates were excluded from this liveblog.
+          <a href="#" onclick="window.location.reload()">Refresh</a>
+          to update it.
+        </dd>
+    </dl>
+
     <script type="text/javascript">
+        /* show dates for micro-updates older than today */
         var today = new Date().toISOString().substr(0, 10);
         $("time").each(function () {
             "use strict";
@@ -101,11 +110,21 @@
                     "<span class='microupdate-time'>" + time + "</span>");
             }
         });
+        /* keep page updated */
         setInterval(function () {
             "use strict";
             var timestamp = $(".microupdate").attr("data-timestamp");
-            $.get("recent-updates?timestamp=" + timestamp, function (data) {
-                $("#micro-updates").prepend(data).fadeIn("slow");
+            $.ajax({
+                url: "recent-updates?timestamp=" + timestamp,
+                success: function (data) {
+                    $("#micro-updates").prepend(data).fadeIn("slow");
+                },
+                statusCode: {
+                    205: function () {
+                        $("#kssPortalMessage").html($("#updateMessage").html());
+                        $("#kssPortalMessage").show();
+                    }
+                }
             });
         }, 1000 * 60);
     </script>

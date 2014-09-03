@@ -24,6 +24,18 @@ class RecentUpdates(grok.View):
     grok.require('zope2.View')
     grok.template('recent_updates')
 
+    def _needs_hard_refresh(self):
+        """Return True if a hard refresh of the whole page is needed.
+
+        Typically, a hard refresh will be needed if a micro-update has
+        been erased. We set an HTTP status code 205 (Reset Content)
+        to handle it on the view and update pages using JavaScript.
+        """
+        timestamp = self.request.get('timestamp', '0.0')
+        if self.context._last_microupdate_deletion > timestamp:
+            self.request.RESPONSE.setStatus(205)
+            return True
+
     def _if_modified_since_request_handler(self):
         """Return a status code of 304 (not modified) if the requested
         variant has not been modified since the time specified.
@@ -48,6 +60,9 @@ class RecentUpdates(grok.View):
                     return True
 
     def update(self):
+        if self._needs_hard_refresh():
+            return ''
+
         last_modified = rfc1123_date(self.context.modified())
         self.request.RESPONSE.setHeader('Cache-Control', 'public')
         self.request.RESPONSE.setHeader('Last-Modified', last_modified)

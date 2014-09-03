@@ -3,6 +3,7 @@ from collective.liveblog.adapters import IMicroUpdateContainer
 from collective.liveblog.adapters import MicroUpdate
 from collective.liveblog.interfaces import IBrowserLayer
 from collective.liveblog.testing import INTEGRATION_TESTING
+from collective.liveblog.utils import _timestamp
 from datetime import datetime
 from plone import api
 from time import sleep
@@ -81,9 +82,21 @@ class RecentUpdatesViewTestCase(ViewTestCase):
         self.view = api.content.get_view(
             'recent-updates', self.liveblog, self.request)
 
-    def test_updates_since_timestamp(self):
-        from collective.liveblog.utils import _timestamp
+    def test_needs_hard_refresh(self):
+        # calling the method without a timestamp will return False
+        self.assertFalse(self.view._needs_hard_refresh())
+        # a deletion happened before last update; we already handled it
+        self.liveblog._last_microupdate_deletion = _timestamp(datetime.now())
+        sleep(0.05)
+        self.request['timestamp'] = _timestamp(datetime.now())
+        self.assertFalse(self.view._needs_hard_refresh())
+        sleep(0.05)
+        # a deletion happened after last update; we need to handle it
+        self.liveblog._last_microupdate_deletion = _timestamp(datetime.now())
+        self.assertTrue(self.view._needs_hard_refresh())
+        self.assertEqual(self.request.RESPONSE.getStatus(), 205)
 
+    def test_updates_since_timestamp(self):
         timestamp = datetime.now()
         self._create_updates()
 

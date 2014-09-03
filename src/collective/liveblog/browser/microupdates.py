@@ -4,6 +4,7 @@ from collective.liveblog.adapters import IMicroUpdateContainer
 from collective.liveblog.adapters import MicroUpdate
 from collective.liveblog.interfaces import IBrowserLayer
 from collective.liveblog.interfaces import ILiveblog
+from collective.liveblog.utils import _timestamp
 from five import grok
 from plone import api
 from zope.event import notify
@@ -30,7 +31,8 @@ class AddMicroUpdateView(grok.View):
         else:
             adapter = IMicroUpdateContainer(self.context)
             adapter.add(MicroUpdate(title, text))
-
+            # XXX: why do we need to handle this again here?
+            #      we're already firing an event on the adapter
             # notify the Liveblog has a new micro-update
             notify(ObjectModifiedEvent(self.context))
             msg = _(u'Item published.')
@@ -69,8 +71,13 @@ class DeleteMicroUpdateView(grok.View):
                 return
             else:
                 adapter.delete(id)
+                # XXX: why do we need to handle this again here?
+                #      we're already firing an event on the adapter
                 # notify a micro-update was deleted from the Liveblog
                 notify(ObjectModifiedEvent(self.context))
+                # store the timestamp of last deletion
+                deleted = self.context.modified().utcdatetime()
+                self.context._last_microupdate_deletion = _timestamp(deleted)
                 msg = _(u'Item deleted.')
                 api.portal.show_message(msg, self.request)
 

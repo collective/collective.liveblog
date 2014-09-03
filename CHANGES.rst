@@ -4,6 +4,9 @@ Changelog
 1.0a2 (unreleased)
 ------------------
 
+- Refresh the whole view when a micro-update has been deleted to avoid displaying invalid content.
+  [hvelarde]
+
 - The header viewlet was including the html and body tags on rendering.
   [hvelarde]
 

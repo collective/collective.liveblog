@@ -55,6 +55,7 @@
     </article>
 
     <script type="text/javascript">
+        /* show dates for micro-updates older than today */
         var today = new Date().toISOString().substr(0, 10);
         $("time").each(function () {
             "use strict";
@@ -66,11 +67,20 @@
                     "<span class='microupdate-time'>" + time + "</span>");
             }
         });
+        /* keep page updated */
         setInterval(function () {
             "use strict";
             var timestamp = $(".microupdate").attr("data-timestamp");
-            $.get("recent-updates?timestamp=" + timestamp, function (data) {
-                $("#micro-updates").prepend(data).fadeIn("slow");
+            $.ajax({
+                url: "recent-updates?timestamp=" + timestamp,
+                success: function (data) {
+                    $("#micro-updates").prepend(data).fadeIn("slow");
+                },
+                statusCode: {
+                    205: function () {
+                        window.location.reload();
+                    }
+                }
             });
         }, 1000 * 60);
     </script>

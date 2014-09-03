@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2014-09-02 14:01+0000\n"
+"POT-Creation-Date: 2014-09-03 18:35+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -44,15 +44,15 @@ msgstr ""
 msgid "Image"
 msgstr ""
 
-#: collective/liveblog/browser/microupdates.py:62
+#: collective/liveblog/browser/microupdates.py:63
 msgid "Invalid id specified."
 msgstr ""
 
-#: collective/liveblog/browser/microupdates.py:74
+#: collective/liveblog/browser/microupdates.py:78
 msgid "Item deleted."
 msgstr ""
 
-#: collective/liveblog/browser/microupdates.py:36
+#: collective/liveblog/browser/microupdates.py:37
 msgid "Item published."
 msgstr ""
 
@@ -82,7 +82,11 @@ msgstr ""
 msgid "Removes the Liveblog content type from the site."
 msgstr ""
 
-#: collective/liveblog/browser/microupdates.py:28
+#: collective/liveblog/browser/templates/update.pt:94
+msgid "Some micro-updates were excluded from this liveblog. <a href=\"#\" onclick=\"window.location.reload()\">Refresh</a> to update it."
+msgstr ""
+
+#: collective/liveblog/browser/microupdates.py:29
 msgid "There were some errors. Required input is missing."
 msgstr ""
 
