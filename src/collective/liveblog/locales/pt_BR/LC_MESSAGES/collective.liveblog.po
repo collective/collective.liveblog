@@ -90,7 +90,7 @@ msgstr "Algumas atualizações foram excluídas de este liveblog. <a href=\"#\" 
 
 #: collective/liveblog/browser/microupdates.py:29
 msgid "There were some errors. Required input is missing."
-msgstr "Ocurreu um erro. Falta a informação requerida."
+msgstr "Ocurreu um erro. O campo obrigatório não foi preenchido."
 
 #: collective/liveblog/interfaces.py:21
 msgid "This image will be used as a header on the Liveblog."

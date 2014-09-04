@@ -27,7 +27,7 @@ msgstr "Workflow do Liveblog"
 
 #: collective/liveblog/profiles/default/workflows/liveblog_workflow/definition.xml
 msgid "Member retracts submission"
-msgstr "O membro retrae o liveblog para o estado privado"
+msgstr "O membro retrai o liveblog para o estado privado"
 
 #: collective/liveblog/profiles/default/workflows/liveblog_workflow/definition.xml
 msgid "Publish and activate"
@@ -35,7 +35,7 @@ msgstr "Publicar e ativar"
 
 #: collective/liveblog/profiles/default/workflows/liveblog_workflow/definition.xml
 msgid "Retract"
-msgstr "Retraer"
+msgstr "Retrair"
 
 #: collective/liveblog/profiles/default/workflows/liveblog_workflow/definition.xml
 msgid "Reviewer makes the liveblog active"
