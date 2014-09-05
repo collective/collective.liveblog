@@ -4,6 +4,10 @@ Changelog
 1.0a2 (unreleased)
 ------------------
 
+- Implement the ``Expires`` header on ``recent-updates`` view.
+  This will help us control better how long the page is going to live.
+  [hvelarde]
+
 - Add a workflow specific to liveblogs.
   The workflow defines 3 states: private, active and inactive.
   This way we can control when automatic refresh of micro-updates happens.

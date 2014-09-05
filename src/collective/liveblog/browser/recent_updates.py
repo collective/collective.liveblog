@@ -5,6 +5,7 @@ from collective.liveblog.interfaces import ILiveblog
 from datetime import datetime
 from five import grok
 from plone.memoize import ram
+from time import time
 
 grok.templatedir('templates')
 
@@ -37,8 +38,8 @@ class RecentUpdates(grok.View):
             return True
 
     def _if_modified_since_request_handler(self):
-        """Return a status code of 304 (not modified) if the requested
-        variant has not been modified since the time specified.
+        """Return True and set a status code of 304 (Not Modified) if the
+        requested variant has not been modified since the time specified.
         """
         header = self.request.get_header('If-Modified-Since', None)
         if header is not None:
@@ -63,8 +64,14 @@ class RecentUpdates(grok.View):
         if self._needs_hard_refresh():
             return ''
 
+        # the Expires header will help us control how often clients
+        # will ask for a page; this supercedes the value defined on our
+        # JavaScript code so, if we put here a value above 1 minute,
+        # clients will wait that time before requesting the page again
+        expires = rfc1123_date(time() + 59)  # page expires in 59 seconds
         last_modified = rfc1123_date(self.context.modified())
         self.request.RESPONSE.setHeader('Cache-Control', 'public')
+        self.request.RESPONSE.setHeader('Expires', expires)
         self.request.RESPONSE.setHeader('Last-Modified', last_modified)
 
         if self._if_modified_since_request_handler():
