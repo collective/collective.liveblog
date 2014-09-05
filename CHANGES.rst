@@ -4,6 +4,9 @@ Changelog
 1.0a2 (unreleased)
 ------------------
 
+- Timestamp handling was simplified.
+  [hvelarde]
+
 - Implement the ``Expires`` header on ``recent-updates`` view.
   This will help us control better how long the page is going to live.
   [hvelarde]
@@ -16,7 +19,7 @@ Changelog
 - Refresh the whole view when a micro-update has been deleted to avoid displaying invalid content.
   [hvelarde]
 
-- The header viewlet was including the html and body tags on rendering.
+- The header viewlet was including the ``html`` and ``body`` tags on rendering.
   [hvelarde]
 
 - Lack of ``id`` attribute on field ``text`` was preventing TinyMCE editor from loading on Plone 4.2.
