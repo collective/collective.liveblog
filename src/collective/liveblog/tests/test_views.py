@@ -124,17 +124,15 @@ class RecentUpdatesViewTestCase(ViewTestCase):
         self.assertEqual(self.request.RESPONSE.getStatus(), 304)
 
     def test_updates_since_timestamp(self):
-        timestamp = datetime.now()
         self._create_updates()
-
-        # before all elements were created
-        timestamp = _timestamp(timestamp)
+        # before all elements are created
+        timestamp = _timestamp(datetime.now() - timedelta(seconds=60))
         self.assertEqual(len(self.view._updates_since_timestamp(timestamp)), 20)
         # middle of the creation
         timestamp = _timestamp(self.timestamp)
         self.assertEqual(len(self.view._updates_since_timestamp(timestamp)), 10)
         # after all elements were created
-        timestamp = _timestamp(datetime.now())
+        timestamp = _timestamp(datetime.now() + timedelta(seconds=60))
         self.assertEqual(len(self.view._updates_since_timestamp(timestamp)), 0)
 
         timestamp = _timestamp(self.timestamp)
