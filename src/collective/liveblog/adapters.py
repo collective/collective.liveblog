@@ -9,6 +9,7 @@ from datetime import datetime
 from persistent import Persistent
 from persistent.list import PersistentList
 from plone import api
+from time import time
 from zope.annotation.interfaces import IAnnotations
 from zope.component import adapts
 from zope.container.contained import ObjectAddedEvent
@@ -30,6 +31,7 @@ class IMicroUpdate(Interface):
     creator = Attribute('Id of user creating the micro-update.')
     created = Attribute('Date and time when this micro-update was created.')
     modified = Attribute('Date and time when this micro-update was modified.')
+    timestamp = Attribute('Timestamp of the micro-update.')
     title = Attribute('Title of the micro-update.')
     text = Attribute('Text of the micro-update.')
 
@@ -93,5 +95,6 @@ class MicroUpdate(Persistent):
         self.__parent__ = self.__name__ = None
         self.creator = api.user.get_current().id
         self.modified = self.created = datetime.now()
+        self.timestamp = str(time())
         self.title = title
         self.text = text

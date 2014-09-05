@@ -3,11 +3,11 @@ from collective.liveblog.adapters import IMicroUpdateContainer
 from collective.liveblog.adapters import MicroUpdate
 from collective.liveblog.interfaces import IBrowserLayer
 from collective.liveblog.testing import INTEGRATION_TESTING
-from collective.liveblog.utils import _timestamp
 from datetime import datetime
 from datetime import timedelta
 from plone import api
 from time import sleep
+from time import time
 from zope.event import notify
 from zope.interface import alsoProvides
 from zope.lifecycleevent import ObjectModifiedEvent
@@ -28,7 +28,7 @@ class ViewTestCase(unittest.TestCase):
             sleep(0.05)
             adapter.add(MicroUpdate(str(i), str(i)))
 
-        self.timestamp = datetime.now()
+        self.timestamp = str(time())
 
         for i in range(11, 21):
             sleep(0.05)
@@ -91,7 +91,6 @@ class RecentUpdatesViewTestCase(ViewTestCase):
             'recent-updates', self.liveblog, self.request)
 
     def test_needs_hard_refresh(self):
-        from time import time
         # calling the method without a timestamp will return False
         self.assertFalse(self.view._needs_hard_refresh())
         # a deletion happened before last update; we already handled it
@@ -126,17 +125,15 @@ class RecentUpdatesViewTestCase(ViewTestCase):
     def test_updates_since_timestamp(self):
         self._create_updates()
         # before all elements are created
-        timestamp = _timestamp(datetime.now() - timedelta(seconds=60))
+        timestamp = str(time() - 60)
         self.assertEqual(len(self.view._updates_since_timestamp(timestamp)), 20)
         # middle of the creation
-        timestamp = _timestamp(self.timestamp)
-        self.assertEqual(len(self.view._updates_since_timestamp(timestamp)), 10)
+        self.assertEqual(len(self.view._updates_since_timestamp(self.timestamp)), 10)
         # after all elements were created
-        timestamp = _timestamp(datetime.now() + timedelta(seconds=60))
+        timestamp = str(time() + 60)
         self.assertEqual(len(self.view._updates_since_timestamp(timestamp)), 0)
 
-        timestamp = _timestamp(self.timestamp)
-        updates = self.view._updates_since_timestamp(timestamp)
+        updates = self.view._updates_since_timestamp(self.timestamp)
         updates = [u['title'] for u in updates]
         self.assertIn('20', updates)
         self.assertIn('11', updates)

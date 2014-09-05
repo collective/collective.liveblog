@@ -2,11 +2,10 @@
 from collective.liveblog.adapters import IMicroUpdateContainer
 from collective.liveblog.interfaces import IBrowserLayer
 from collective.liveblog.interfaces import ILiveblog
-from collective.liveblog.utils import _timestamp
-from datetime import datetime
 from five import grok
 from plone import api
 from plone.memoize import ram
+from time import time
 
 grok.templatedir('templates')
 
@@ -33,7 +32,7 @@ class View(grok.View):
             updates.append(dict(
                 id=id,
                 creator=update.creator,
-                timestamp=_timestamp(update.created),  # 1409223490.21,
+                timestamp=update.timestamp,  # 1409223490.21,
                 datetime=api.portal.get_localized_time(update.created, True),  # 28/08/2014 10h58
                 date=api.portal.get_localized_time(update.created),  # 28/08/2014
                 time=api.portal.get_localized_time(update.created, time_only=True),  # 10h58
@@ -66,4 +65,4 @@ class View(grok.View):
     @property
     def now(self):
         """Return a timestamp for the current date and time."""
-        return _timestamp(datetime.now())
+        return str(time())
