@@ -93,7 +93,7 @@
     <dl class="portalMessage info" id="updateMessage" style="display:none">
         <dt i18n:domain="plone" i18n:translate="">Info</dt>
         <dd i18n:translate="">Some micro-updates were excluded from this liveblog.
-          <a href="update" onclick="window.location.reload()">Refresh</a>
+          <a href="update">Refresh</a>
           to update it.
         </dd>
     </dl>
