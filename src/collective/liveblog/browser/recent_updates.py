@@ -1,11 +1,16 @@
 # -*- coding: utf-8 -*-
 from App.Common import rfc1123_date
+from collective.liveblog.config import PROJECTNAME
 from collective.liveblog.interfaces import IBrowserLayer
 from collective.liveblog.interfaces import ILiveblog
 from datetime import datetime
 from five import grok
 from plone.memoize import ram
 from time import time
+
+import logging
+
+logger = logging.getLogger(PROJECTNAME)
 
 grok.templatedir('templates')
 
@@ -34,6 +39,10 @@ class RecentUpdates(grok.View):
         JavaScript.
         """
         if self.context._last_microupdate_deletion > str(time() - 60):
+            logger.debug(
+                u'A micro-update was deleted withing the last minute. '
+                u'Setting status code 205.'
+            )
             self.request.RESPONSE.setStatus(205)
             return True
 
@@ -52,15 +61,23 @@ class RecentUpdates(grok.View):
                 mod_since = mod_since.strftime('%Y-%m-%d %H:%M:%S')
             except (TypeError, ValueError):
                 mod_since = None
+                logger.debug(u'If-Modified-Since header was not valid.')
             if mod_since is not None:
+                logger.debug(u'Requesting page if modified since ' + mod_since)
                 # convert to UTC and normalize for comparison
                 modified = self.context.modified().utcdatetime()
                 modified = modified.strftime('%Y-%m-%d %H:%M:%S')
+                logger.debug(u'Last modification occurred on ' + modified)
                 if modified <= mod_since:
+                    logger.debug(u'Setting status code 304.')
                     self.request.RESPONSE.setStatus(304)  # not modified
                     return True
+        logger.debug(u'No If-Modified-Since header on the request.')
 
     def update(self):
+        remote_addr = self.request.environ['REMOTE_ADDR']
+        logger.debug(u'Processing request from ' + remote_addr)
+
         if self._needs_hard_refresh():
             return ''
 
