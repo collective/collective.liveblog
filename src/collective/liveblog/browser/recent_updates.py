@@ -26,14 +26,14 @@ class RecentUpdates(grok.View):
     grok.template('recent_updates')
 
     def _needs_hard_refresh(self):
-        """Return True if a hard refresh of the whole page is needed.
+        """Return True if a hard refresh of the page is needed.
 
-        Typically, a hard refresh will be needed if a micro-update has
-        been erased. We set an HTTP status code 205 (Reset Content)
-        to handle it on the view and update pages using JavaScript.
+        Typically, we will request a hard refresh if a micro-update has
+        been erased in the last minute. We set an HTTP status code 205
+        (Reset Content) to handle it on the view and update pages using
+        JavaScript.
         """
-        timestamp = self.request.get('timestamp', '0.0')
-        if self.context._last_microupdate_deletion > timestamp:
+        if self.context._last_microupdate_deletion > str(time() - 60):
             self.request.RESPONSE.setStatus(205)
             return True
 

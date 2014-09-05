@@ -90,16 +90,14 @@ class RecentUpdatesViewTestCase(ViewTestCase):
             'recent-updates', self.liveblog, self.request)
 
     def test_needs_hard_refresh(self):
+        from time import time
         # calling the method without a timestamp will return False
         self.assertFalse(self.view._needs_hard_refresh())
         # a deletion happened before last update; we already handled it
-        self.liveblog._last_microupdate_deletion = _timestamp(datetime.now())
-        sleep(0.05)
-        self.request['timestamp'] = _timestamp(datetime.now())
+        self.liveblog._last_microupdate_deletion = str(time() - 120)
         self.assertFalse(self.view._needs_hard_refresh())
-        sleep(0.05)
         # a deletion happened after last update; we need to handle it
-        self.liveblog._last_microupdate_deletion = _timestamp(datetime.now())
+        self.liveblog._last_microupdate_deletion = str(time() - 30)
         self.assertTrue(self.view._needs_hard_refresh())
         self.assertEqual(self.request.RESPONSE.getStatus(), 205)
 
