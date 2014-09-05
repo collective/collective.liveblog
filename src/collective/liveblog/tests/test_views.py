@@ -5,6 +5,7 @@ from collective.liveblog.interfaces import IBrowserLayer
 from collective.liveblog.testing import INTEGRATION_TESTING
 from collective.liveblog.utils import _timestamp
 from datetime import datetime
+from datetime import timedelta
 from plone import api
 from time import sleep
 from zope.event import notify
@@ -100,6 +101,27 @@ class RecentUpdatesViewTestCase(ViewTestCase):
         self.liveblog._last_microupdate_deletion = str(time() - 30)
         self.assertTrue(self.view._needs_hard_refresh())
         self.assertEqual(self.request.RESPONSE.getStatus(), 205)
+
+    def test_if_modified_since_request_handler(self):
+        RFC1123 = '%a, %d %b %Y %H:%M:%S GMT'
+        # calling the method without header will return False
+        assert not self.request.get_header('If-Modified-Since')
+        self.assertFalse(self.view._if_modified_since_request_handler())
+        # invalid date return False
+        self.request.environ['IF_MODIFIED_SINCE'] = 'invalid'
+        assert self.request.get_header('If-Modified-Since') == 'invalid'
+        self.assertFalse(self.view._if_modified_since_request_handler())
+        # modified, return False as we must update
+        if_modified_since = datetime.utcnow() - timedelta(seconds=60)
+        if_modified_since = if_modified_since.strftime(RFC1123)
+        self.request.environ['IF_MODIFIED_SINCE'] = if_modified_since
+        self.assertFalse(self.view._if_modified_since_request_handler())
+        # not modified, return True and set header
+        if_modified_since = datetime.utcnow() + timedelta(seconds=60)
+        if_modified_since = if_modified_since.strftime(RFC1123)
+        self.request.environ['IF_MODIFIED_SINCE'] = if_modified_since
+        self.assertTrue(self.view._if_modified_since_request_handler())
+        self.assertEqual(self.request.RESPONSE.getStatus(), 304)
 
     def test_updates_since_timestamp(self):
         timestamp = datetime.now()
