@@ -6,14 +6,25 @@
   <include package="z3c.caching" file="meta.zcml" />
 
   <cache:rulesetType
-      name="collective.liveblog"
-      title="Liveblog Public View"
-      description="Configure caching for the public view of a Liveblog"
+      name="collective.liveblog.default"
+      title="Liveblog default view"
+      description="The public-facing view of a Liveblog."
+      />
+
+  <cache:rulesetType
+      name="collective.liveblog.recentUpdates"
+      title="Liveblog recent updates"
+      description="The recent updates helper view of a Liveblog."
       />
 
   <cache:ruleset
-      for="collective.liveblog.browser.View"
-      ruleset="collective.liveblog"
+      ruleset="collective.liveblog.default"
+      for="collective.liveblog.browser.view.View"
+      />
+
+  <cache:ruleset
+      ruleset="collective.liveblog.recentUpdates"
+      for="collective.liveblog.browser.recent_updates.RecentUpdates"
       />
 
 </configure>
