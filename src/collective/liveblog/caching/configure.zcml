@@ -27,4 +27,7 @@
       for="collective.liveblog.browser.recent_updates.RecentUpdates"
       />
 
+  <!-- Purge paths for LiveBlog -->
+  <adapter factory=".purge.LiveBlogPurgePaths" name="liveblog" />
+
 </configure>

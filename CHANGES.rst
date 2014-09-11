@@ -4,6 +4,9 @@ Changelog
 1.0b2 (unreleased)
 ------------------
 
+- An adapter listing the URLs to be purged when a Liveblog is modified was added.
+  [ericof]
+
 - Refactor ``recent-updates`` view to get rid of the timestamp parameter.
   This way we avoid a potential source of DoS attacks.
   [hvelarde]
