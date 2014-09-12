@@ -6,8 +6,7 @@
 <body tal:omit-tag="">
     <section id="micro-updates" tal:omit-tag="">
       <article class="microupdate" data-timestamp="" itemprop="comment" itemscope itemtype="http://schema.org/Comment"
-          tal:define="timestamp request/timestamp|nothing"
-          tal:repeat="update python:view.updates_since_timestamp(timestamp)"
+          tal:repeat="update view/get_latest_microupdates"
           tal:attributes="data-timestamp update/timestamp">
         <h2 class="microupdate-title" itemprop="headline"
             tal:condition="update/title"

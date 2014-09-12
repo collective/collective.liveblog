@@ -1,10 +1,12 @@
 # -*- coding: utf-8 -*-
 from collective.liveblog.interfaces import ILiveblog
 from collective.liveblog.testing import INTEGRATION_TESTING
+from collective.liveblog.tests.utils import _create_microupdates
 from plone import api
 from plone.dexterity.interfaces import IDexterityFTI
 from zope.component import createObject
 from zope.component import queryUtility
+from zope.event import notify
 
 import unittest
 
@@ -43,7 +45,6 @@ class ContentTypeTestCase(unittest.TestCase):
 
     def _enable_behavior(self, portal_type, behavior):
         from plone.dexterity.schema import SchemaInvalidatedEvent
-        from zope.event import notify
         fti = queryUtility(IDexterityFTI, name=portal_type)
         behaviors = list(fti.behaviors)
         behaviors.append(behavior)
@@ -65,3 +66,8 @@ class ContentTypeTestCase(unittest.TestCase):
     def test_content_types_constrains(self):
         allowed_types = [t.getId() for t in self.liveblog.allowedContentTypes()]
         self.assertListEqual(allowed_types, ['Image'])
+
+    def test_get_microupdates(self):
+        self.assertEqual(len(self.liveblog.get_microupdates()), 0)
+        _create_microupdates(self.liveblog, 10)
+        self.assertEqual(len(self.liveblog.get_microupdates()), 10)

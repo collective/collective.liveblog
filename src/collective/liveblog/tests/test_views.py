@@ -1,16 +1,12 @@
 # -*- coding: utf-8 -*-
-from collective.liveblog.adapters import IMicroUpdateContainer
-from collective.liveblog.adapters import MicroUpdate
 from collective.liveblog.interfaces import IBrowserLayer
 from collective.liveblog.testing import INTEGRATION_TESTING
+from collective.liveblog.tests.utils import _create_microupdates
 from datetime import datetime
 from datetime import timedelta
 from plone import api
-from time import sleep
 from time import time
-from zope.event import notify
 from zope.interface import alsoProvides
-from zope.lifecycleevent import ObjectModifiedEvent
 
 import unittest
 
@@ -18,24 +14,6 @@ import unittest
 class ViewTestCase(unittest.TestCase):
 
     layer = INTEGRATION_TESTING
-
-    def _create_updates(self):
-        """Create 20 micro-updates. Note the use of the sleep method to avoid
-        doing this so fast that we ended with the same timestamp on different
-        updates."""
-        adapter = IMicroUpdateContainer(self.liveblog)
-        for i in range(1, 11):
-            sleep(0.05)
-            adapter.add(MicroUpdate(str(i), str(i)))
-
-        self.timestamp = str(time())
-
-        for i in range(11, 21):
-            sleep(0.05)
-            adapter.add(MicroUpdate(str(i), str(i)))
-
-        # update Liveblog modification time to invalidate the cache
-        notify(ObjectModifiedEvent(self.liveblog))
 
     def setUp(self):
         self.portal = self.layer['portal']
@@ -52,14 +30,9 @@ class DefaultViewTestCase(ViewTestCase):
         super(DefaultViewTestCase, self).setUp()
         self.view = api.content.get_view('view', self.liveblog, self.request)
 
-    def test_updates(self):
-        self.assertEqual(len(self.view._updates()), 0)
-        self._create_updates()
-        self.assertEqual(len(self.view._updates()), 20)
-
     def test_has_updates(self):
         self.assertFalse(self.view.has_updates)
-        self._create_updates()
+        _create_microupdates(self.liveblog, 1)
         self.assertTrue(self.view.has_updates)
 
     def test_automatic_updates_enabled(self):
@@ -91,8 +64,6 @@ class RecentUpdatesViewTestCase(ViewTestCase):
             'recent-updates', self.liveblog, self.request)
 
     def test_needs_hard_refresh(self):
-        # calling the method without a timestamp will return False
-        self.assertFalse(self.view._needs_hard_refresh())
         # a deletion happened before last update; we already handled it
         self.liveblog._last_microupdate_deletion = str(time() - 120)
         self.assertFalse(self.view._needs_hard_refresh())
@@ -122,20 +93,13 @@ class RecentUpdatesViewTestCase(ViewTestCase):
         self.assertTrue(self.view._if_modified_since_request_handler())
         self.assertEqual(self.request.RESPONSE.getStatus(), 304)
 
-    def test_updates_since_timestamp(self):
-        self._create_updates()
-        # before all elements are created
-        timestamp = str(time() - 60)
-        self.assertEqual(len(self.view._updates_since_timestamp(timestamp)), 20)
-        # middle of the creation
-        self.assertEqual(len(self.view._updates_since_timestamp(self.timestamp)), 10)
-        # after all elements were created
-        timestamp = str(time() + 60)
-        self.assertEqual(len(self.view._updates_since_timestamp(timestamp)), 0)
-
-        updates = self.view._updates_since_timestamp(self.timestamp)
-        updates = [u['title'] for u in updates]
-        self.assertIn('20', updates)
-        self.assertIn('11', updates)
-        self.assertNotIn('10', updates)
-        self.assertNotIn('1', updates)
+    def test_get_latest_microupdates(self):
+        from time import sleep
+        _create_microupdates(self.liveblog, 10)
+        self.assertEqual(len(self.view.get_latest_microupdates()), 10)
+        # after one minutes no micro-updates should be listed
+        sleep(60)
+        self.assertEqual(len(self.view.get_latest_microupdates()), 0)
+        # if we add more micro-updates, they should be listed
+        _create_microupdates(self.liveblog, 5)
+        self.assertEqual(len(self.view.get_latest_microupdates()), 5)

@@ -71,9 +71,8 @@
         /* keep page updated */
         setInterval(function () {
             "use strict";
-            var timestamp = $(".microupdate").attr("data-timestamp");
             $.ajax({
-                url: "recent-updates?timestamp=" + timestamp,
+                url: "recent-updates",
                 success: function (data) {
                     $("#micro-updates").prepend(data).fadeIn("slow");
                 },

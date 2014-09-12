@@ -4,7 +4,9 @@ Changelog
 1.0b2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Refactor ``recent-updates`` view to get rid of the timestamp parameter.
+  This way we avoid a potential source of DoS attacks.
+  [hvelarde]
 
 
 1.0b1 (2014-09-05)
