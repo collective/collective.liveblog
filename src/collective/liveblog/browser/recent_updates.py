@@ -40,7 +40,7 @@ class RecentUpdates(grok.View):
             self.request.RESPONSE.setStatus(205)
             return True
 
-    def _if_modified_since_request_handler(self):
+    def _not_modified(self):
         """Return True and set a status code of 304 (Not Modified) if the
         requested variant has not been modified since the time specified.
         """
@@ -69,10 +69,13 @@ class RecentUpdates(grok.View):
         logger.debug(u'No If-Modified-Since header on the request.')
 
     def update(self):
-        remote_addr = self.request.environ['REMOTE_ADDR']
-        logger.debug(u'Processing request from ' + remote_addr)
+        logger.debug(
+            u'Processing request from ' + self.request.environ['REMOTE_ADDR'])
 
         if self._needs_hard_refresh():
+            return ''
+
+        if self._not_modified():
             return ''
 
         # the Expires header will help us control how often clients
@@ -84,9 +87,6 @@ class RecentUpdates(grok.View):
         self.request.RESPONSE.setHeader('Cache-Control', 'public')
         self.request.RESPONSE.setHeader('Expires', expires)
         self.request.RESPONSE.setHeader('Last-Modified', last_modified)
-
-        if self._if_modified_since_request_handler():
-            return ''
 
     def get_latest_microupdates(self):
         """Return micro-updates posted in the last minute."""

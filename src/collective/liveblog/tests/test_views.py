@@ -72,25 +72,25 @@ class RecentUpdatesViewTestCase(ViewTestCase):
         self.assertTrue(self.view._needs_hard_refresh())
         self.assertEqual(self.request.RESPONSE.getStatus(), 205)
 
-    def test_if_modified_since_request_handler(self):
+    def test_not_modified(self):
         RFC1123 = '%a, %d %b %Y %H:%M:%S GMT'
         # calling the method without header will return False
         assert not self.request.get_header('If-Modified-Since')
-        self.assertFalse(self.view._if_modified_since_request_handler())
+        self.assertFalse(self.view._not_modified())
         # invalid date return False
         self.request.environ['IF_MODIFIED_SINCE'] = 'invalid'
         assert self.request.get_header('If-Modified-Since') == 'invalid'
-        self.assertFalse(self.view._if_modified_since_request_handler())
+        self.assertFalse(self.view._not_modified())
         # modified, return False as we must update
         if_modified_since = datetime.utcnow() - timedelta(seconds=60)
         if_modified_since = if_modified_since.strftime(RFC1123)
         self.request.environ['IF_MODIFIED_SINCE'] = if_modified_since
-        self.assertFalse(self.view._if_modified_since_request_handler())
+        self.assertFalse(self.view._not_modified())
         # not modified, return True and set header
         if_modified_since = datetime.utcnow() + timedelta(seconds=60)
         if_modified_since = if_modified_since.strftime(RFC1123)
         self.request.environ['IF_MODIFIED_SINCE'] = if_modified_since
-        self.assertTrue(self.view._if_modified_since_request_handler())
+        self.assertTrue(self.view._not_modified())
         self.assertEqual(self.request.RESPONSE.getStatus(), 304)
 
     def test_get_latest_microupdates(self):
