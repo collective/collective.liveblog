@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2014-09-03 18:35+0000\n"
+"POT-Creation-Date: 2014-09-13 00:43+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,9 +14,9 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
 
-#: collective/liveblog/browser/templates/recent_updates.pt:24
-#: collective/liveblog/browser/templates/update.pt:75
-#: collective/liveblog/browser/templates/view.pt:41
+#: collective/liveblog/browser/templates/recent_updates.pt:23
+#: collective/liveblog/browser/templates/update.pt:76
+#: collective/liveblog/browser/templates/view.pt:42
 msgid "<p>By <span itemprop=\"author\">${DYNAMIC_CONTENT}</span></p> <time itemprop=\"datePublished\" title=\"${DYNAMIC_CONTENT}\" datetime=\"${DYNAMIC_CONTENT}\" data-date=\"${DYNAMIC_CONTENT}\" data-time=\"${DYNAMIC_CONTENT}\"> <span class=\"microupdate-time\">${DYNAMIC_CONTENT}</span> </time>"
 msgstr ""
 
@@ -24,7 +24,7 @@ msgstr ""
 msgid "A liveblog is a blog post which is intended to provide a rolling textual coverage of an ongoing event."
 msgstr ""
 
-#: collective/liveblog/browser/templates/update.pt:27
+#: collective/liveblog/browser/templates/update.pt:28
 msgid "Add micro-update"
 msgstr ""
 
@@ -32,7 +32,7 @@ msgstr ""
 msgid "Adds a Liveblog content type to the site. A liveblog is a blog post which is intended to provide a rolling textual coverage of an ongoing event."
 msgstr ""
 
-#: collective/liveblog/browser/templates/update.pt:57
+#: collective/liveblog/browser/templates/update.pt:58
 msgid "Delete"
 msgstr ""
 
@@ -44,15 +44,15 @@ msgstr ""
 msgid "Image"
 msgstr ""
 
-#: collective/liveblog/browser/microupdates.py:63
+#: collective/liveblog/browser/microupdates.py:64
 msgid "Invalid id specified."
 msgstr ""
 
-#: collective/liveblog/browser/microupdates.py:78
+#: collective/liveblog/browser/microupdates.py:80
 msgid "Item deleted."
 msgstr ""
 
-#: collective/liveblog/browser/microupdates.py:37
+#: collective/liveblog/browser/microupdates.py:38
 msgid "Item published."
 msgstr ""
 
@@ -65,12 +65,12 @@ msgstr ""
 msgid "Liveblog"
 msgstr ""
 
-#: collective/liveblog/browser/templates/update.pt:83
-#: collective/liveblog/browser/templates/view.pt:49
+#: collective/liveblog/browser/templates/update.pt:84
+#: collective/liveblog/browser/templates/view.pt:50
 msgid "No micro-updates yet for this Liveblog."
 msgstr ""
 
-#: collective/liveblog/browser/templates/update.pt:49
+#: collective/liveblog/browser/templates/update.pt:50
 msgid "Publish"
 msgstr ""
 
@@ -82,8 +82,8 @@ msgstr ""
 msgid "Removes the Liveblog content type from the site."
 msgstr ""
 
-#: collective/liveblog/browser/templates/update.pt:94
-msgid "Some micro-updates were excluded from this liveblog. <a href=\"#\" onclick=\"window.location.reload()\">Refresh</a> to update it."
+#: collective/liveblog/browser/templates/update.pt:95
+msgid "Some micro-updates were excluded from this liveblog. <a href=\"update\">Refresh</a> to update it."
 msgstr ""
 
 #: collective/liveblog/browser/microupdates.py:29
@@ -94,7 +94,7 @@ msgstr ""
 msgid "This image will be used as a header on the Liveblog."
 msgstr ""
 
-#: collective/liveblog/browser/templates/update.pt:31
+#: collective/liveblog/browser/templates/update.pt:32
 msgid "Title"
 msgstr ""
 
