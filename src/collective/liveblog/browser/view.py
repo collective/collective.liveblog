@@ -31,7 +31,7 @@ class View(grok.View):
     @property
     def has_updates(self):
         """Return True if Liveblog has updates."""
-        return len(self.context.get_microupdates()) > 0
+        return len(self.updates()) > 0
 
     @property
     def automatic_updates_enabled(self):

@@ -5,6 +5,7 @@ from collective.liveblog.interfaces import IBrowserLayer
 from collective.liveblog.interfaces import ILiveblog
 from datetime import datetime
 from five import grok
+# from plone.memoize import ram
 from time import time
 
 import logging
@@ -88,6 +89,13 @@ class RecentUpdates(grok.View):
         self.request.RESPONSE.setHeader('Expires', expires)
         self.request.RESPONSE.setHeader('Last-Modified', last_modified)
 
+    # FIXME: caching this function will speed up the rendering of this
+    #        view by at least an order of magnitude, but it will also
+    #        create an issue: on the update view, the latest updates
+    #        will lose the Delete action as a consequence of the
+    #        removal of duplicated micro-updates and the mixing of
+    #        anonymous and logged in users
+    # @ram.cache(lambda *args: time() // 60)  # cache for one minute
     def get_latest_microupdates(self):
         """Return micro-updates posted in the last minute."""
         updates = self.context.get_microupdates()
