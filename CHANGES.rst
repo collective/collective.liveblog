@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.0b2 (unreleased)
+1.0b2 (2014-09-13)
 ------------------
 
 - An adapter listing the URLs to be purged when a Liveblog is modified was added.
