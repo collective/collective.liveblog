@@ -6,11 +6,27 @@
 
   <browser:page
       for="collective.liveblog.interfaces.ILiveblog"
+      name="add-microupdate"
+      class="collective.liveblog.browser.microupdates.AddMicroUpdateView"
+      permission="collective.liveblog.AddMicroUpdate"
+      layer="collective.liveblog.interfaces.IBrowserLayer"
+      />
+
+  <browser:page
+      for="collective.liveblog.interfaces.ILiveblog"
       name="edit-microupdate"
       class="collective.liveblog.browser.microupdates.EditMicroUpdateView"
       permission="cmf.ModifyPortalContent"
       layer="collective.liveblog.interfaces.IBrowserLayer"
-      template="edit.pt"
+      template="templates/edit.pt"
+      />
+
+  <browser:page
+      for="collective.liveblog.interfaces.ILiveblog"
+      name="delete-microupdate"
+      class="collective.liveblog.browser.microupdates.DeleteMicroUpdateView"
+      permission="zope2.DeleteObjects"
+      layer="collective.liveblog.interfaces.IBrowserLayer"
       />
 
 </configure>
