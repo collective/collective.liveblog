@@ -4,6 +4,9 @@ Changelog
 1.0b3 (unreleased)
 ------------------
 
+- Add styles for responsive (closes `#7`_).
+  [agnogueira]
+
 - Bylines on micro-updates now honor security settings and will be displayed to anonymous users only if they are allowed to see this information (closes `#6`_).
   [hvelarde]
 
@@ -63,3 +66,4 @@ Changelog
 
 .. _`#3`: https://github.com/collective/collective.liveblog/issues/3
 .. _`#6`: https://github.com/collective/collective.liveblog/issues/6
+.. _`#7`: https://github.com/collective/collective.liveblog/issues/7
