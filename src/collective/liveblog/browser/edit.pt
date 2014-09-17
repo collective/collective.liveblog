@@ -1,0 +1,45 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    xmlns:metal="http://xml.zope.org/namespaces/metal"
+    metal:use-macro="context/main_template/macros/master"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    i18n:domain="collective.liveblog">
+<metal:block fill-slot="top_slot"
+    tal:define="dummy python:request.set('disable_border', 1)" />
+<body>
+  <metal:block fill-slot="main">
+    <h1 i18n:translate="">Edit micro-update</h1>
+    <form action="@@edit-microupdate"
+        tal:attributes="action string:${context/absolute_url}/@@edit-microupdate">
+      <div class="field">
+        <input placeholder="Title" title="Title" name="title" type="text" class="update-title"
+            tal:attributes="value view/title"
+            i18n:attributes="placeholder; title" />
+      </div>
+      <div class="field">
+        <tal:editor define="here nocall:context;
+                            portal_url nocall:context/portal_url;
+                            portal portal_url/getPortalObject;
+                            id string:text;
+                            inputname string:text;
+                            inputvalue view/text;
+                            here_url request/getURL;
+                            member context/portal_membership/getAuthenticatedMember;
+                            tabindex nothing;
+                            rows python:15">
+          <div metal:use-macro="context/wysiwyg_support/macros/wysiwygEditorBox">
+            The WYSIWYG code
+          </div>
+        </tal:editor>
+      </div>
+      <div class="formControls">
+        <input id="form-buttons-save" name="form.buttons.save" value="Save" type="submit"
+            i18n:attributes="value" />
+        <input id="form-buttons-cancel" name="form.buttons.cancel" value="Cancel" type="submit"
+            i18n:attributes="value" />
+      </div>
+      <input name="id" type="hidden" value="" tal:attributes="value request/id" />
+    </form>
+  </metal:block>
+</body>
+</html>

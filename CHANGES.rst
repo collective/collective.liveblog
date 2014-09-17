@@ -4,7 +4,8 @@ Changelog
 1.0b3 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Editors can now edit micro-updates (closes `#3`_).
+  [hvelarde]
 
 
 1.0b2 (2014-09-13)
@@ -56,3 +57,5 @@ Changelog
 ------------------
 
 - Initial release.
+
+.. _`#3`: https://github.com/collective/collective.liveblog/issues/3

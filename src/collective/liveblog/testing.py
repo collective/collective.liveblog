@@ -14,6 +14,7 @@ class Fixture(PloneSandboxLayer):
     def setUpZope(self, app, configurationContext):
         import collective.liveblog
         self.loadZCML(package=collective.liveblog)
+        self.loadZCML('testing.zcml', package=collective.liveblog)
 
     def setUpPloneSite(self, portal):
         self.applyProfile(portal, 'collective.liveblog:default')

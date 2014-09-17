@@ -65,7 +65,16 @@ class RecentUpdatesViewTestCase(ViewTestCase):
         self.view = api.content.get_view(
             'recent-updates', self.liveblog, self.request)
 
-    def test_needs_hard_refresh(self):
+    def test_needs_hard_refresh_on_edition(self):
+        # an edition happened before last update; we already handled it
+        self.liveblog._last_microupdate_edition = str(time() - 120)
+        self.assertFalse(self.view._needs_hard_refresh())
+        # an edition happened after last update; we need to handle it
+        self.liveblog._last_microupdate_edition = str(time() - 30)
+        self.assertTrue(self.view._needs_hard_refresh())
+        self.assertEqual(self.request.RESPONSE.getStatus(), 205)
+
+    def test_needs_hard_refresh_on_deletion(self):
         # a deletion happened before last update; we already handled it
         self.liveblog._last_microupdate_deletion = str(time() - 120)
         self.assertFalse(self.view._needs_hard_refresh())

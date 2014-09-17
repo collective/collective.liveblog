@@ -55,6 +55,10 @@
           tal:repeat="update view/updates"
           tal:attributes="data-timestamp update/timestamp">
         <div class="microupdate-helpers">
+          <a href="@@edit-microupdate"
+              tal:condition="view/can_edit_objects"
+              tal:attributes="href string:@@edit-microupdate?id=${update/id}"
+              i18n:translate="">Edit</a>
           <a href="@@delete-microupdate"
               tal:condition="view/can_delete_objects"
               tal:attributes="href string:@@delete-microupdate?id=${update/id};

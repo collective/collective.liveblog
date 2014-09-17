@@ -18,6 +18,9 @@ class Update(View):
     grok.layer(IBrowserLayer)
     grok.require('collective.liveblog.AddMicroUpdate')
 
+    def can_edit_objects(self):
+        return checkPermission('cmf.ModifyPortalContent', self.context)
+
     def can_delete_objects(self):
         return checkPermission('zope2.DeleteObjects', self.context)
 

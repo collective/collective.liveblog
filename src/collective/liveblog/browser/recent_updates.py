@@ -29,13 +29,21 @@ class RecentUpdates(grok.View):
         """Return True if a hard refresh of the page is needed.
 
         Typically, we will request a hard refresh if a micro-update has
-        been erased in the last minute. We set an HTTP status code 205
-        (Reset Content) to handle it on the view and update pages using
-        JavaScript.
+        been edited of deleted in the last minute.
+        We set an HTTP status code 205 (Reset Content) to handle it on
+        the view and update pages using JavaScript.
         """
-        if self.context._last_microupdate_deletion > str(time() - 60):
+        if self.context._last_microupdate_edition > str(time() - 60):
             logger.debug(
                 u'A micro-update was deleted withing the last minute. '
+                u'Setting status code 205.'
+            )
+            self.request.RESPONSE.setStatus(205)
+            return True
+
+        if self.context._last_microupdate_deletion > str(time() - 60):
+            logger.debug(
+                u'A micro-update was edited withing the last minute. '
                 u'Setting status code 205.'
             )
             self.request.RESPONSE.setStatus(205)

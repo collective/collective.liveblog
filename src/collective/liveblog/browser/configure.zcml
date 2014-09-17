@@ -4,4 +4,13 @@
     xmlns:i18n="http://namespaces.zope.org/i18n"
     i18n_domain="collective.liveblog">
 
+  <browser:page
+      for="collective.liveblog.interfaces.ILiveblog"
+      name="edit-microupdate"
+      class="collective.liveblog.browser.microupdates.EditMicroUpdateView"
+      permission="cmf.ModifyPortalContent"
+      layer="collective.liveblog.interfaces.IBrowserLayer"
+      template="edit.pt"
+      />
+
 </configure>
