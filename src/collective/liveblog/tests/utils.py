@@ -15,5 +15,6 @@ def _create_microupdates(context, count):
         sleep(0.05)
         adapter.add(MicroUpdate(str(i), str(i)))
 
-    # update Liveblog modification time to invalidate the cache
+    # wait and update Liveblog modification time to invalidate the cache
+    sleep(1)
     notify(ObjectModifiedEvent(context))

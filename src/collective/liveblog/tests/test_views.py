@@ -33,9 +33,7 @@ class DefaultViewTestCase(ViewTestCase):
     def test_has_updates(self):
         self.assertFalse(self.view.has_updates)
         _create_microupdates(self.liveblog, 1)
-        # instantiate the view again to invalidate caching
-        self.view = api.content.get_view('view', self.liveblog, self.request)
-        self.assertFalse(self.view.has_updates)
+        self.assertTrue(self.view.has_updates)
 
     def test_automatic_updates_enabled(self):
         self.assertFalse(self.view.automatic_updates_enabled)
