@@ -58,11 +58,13 @@
           <a href="@@edit-microupdate"
               tal:condition="view/can_edit_objects"
               tal:attributes="href string:@@edit-microupdate?id=${update/id}"
+              i18n:domain="plone"
               i18n:translate="">Edit</a>
           <a href="@@delete-microupdate"
               tal:condition="view/can_delete_objects"
               tal:attributes="href string:@@delete-microupdate?id=${update/id};
                               onclick view/delete_confirmation"
+              i18n:domain="plone"
               i18n:translate="">Delete</a>
         </div>
         <h2 class="microupdate-title" itemprop="headline"
