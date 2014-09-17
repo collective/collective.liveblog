@@ -2,25 +2,20 @@
 from collective.liveblog import _
 from collective.liveblog.adapters import IMicroUpdateContainer
 from collective.liveblog.adapters import MicroUpdate
-from collective.liveblog.interfaces import IBrowserLayer
-from collective.liveblog.interfaces import ILiveblog
 from datetime import datetime
-from five import grok
 from plone import api
 from Products.Five.browser import BrowserView
 from time import time
 from zope.event import notify
 from zope.lifecycleevent import ObjectModifiedEvent
 
-grok.templatedir('templates')
-
 
 class BaseMicroUpdateView(BrowserView):
 
     """Base view with helper methods for micro-updates."""
 
-    def _redirect_with_status_message(self, msg):
-        api.portal.show_message(msg, self.request, type='info')
+    def _redirect_with_status_message(self, msg, type='info'):
+        api.portal.show_message(msg, self.request, type=type)
         update_url = self.context.absolute_url() + '/update'
         self.request.response.redirect(update_url)
 
@@ -46,33 +41,30 @@ class BaseMicroUpdateView(BrowserView):
         return True
 
 
-class AddMicroUpdateView(grok.View):
+class AddMicroUpdateView(BaseMicroUpdateView):
 
     """Add a micro-update to the Liveblog."""
 
-    grok.context(ILiveblog)
-    grok.layer(IBrowserLayer)
-    grok.name('add-microupdate')
-    grok.require('collective.liveblog.AddMicroUpdate')
+    def __call__(self):
+        return self.render()
 
     def render(self):
-        title = self.request.form.get('title', None)
+        title = self.request.form.get('title', '')
         text = self.request.form.get('text', None)
-        if not text:
-            msg = _(u'There were some errors. Required input is missing.')
-            api.portal.show_message(msg, self.request, type='error')
-        else:
-            adapter = IMicroUpdateContainer(self.context)
-            adapter.add(MicroUpdate(title, text))
-            # XXX: why do we need to handle this again here?
-            #      we're already firing an event on the adapter
-            # notify the Liveblog has a new micro-update
-            notify(ObjectModifiedEvent(self.context))
-            msg = _(u'Item published.')
-            api.portal.show_message(msg, self.request)
 
-        update_url = self.context.absolute_url() + '/update'
-        self.request.response.redirect(update_url)
+        if text is None:  # something went wrong
+            msg = _(u'Required text input is missing.')
+            self._redirect_with_status_message(msg, type='error')
+            return
+
+        adapter = IMicroUpdateContainer(self.context)
+        adapter.add(MicroUpdate(title, text))
+        # XXX: why do we need to handle this again here?
+        #      we're already firing an event on the adapter
+        # notify the Liveblog has a new micro-update
+        notify(ObjectModifiedEvent(self.context))
+        msg = _(u'Item published.')
+        self._redirect_with_status_message(msg)
 
 
 class EditMicroUpdateView(BaseMicroUpdateView):
@@ -104,7 +96,9 @@ class EditMicroUpdateView(BaseMicroUpdateView):
             text = self.request.form.get('text', None)
 
             if text is None:  # something went wrong
-                self.cancel()
+                msg = _(u'Required text input is missing.')
+                self._redirect_with_status_message(msg, type='error')
+                return
 
             # save the changes and return
             adapter = IMicroUpdateContainer(self.context)
@@ -130,42 +124,22 @@ class EditMicroUpdateView(BaseMicroUpdateView):
         return self._text
 
 
-class DeleteMicroUpdateView(grok.View):
+class DeleteMicroUpdateView(BaseMicroUpdateView):
 
     """Delete a micro-update from the Liveblog."""
 
-    grok.context(ILiveblog)
-    grok.layer(IBrowserLayer)
-    grok.name('delete-microupdate')
-    grok.require('zope2.DeleteObjects')
+    def __call__(self):
+        if self._validate_microupdate_id():
+            return self.render()
 
     def render(self):
         id = self.request.form.get('id', None)
-        if not id:
-            msg = _(u'There were some errors. Required input is missing.')
-            api.portal.show_message(msg, self.request, type='error')
-            return
-        else:
-            try:
-                id = int(id)
-            except ValueError:
-                msg = _(u'Invalid id specified.')
-                api.portal.show_message(msg, self.request, type='error')
-                return
-            adapter = IMicroUpdateContainer(self.context)
-            if id >= len(adapter):
-                msg = _(u'Invalid id specified.')
-                api.portal.show_message(msg, self.request, type='error')
-                return
-            else:
-                adapter.delete(id)
-                # XXX: why do we need to handle this again here?
-                #      we're already firing an event on the adapter
-                notify(ObjectModifiedEvent(self.context))
-                # schedule a hard refresh
-                self.context._last_microupdate_deletion = str(time())
-                msg = _(u'Item deleted.')
-                api.portal.show_message(msg, self.request)
-
-        update_url = self.context.absolute_url() + '/update'
-        self.request.response.redirect(update_url)
+        adapter = IMicroUpdateContainer(self.context)
+        adapter.delete(id)
+        # XXX: why do we need to handle this again here?
+        #      we're already firing an event on the adapter
+        notify(ObjectModifiedEvent(self.context))
+        # schedule a hard refresh
+        self.context._last_microupdate_deletion = str(time())
+        msg = _(u'Item deleted.')
+        self._redirect_with_status_message(msg)
