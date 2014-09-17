@@ -32,14 +32,6 @@ Mostly Harmless
     :alt: Downloads
     :target: https://pypi.python.org/pypi/collective.liveblog/
 
-Todo list
----------
-
-- Use fuzzy dates
-- Prettify the prepend of micro-updates
-- Do not load all micro-updates by default as the page could grow huge and implement infinite scrolling
-- Make it responsive
-
 Got an idea? Found a bug? Let us know by `opening a support ticket`_.
 
 .. _`opening a support ticket`: https://github.com/collective/collective.liveblog/issues

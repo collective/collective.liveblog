@@ -10,7 +10,7 @@ Changelog
 - Bylines on micro-updates now honor security settings and will be displayed to anonymous users only if they are allowed to see this information (closes `#6`_).
   [hvelarde]
 
-- Editors can now edit micro-updates (closes `#3`_).
+- Editors can now edit micro-updates; a full refresh of the view will be scheduled after editing a micro-update to avoid displaying invalid content (closes `#3`_).
   [hvelarde]
 
 
