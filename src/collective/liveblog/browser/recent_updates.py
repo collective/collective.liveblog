@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from App.Common import rfc1123_date
+from collective.liveblog.browser.base import BaseView
 from collective.liveblog.config import PROJECTNAME
 from collective.liveblog.interfaces import IBrowserLayer
 from collective.liveblog.interfaces import ILiveblog
@@ -15,7 +16,7 @@ logger = logging.getLogger(PROJECTNAME)
 grok.templatedir('templates')
 
 
-class RecentUpdates(grok.View):
+class RecentUpdates(grok.View, BaseView):
 
     """Helper view for Liveblog."""
 

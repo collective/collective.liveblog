@@ -4,6 +4,9 @@ Changelog
 1.0b3 (unreleased)
 ------------------
 
+- Bylines on micro-updates now honor security settings and will be displayed to anonymous users only if they are allowed to see this information (closes `#6`_).
+  [hvelarde]
+
 - Editors can now edit micro-updates (closes `#3`_).
   [hvelarde]
 
@@ -59,3 +62,4 @@ Changelog
 - Initial release.
 
 .. _`#3`: https://github.com/collective/collective.liveblog/issues/3
+.. _`#6`: https://github.com/collective/collective.liveblog/issues/6
