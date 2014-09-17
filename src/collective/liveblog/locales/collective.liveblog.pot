@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2014-09-17 18:58+0000\n"
+"POT-Creation-Date: 2014-09-17 20:40+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -103,7 +103,7 @@ msgid "Required text input is missing."
 msgstr ""
 
 #: collective/liveblog/browser/templates/update.pt:106
-msgid "Some micro-updates were excluded from this liveblog. <a href=\"update\">Refresh</a> to update it."
+msgid "Some micro-updates were edited or excluded from this liveblog. <a href=\"update\">Refresh</a> to update it."
 msgstr ""
 
 #: collective/liveblog/interfaces.py:21

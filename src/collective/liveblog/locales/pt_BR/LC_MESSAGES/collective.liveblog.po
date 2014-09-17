@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: 2014-09-17 18:58+0000\n"
-"PO-Revision-Date: 2014-09-17 15:59-0300\n"
+"POT-Creation-Date: 2014-09-17 20:40+0000\n"
+"PO-Revision-Date: 2014-09-17 17:41-0300\n"
 "Last-Translator: Héctor Velarde <hector.velarde@gmail.com>\n"
 "Language-Team: Plone Collective\n"
 "MIME-Version: 1.0\n"
@@ -112,11 +112,11 @@ msgstr "Falta texto requerido."
 
 #: collective/liveblog/browser/templates/update.pt:106
 msgid ""
-"Some micro-updates were excluded from this liveblog. <a href=\"update"
-"\">Refresh</a> to update it."
+"Some micro-updates were edited or excluded from this liveblog. <a href="
+"\"update\">Refresh</a> to update it."
 msgstr ""
-"Algumas atualizações foram excluídas de este liveblog. <a href=\"update"
-"\">Atualize</a> a página."
+"Algumas atualizações foram editadas ou excluídas de este liveblog. <a href="
+"\"update\">Atualize</a> a página para mostrar as mudanças."
 
 #: collective/liveblog/interfaces.py:21
 msgid "This image will be used as a header on the Liveblog."
