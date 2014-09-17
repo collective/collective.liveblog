@@ -2,8 +2,14 @@
     height: auto;
     max-width: 100%;
 }
-.portaltype-liveblog .field input[type="text"] {
+.portaltype-liveblog article .field input[type="text"] {
     width: 100%;
+    line-height: 125%;
+    color: black;
+    letter-spacing: -0.05em;
+    margin: inherit -0.05em;
+    font-size: 2em;
+    font-weight: bold;
 }
 .portaltype-liveblog form {
     padding-bottom: 1em;
@@ -62,13 +68,26 @@
 }
 /* Mobile */
 @media all and (max-width: 680px) {
+    .microupdate-text {
+        margin-left: 0;
+    }
+    .microupdate-byline p {
+        display: inline;
+        margin-left: 0;
+    }
     .microupdate-byline time {
+        background: transparent;
         font-size: 1.2em;
         padding: 0.5em 0;
-        width: 60px;
+        width: auto;
+        position: relative;
+        text-align: left;
     }
-    .microupdate-title, .microupdate-text, .microupdate-byline p {
-        margin-left: 70px;
+    .microupdate-time {
+        display: inline;
+        color: #666;
+        font-size: 80%;
+        font-weight: normal;
     }
     #micro-updates article {
         padding-top: 0.3em;
