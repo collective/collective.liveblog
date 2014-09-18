@@ -25,6 +25,7 @@
 
   <include package=".upgrades" />
 
-  <utility factory=".config.HiddenProfiles" name="collective.liveblog" />
+  <utility factory=".setuphandlers.HiddenProfiles" name="collective.liveblog" />
+  <utility factory=".setuphandlers.HiddenProducts" name="collective.liveblog" />
 
 </configure>

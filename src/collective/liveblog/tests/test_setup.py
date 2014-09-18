@@ -3,7 +3,6 @@ from collective.liveblog.config import PROJECTNAME
 from collective.liveblog.interfaces import IBrowserLayer
 from collective.liveblog.testing import INTEGRATION_TESTING
 from plone.browserlayer.utils import registered_layers
-from Products.GenericSetup.upgrade import listUpgradeSteps
 
 import unittest
 
@@ -28,13 +27,9 @@ class BaseTestCase(unittest.TestCase):
 
     layer = INTEGRATION_TESTING
 
-    profile = 'collective.liveblog:default'
-
     def setUp(self):
         self.portal = self.layer['portal']
         self.qi = self.portal['portal_quickinstaller']
-        self.wt = self.portal['portal_workflow']
-        self.st = self.portal['portal_setup']
 
 
 class InstallTestCase(BaseTestCase):
@@ -58,34 +53,13 @@ class InstallTestCase(BaseTestCase):
             roles = [r['name'] for r in roles if r['selected']]
             self.assertListEqual(roles, permission['expected'])
 
-    def test_version(self):
-        self.assertEqual(
-            self.st.getLastVersionForProfile(self.profile),
-            (u'1000',)
-        )
-
-
-class TestUpgrade(BaseTestCase):
-
-    """Ensure product upgrades work."""
-
-    def test_to1010_available(self):
-
-        upgradeSteps = listUpgradeSteps(self.st,
-                                        self.profile,
-                                        '1000')
-        step = [step for step in upgradeSteps
-                if (step[0]['dest'] == ('1010',))
-                and (step[0]['source'] == ('1000',))]
-        self.assertEqual(len(step), 1)
-
 
 class UninstallTestCase(BaseTestCase):
 
     """Ensure product is properly uninstalled."""
 
     def setUp(self):
-        BaseTestCase.setUp(self)
+        super(UninstallTestCase, self).setUp()
         self.qi.uninstallProducts(products=[PROJECTNAME])
 
     def test_uninstalled(self):

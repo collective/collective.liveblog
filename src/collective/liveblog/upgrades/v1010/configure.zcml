@@ -7,9 +7,9 @@
 
   <genericsetup:registerProfile
       name="default"
-      title="collective.liveblog: v1010"
+      title="Update Liveblog to v1010"
       directory="profile"
-      description="Updates Liveblog to v1010."
+      description="Do something."
       provides="Products.GenericSetup.interfaces.EXTENSION"
       i18n:attributes="title; description"
       />
