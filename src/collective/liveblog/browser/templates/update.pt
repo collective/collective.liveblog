@@ -10,12 +10,10 @@
         i18n:translate="">Live updating</div>
     <article itemscope itemtype="http://schema.org/BlogPosting">
       <header>
-        <div tal:replace="structure provider:plone.abovecontenttitle" />
         <h1 class="documentFirstHeading" itemprop="headline"
             tal:content="context/Title">
           Title
         </h1>
-        <div tal:replace="structure provider:plone.belowcontenttitle" />
         <div class="documentDescription" itemprop="description"
             tal:content="context/Description">
           Description

@@ -4,6 +4,9 @@ Changelog
 1.0b3 (unreleased)
 ------------------
 
+- Rendering of ``plone.abovecontenttitle`` and ``plone.belowcontenttitle`` viewlets was removed from the ``update`` view.
+  [hvelarde]
+
 - Add styles for responsive (closes `#7`_).
   [agnogueira]
 
