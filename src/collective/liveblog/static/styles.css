@@ -46,6 +46,10 @@
     top: 0;
     width: 90px;
 }
+.microupdate-text img {
+    max-width: 100%;
+    height: auto;
+}
 .microupdate-date {
     color: #666;
     display: block;
@@ -60,33 +64,30 @@
 .microupdate-title, .microupdate-text, .microupdate-byline p {
     margin-left: 110px;
 }
-.microupdate-byline p {
+.microupdate-byline {
     color: #666;
 }
 .microupdate-text p:last-child {
     margin-bottom: 0 !important;
 }
-/* Mobile */
+/* Responsive */
 @media all and (max-width: 680px) {
-    .microupdate-text {
+    .microupdate-title, .microupdate-text, .microupdate-byline p {
         margin-left: 0;
     }
-    .microupdate-byline p {
+    .microupdate-byline p, .microupdate-date, .microupdate-time {
         display: inline;
-        margin-left: 0;
+        font-size: 90%;
     }
     .microupdate-byline time {
         background: transparent;
-        font-size: 1.2em;
         padding: 0.5em 0;
         width: auto;
         position: relative;
         text-align: left;
     }
     .microupdate-time {
-        display: inline;
         color: #666;
-        font-size: 80%;
         font-weight: normal;
     }
     #micro-updates article {
