@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.0b3 (unreleased)
+1.0b3 (2014-09-20)
 ------------------
 
 - Rendering of ``plone.abovecontenttitle`` and ``plone.belowcontenttitle`` viewlets was removed from the ``update`` view.
