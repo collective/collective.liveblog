@@ -33,7 +33,7 @@ setup(
     keywords='plone liveblogging dexterity',
     author='Simples Consutoria',
     author_email='produtos@simplesconsultoria.com.br',
-    url='https://github.com/simplesconsultoria/collective.liveblog',
+    url='https://github.com/collective/collective.liveblog',
     packages=find_packages('src'),
     package_dir={'': 'src'},
     namespace_packages=['collective'],
