@@ -42,6 +42,15 @@ class DefaultViewTestCase(ViewTestCase):
         api.content.transition(self.liveblog, 'inactivate')
         self.assertFalse(self.view.automatic_updates_enabled)
 
+    def test_date_is_shown_in_microupdates_older_than_today(self):
+        # comment inside the JS block that adds the dates
+        comment = '/* show dates for micro-updates older than today */'
+        self.assertIn(comment, self.view())
+        api.content.transition(self.liveblog, 'activate')
+        self.assertIn(comment, self.view())
+        api.content.transition(self.liveblog, 'inactivate')
+        self.assertIn(comment, self.view())
+
 
 class UpdateViewTestCase(ViewTestCase):
 
@@ -54,6 +63,15 @@ class UpdateViewTestCase(ViewTestCase):
         actions = portal_types['Liveblog'].listActions()
         actions = [a.id for a in actions]
         self.assertIn('update', actions)
+
+    def test_date_is_shown_in_microupdates_older_than_today(self):
+        # comment inside the JS block that adds the dates
+        comment = '/* show dates for micro-updates older than today */'
+        self.assertIn(comment, self.view())
+        api.content.transition(self.liveblog, 'activate')
+        self.assertIn(comment, self.view())
+        api.content.transition(self.liveblog, 'inactivate')
+        self.assertIn(comment, self.view())
 
 
 class RecentUpdatesViewTestCase(ViewTestCase):

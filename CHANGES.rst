@@ -4,7 +4,8 @@ Changelog
 1.0b4 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- The dates of micro-updates older than today were not shown in liveblogs on **private** and **inactive** states (fixes `#14`_).
+  [hvelarde]
 
 
 1.0b3 (2014-09-20)
@@ -76,3 +77,4 @@ Changelog
 .. _`#3`: https://github.com/collective/collective.liveblog/issues/3
 .. _`#6`: https://github.com/collective/collective.liveblog/issues/6
 .. _`#7`: https://github.com/collective/collective.liveblog/issues/7
+.. _`#14`: https://github.com/collective/collective.liveblog/issues/14

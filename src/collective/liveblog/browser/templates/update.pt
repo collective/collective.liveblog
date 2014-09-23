@@ -105,8 +105,7 @@
           <a href="update">Refresh</a> to update it.
         </dd>
     </dl>
-
-    <script type="text/javascript" tal:condition="view/automatic_updates_enabled">
+    <script>
         /* show dates for micro-updates older than today */
         var today = new Date().toISOString().substr(0, 10);
         $("time").each(function () {
@@ -119,6 +118,8 @@
                     "<span class='microupdate-time'>" + time + "</span>");
             }
         });
+    </script>
+    <script tal:condition="view/automatic_updates_enabled">
         /* keep page updated */
         setInterval(function () {
             "use strict";
