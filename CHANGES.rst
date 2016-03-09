@@ -4,6 +4,10 @@ Changelog
 1.0b4 (unreleased)
 ------------------
 
+- Remove referenceable extra; Archetypes is no longer the default framework in Plone 5.
+  Under Plone < 5.0 you should now explicitly add plone.app.referenceablebehavior to the `eggs` part of your buildout configuration.
+  [hvelarde]
+
 - The dates of micro-updates older than today were not shown in liveblogs on **private** and **inactive** states (fixes `#14`_).
   [hvelarde]
 

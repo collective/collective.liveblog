@@ -54,21 +54,16 @@ setup(
         'zope.annotation',
         'zope.component',
         'zope.container',
-        'zope.event',
         'zope.i18nmessageid',
         'zope.interface',
         'zope.lifecycleevent',
     ],
     extras_require={
-        'referenceable': [
-            'plone.app.referenceablebehavior',
-        ],
         'test': [
             'plone.app.robotframework',
             'plone.app.testing [robot] >=4.2.2',
             'plone.browserlayer',
             'plone.testing',
-            'plone.uuid',
             'Products.statusmessages',
             'robotsuite',
             'zope.viewlet',

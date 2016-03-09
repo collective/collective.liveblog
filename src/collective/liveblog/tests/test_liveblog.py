@@ -6,7 +6,6 @@ from plone import api
 from plone.dexterity.interfaces import IDexterityFTI
 from zope.component import createObject
 from zope.component import queryUtility
-from zope.event import notify
 
 import unittest
 
@@ -42,22 +41,6 @@ class ContentTypeTestCase(unittest.TestCase):
     def test_exclude_from_navigation_behavior(self):
         from plone.app.dexterity.behaviors.exclfromnav import IExcludeFromNavigation
         self.assertTrue(IExcludeFromNavigation.providedBy(self.liveblog))
-
-    def _enable_behavior(self, portal_type, behavior):
-        from plone.dexterity.schema import SchemaInvalidatedEvent
-        fti = queryUtility(IDexterityFTI, name=portal_type)
-        behaviors = list(fti.behaviors)
-        behaviors.append(behavior)
-        fti.behaviors = tuple(behaviors)
-        notify(SchemaInvalidatedEvent(portal_type))
-
-    @unittest.skipIf(
-        api.env.plone_version() >= '5.0', 'Not supported in Plone >=5.0')
-    def test_is_referenceable(self):
-        from plone.app.referenceablebehavior.referenceable import IReferenceable
-        self.assertFalse(IReferenceable.providedBy(self.liveblog))
-        self._enable_behavior('Liveblog', IReferenceable.__identifier__)
-        self.assertTrue(IReferenceable.providedBy(self.liveblog))
 
     @unittest.skipIf(
         api.env.plone_version() >= '5.0',
