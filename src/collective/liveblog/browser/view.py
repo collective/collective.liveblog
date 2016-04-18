@@ -36,7 +36,7 @@ class View(grok.View, BaseView):
 
     @property
     def automatic_updates_enabled(self):
-        """Return True if the Livelog must be updated automatically.
+        """Check if the Livelog must be updated automatically.
         Automatic updates should be enabled in active state only.
         """
         return api.content.get_state(self.context) == 'active'
