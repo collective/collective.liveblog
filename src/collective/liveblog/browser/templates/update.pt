@@ -24,7 +24,7 @@
       <div id="content-core" itemprop="articleBody">
 
       <h2 i18n:translate="">Add micro-update</h2>
-      <form action="@@add-microupdate"
+      <form action="@@add-microupdate" method="post"
           tal:attributes="action string:${context/absolute_url}/@@add-microupdate">
         <div class="field">
           <input placeholder="Title" title="Title" name="title" type="text" class="update-title" i18n:attributes="placeholder; title" />
