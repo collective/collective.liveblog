@@ -4,6 +4,12 @@ Changelog
 1.0b4 (unreleased)
 ------------------
 
+- Update view now uses batch pagination every 20 micro-updates to reduce load time for users with Editor role (closes `#10`_).
+  [hvelarde]
+
+- Depend on plone.batching; this drops support for Plone 4.2.
+  [hvelarde]
+
 - Use POST as request method on form used to add micro-updates.
   [hvelarde]
 
@@ -84,4 +90,5 @@ Changelog
 .. _`#3`: https://github.com/collective/collective.liveblog/issues/3
 .. _`#6`: https://github.com/collective/collective.liveblog/issues/6
 .. _`#7`: https://github.com/collective/collective.liveblog/issues/7
+.. _`#10`: https://github.com/collective/collective.liveblog/issues/10
 .. _`#14`: https://github.com/collective/collective.liveblog/issues/14

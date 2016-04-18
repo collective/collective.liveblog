@@ -23,9 +23,10 @@
       <div tal:replace="structure provider:plone.abovecontentbody" />
       <div id="content-core" itemprop="articleBody">
 
-      <h2 i18n:translate="">Add micro-update</h2>
       <form action="@@add-microupdate" method="post"
+          tal:condition="view/automatic_updates_enabled"
           tal:attributes="action string:${context/absolute_url}/@@add-microupdate">
+        <h2 i18n:translate="">Add micro-update</h2>
         <div class="field">
           <input placeholder="Title" title="Title" name="title" type="text" class="update-title" i18n:attributes="placeholder; title" />
         </div>
@@ -48,9 +49,9 @@
         <input type="submit" value="Publish" i18n:attributes="value" />
       </form>
 
-    <section id="micro-updates">
+    <section id="micro-updates" tal:define="batch view/batch">
       <article class="microupdate" data-timestamp="" itemprop="comment" itemscope itemtype="http://schema.org/Comment"
-          tal:repeat="update view/updates"
+          tal:repeat="update batch"
           tal:attributes="data-timestamp update/timestamp">
         <div class="microupdate-helpers">
           <a href="@@edit-microupdate"
@@ -93,6 +94,10 @@
           <strong i18n:translate="">No micro-updates yet for this Liveblog.</strong>
         </p>
       </div>
+      <tal:batchnavigation
+          define="batchnavigation nocall:context/@@batchnavigation"
+          replace="structure python:batchnavigation(batch)"
+          />
     </section>
 
       </div>
