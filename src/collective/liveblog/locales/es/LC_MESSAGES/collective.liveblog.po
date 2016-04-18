@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: 2014-09-17 20:40+0000\n"
-"PO-Revision-Date: 2014-09-17 17:42-0300\n"
+"POT-Creation-Date: 2016-04-18 16:42+0000\n"
+"PO-Revision-Date: 2016-04-18 13:44-0300\n"
 "Last-Translator: Héctor Velarde <hector.velarde@gmail.com>\n"
 "Language-Team: Plone Collective\n"
 "MIME-Version: 1.0\n"
@@ -13,37 +13,28 @@ msgstr ""
 "Language-Name: English\n"
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
-"Language: Spanish\n"
-"X-Generator: Poedit 1.5.4\n"
+"Language: es\n"
+"X-Generator: Poedit 1.7.5\n"
 
 #: collective/liveblog/profiles/default/types/Liveblog.xml
-msgid ""
-"A liveblog is a blog post which is intended to provide a rolling textual "
-"coverage of an ongoing event."
-msgstr ""
-"Un blog en vivo es una entrada de blog que pretende proporcionar una "
-"cobertura amplia de un evento en curso."
+msgid "A liveblog is a blog post which is intended to provide a rolling textual coverage of an ongoing event."
+msgstr "Un blog en vivo es una entrada de blog que pretende proporcionar una cobertura amplia de un evento en curso."
 
-#: collective/liveblog/browser/templates/update.pt:28
+#: collective/liveblog/browser/templates/update.pt:29
 msgid "Add micro-update"
 msgstr "Agregar actualización"
 
-#: collective/liveblog/profiles.zcml
-msgid ""
-"Adds a Liveblog content type to the site. A liveblog is a blog post which is "
-"intended to provide a rolling textual coverage of an ongoing event."
-msgstr ""
-"Adiciona un tipo de contenido Blog en vivo al sitio. Un blog en vivo es una "
-"entrada de blog que pretende proporcionar una cobertura amplia de un evento "
-"en curso."
+#: collective/liveblog/profiles.zcml:15
+msgid "Adds a Liveblog content type to the site. A liveblog is a blog post which is intended to provide a rolling textual coverage of an ongoing event."
+msgstr "Adiciona un tipo de contenido Blog en vivo al sitio. Un blog en vivo es una entrada de blog que pretende proporcionar una cobertura amplia de un evento en curso."
 
 #: collective/liveblog/browser/templates/recent_updates.pt:19
-#: collective/liveblog/browser/templates/update.pt:78
+#: collective/liveblog/browser/templates/update.pt:77
 #: collective/liveblog/browser/templates/view.pt:38
 msgid "By ${byline}"
 msgstr "Por ${byline}"
 
-#: collective/liveblog/browser/update.py:28
+#: collective/liveblog/browser/update.py:44
 msgid "Do you really want to delete this item?"
 msgstr "¿Está seguro de que quiere eliminar este elemento?"
 
@@ -76,6 +67,7 @@ msgstr "Elemento guardado."
 msgid "Live updating"
 msgstr "Actualizando en vivo"
 
+#: collective/liveblog/profiles.zcml:15
 #: collective/liveblog/profiles/default/types/Liveblog.xml
 msgid "Liveblog"
 msgstr "Blog en vivo"
@@ -92,20 +84,20 @@ msgstr "El id de la actualización no es un entero."
 msgid "No micro-update selected."
 msgstr "No se seleccionó una actualización."
 
-#: collective/liveblog/browser/templates/update.pt:95
+#: collective/liveblog/browser/templates/update.pt:94
 #: collective/liveblog/browser/templates/view.pt:55
 msgid "No micro-updates yet for this Liveblog."
 msgstr "Todavía no hay actualizaciones para este blog en vivo."
 
-#: collective/liveblog/browser/templates/update.pt:50
+#: collective/liveblog/browser/templates/update.pt:49
 msgid "Publish"
 msgstr "Publicar"
 
-#: collective/liveblog/profiles.zcml
+#: collective/liveblog/profiles.zcml:24
 msgid "Remove Liveblog"
 msgstr "Elimina Blog en vivo"
 
-#: collective/liveblog/profiles.zcml
+#: collective/liveblog/profiles.zcml:24
 msgid "Removes the Liveblog content type from the site."
 msgstr "Elimina el tipo de contenido Blog en vivo del sitio."
 
@@ -113,23 +105,23 @@ msgstr "Elimina el tipo de contenido Blog en vivo del sitio."
 msgid "Required text input is missing."
 msgstr "Falta texto requerido."
 
-#: collective/liveblog/browser/templates/update.pt:106
-msgid ""
-"Some micro-updates were edited or excluded from this liveblog. <a href="
-"\"update\">Refresh</a> to update it."
-msgstr ""
-"Algunas actualizaciones fueron editadas o excluidas de este blog en vivo. <a "
-"href=\"update\">Atualice</a> la página para mostrar los cambios."
+#: collective/liveblog/browser/templates/update.pt:109
+msgid "Some micro-updates were edited or excluded from this liveblog. <a href=\"update\">Refresh</a> to update it."
+msgstr "Algunas actualizaciones fueron editadas o excluidas de este blog en vivo. <a href=\"update\">Atualice</a> la página para mostrar los cambios."
 
 #: collective/liveblog/interfaces.py:21
 msgid "This image will be used as a header on the Liveblog."
 msgstr "Esta imagen será usada como encabezado del blog en vivo."
 
 #: collective/liveblog/browser/templates/edit.pt:15
-#: collective/liveblog/browser/templates/update.pt:32
+#: collective/liveblog/browser/templates/update.pt:31
 msgid "Title"
 msgstr "Título"
 
 #: collective/liveblog/profiles/default/types/Liveblog.xml
 msgid "Update"
 msgstr "Actualizar"
+
+#: collective/liveblog/browser/update.py:29
+msgid "You must be on the first page of the batch to add micro-updates."
+msgstr "Para adicionar una actualización debe encontrarse en la primera página de la lista."

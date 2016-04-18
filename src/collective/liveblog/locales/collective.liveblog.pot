@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2014-09-17 20:40+0000\n"
+"POT-Creation-Date: 2016-04-18 16:42+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,21 +18,21 @@ msgstr ""
 msgid "A liveblog is a blog post which is intended to provide a rolling textual coverage of an ongoing event."
 msgstr ""
 
-#: collective/liveblog/browser/templates/update.pt:28
+#: collective/liveblog/browser/templates/update.pt:29
 msgid "Add micro-update"
 msgstr ""
 
-#: collective/liveblog/profiles.zcml
+#: collective/liveblog/profiles.zcml:15
 msgid "Adds a Liveblog content type to the site. A liveblog is a blog post which is intended to provide a rolling textual coverage of an ongoing event."
 msgstr ""
 
 #: collective/liveblog/browser/templates/recent_updates.pt:19
-#: collective/liveblog/browser/templates/update.pt:78
+#: collective/liveblog/browser/templates/update.pt:77
 #: collective/liveblog/browser/templates/view.pt:38
 msgid "By ${byline}"
 msgstr ""
 
-#: collective/liveblog/browser/update.py:28
+#: collective/liveblog/browser/update.py:44
 msgid "Do you really want to delete this item?"
 msgstr ""
 
@@ -65,6 +65,7 @@ msgstr ""
 msgid "Live updating"
 msgstr ""
 
+#: collective/liveblog/profiles.zcml:15
 #: collective/liveblog/profiles/default/types/Liveblog.xml
 msgid "Liveblog"
 msgstr ""
@@ -81,20 +82,20 @@ msgstr ""
 msgid "No micro-update selected."
 msgstr ""
 
-#: collective/liveblog/browser/templates/update.pt:95
+#: collective/liveblog/browser/templates/update.pt:94
 #: collective/liveblog/browser/templates/view.pt:55
 msgid "No micro-updates yet for this Liveblog."
 msgstr ""
 
-#: collective/liveblog/browser/templates/update.pt:50
+#: collective/liveblog/browser/templates/update.pt:49
 msgid "Publish"
 msgstr ""
 
-#: collective/liveblog/profiles.zcml
+#: collective/liveblog/profiles.zcml:24
 msgid "Remove Liveblog"
 msgstr ""
 
-#: collective/liveblog/profiles.zcml
+#: collective/liveblog/profiles.zcml:24
 msgid "Removes the Liveblog content type from the site."
 msgstr ""
 
@@ -102,7 +103,7 @@ msgstr ""
 msgid "Required text input is missing."
 msgstr ""
 
-#: collective/liveblog/browser/templates/update.pt:106
+#: collective/liveblog/browser/templates/update.pt:109
 msgid "Some micro-updates were edited or excluded from this liveblog. <a href=\"update\">Refresh</a> to update it."
 msgstr ""
 
@@ -111,7 +112,7 @@ msgid "This image will be used as a header on the Liveblog."
 msgstr ""
 
 #: collective/liveblog/browser/templates/edit.pt:15
-#: collective/liveblog/browser/templates/update.pt:32
+#: collective/liveblog/browser/templates/update.pt:31
 msgid "Title"
 msgstr ""
 
@@ -119,3 +120,6 @@ msgstr ""
 msgid "Update"
 msgstr ""
 
+#: collective/liveblog/browser/update.py:29
+msgid "You must be on the first page of the batch to add micro-updates."
+msgstr ""
