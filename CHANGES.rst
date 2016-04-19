@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.0b4 (unreleased)
+1.1b1 (2016-04-19)
 ------------------
 
 - Update view now uses batch pagination every 20 micro-updates to reduce load time for users with Editor role (closes `#10`_).
