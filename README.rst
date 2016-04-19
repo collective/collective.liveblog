@@ -20,17 +20,14 @@ Typical use case is the following:
 Mostly Harmless
 ===============
 
-.. image:: https://secure.travis-ci.org/collective/collective.liveblog.png?branch=master
-    :alt: Travis CI badge
+.. image:: http://img.shields.io/pypi/v/collective.liveblog.svg
+    :target: https://pypi.python.org/pypi/collective.liveblog
+
+.. image:: https://img.shields.io/travis/collective/collective.liveblog/master.svg
     :target: http://travis-ci.org/collective/collective.liveblog
 
-.. image:: https://coveralls.io/repos/collective/collective.liveblog/badge.png?branch=master
-    :alt: Coveralls badge
+.. image:: https://img.shields.io/coveralls/collective/collective.liveblog/master.svg
     :target: https://coveralls.io/r/collective/collective.liveblog
-
-.. image:: https://pypip.in/d/collective.liveblog/badge.png
-    :alt: Downloads
-    :target: https://pypi.python.org/pypi/collective.liveblog/
 
 Got an idea? Found a bug? Let us know by `opening a support ticket`_.
 
