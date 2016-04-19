@@ -17,6 +17,13 @@ Typical use case is the following:
 - Editors add micro-updates to the liveblog as the event goes on
 - Visitors of the site on the liveblog get micro-updates automatically via AJAX calls
 
+Who is using it?
+----------------
+
+These are some of the sites using ``collective.liveblog``:
+
+- `CartaCapital <http://www.cartacapital.com.br/>`_ (BR)
+
 Mostly Harmless
 ===============
 
