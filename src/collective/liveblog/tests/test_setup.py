@@ -37,7 +37,7 @@ class InstallTestCase(unittest.TestCase):
     def test_browser_layer_installed(self):
         self.assertIn(IBrowserLayer, registered_layers())
 
-    @unittest.skipIf(IS_PLONE_5, 'FIXME')
+    @unittest.skipIf(IS_PLONE_5, 'No easy way to test this under Plone 5')
     def test_cssregistry(self):
         resource_ids = self.portal.portal_css.getResourceIds()
         self.assertIn(CSS, resource_ids)
@@ -66,7 +66,7 @@ class UninstallTestCase(unittest.TestCase):
     def test_browser_layer_removed(self):
         self.assertNotIn(IBrowserLayer, registered_layers())
 
-    @unittest.skipIf(IS_PLONE_5, 'FIXME')
+    @unittest.skipIf(IS_PLONE_5, 'No easy way to test this under Plone 5')
     def test_cssregistry_removed(self):
         resource_ids = self.portal.portal_css.getResourceIds()
         self.assertNotIn(CSS, resource_ids)
