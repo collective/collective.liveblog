@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
 from collective.liveblog.adapters import IMicroUpdateContainer
 from collective.liveblog.interfaces import ILiveblog
-from five import grok
 from plone import api
 from plone.dexterity.content import Container
+from zope.interface import implementer
 
 
+@implementer(ILiveblog)
 class Liveblog(Container):
 
     """A liveblog is a blog post which is intended to provide a rolling
@@ -14,8 +15,6 @@ class Liveblog(Container):
     The _last_microupdate_edition and _last_microupdate_deletion attributes
     are used to detect if a hard refresh of the views is needed.
     """
-
-    grok.implements(ILiveblog)
 
     _last_microupdate_edition = '0.0'
     _last_microupdate_deletion = '0.0'

@@ -1,26 +1,18 @@
 # -*- coding: utf-8 -*-
 from collective.liveblog.browser.base import BaseView
-from collective.liveblog.interfaces import IBrowserLayer
-from collective.liveblog.interfaces import ILiveblog
-from five import grok
 from plone import api
 from plone.memoize import ram
 from time import time
-
-grok.templatedir('templates')
+from zope.publisher.browser import BrowserView
 
 
 def _updates_cachekey(method, self):
     return (self.context.absolute_url_path(), int(self.context.modified()))
 
 
-class View(grok.View, BaseView):
+class View(BrowserView, BaseView):
 
     """Default view for Liveblog."""
-
-    grok.context(ILiveblog)
-    grok.layer(IBrowserLayer)
-    grok.require('zope2.View')
 
     @ram.cache(_updates_cachekey)
     def updates(self):
