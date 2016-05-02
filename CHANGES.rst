@@ -4,6 +4,9 @@ Changelog
 1.1b2 (unreleased)
 ------------------
 
+- Remove dependency on five.grok (closes `#5`_).
+  [rodfersou]
+
 - Package is now compatible with Plone 5.
   [hvelarde]
 
@@ -95,6 +98,7 @@ Changelog
 - Initial release.
 
 .. _`#3`: https://github.com/collective/collective.liveblog/issues/3
+.. _`#5`: https://github.com/collective/collective.liveblog/issues/5
 .. _`#6`: https://github.com/collective/collective.liveblog/issues/6
 .. _`#7`: https://github.com/collective/collective.liveblog/issues/7
 .. _`#10`: https://github.com/collective/collective.liveblog/issues/10

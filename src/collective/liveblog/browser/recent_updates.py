@@ -2,29 +2,18 @@
 from App.Common import rfc1123_date
 from collective.liveblog.browser.base import BaseView
 from collective.liveblog.config import PROJECTNAME
-from collective.liveblog.interfaces import IBrowserLayer
-from collective.liveblog.interfaces import ILiveblog
 from datetime import datetime
-from five import grok
-# from plone.memoize import ram
 from time import time
+from zope.publisher.browser import BrowserView
 
 import logging
 
 logger = logging.getLogger(PROJECTNAME)
 
-grok.templatedir('templates')
 
-
-class RecentUpdates(grok.View, BaseView):
+class RecentUpdates(BrowserView, BaseView):
 
     """Helper view for Liveblog."""
-
-    grok.context(ILiveblog)
-    grok.layer(IBrowserLayer)
-    grok.name('recent-updates')
-    grok.require('zope2.View')
-    grok.template('recent_updates')
 
     def _needs_hard_refresh(self):
         """Return True if a hard refresh of the page is needed.

@@ -29,4 +29,41 @@
       layer="collective.liveblog.interfaces.IBrowserLayer"
       />
 
+  <browser:page
+      for="collective.liveblog.interfaces.ILiveblog"
+      name="view"
+      class="collective.liveblog.browser.view.View"
+      permission="zope2.View"
+      layer="collective.liveblog.interfaces.IBrowserLayer"
+      template="templates/view.pt"
+      />
+
+  <browser:page
+      for="collective.liveblog.interfaces.ILiveblog"
+      name="update"
+      class="collective.liveblog.browser.update.Update"
+      permission="collective.liveblog.AddMicroUpdate"
+      layer="collective.liveblog.interfaces.IBrowserLayer"
+      template="templates/update.pt"
+      />
+
+  <browser:page
+      for="collective.liveblog.interfaces.ILiveblog"
+      name="recent-updates"
+      class="collective.liveblog.browser.recent_updates.RecentUpdates"
+      permission="zope2.View"
+      layer="collective.liveblog.interfaces.IBrowserLayer"
+      template="templates/recent_updates.pt"
+      />
+
+  <browser:viewlet
+      for="collective.liveblog.interfaces.ILiveblog"
+      name="collective.liveblog.header"
+      manager="plone.app.layout.viewlets.interfaces.IAboveContent"
+      class=".header.Header"
+      permission="zope2.View"
+      template="templates/header.pt"
+      layer="..interfaces.IBrowserLayer"
+      />
+
 </configure>
