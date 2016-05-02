@@ -42,10 +42,6 @@ class ContentTypeTestCase(unittest.TestCase):
         from plone.app.dexterity.behaviors.exclfromnav import IExcludeFromNavigation
         self.assertTrue(IExcludeFromNavigation.providedBy(self.liveblog))
 
-    @unittest.skipIf(
-        api.env.plone_version() >= '5.0',
-        'No content types installed by default in Plone >=5.0'
-    )
     def test_content_types_constrains(self):
         allowed_types = [t.getId() for t in self.liveblog.allowedContentTypes()]
         self.assertListEqual(allowed_types, ['Image'])
