@@ -7,7 +7,7 @@ Changelog
 - Remove dependency on five.grok (closes `#5`_).
   [rodfersou]
 
-- Package is now compatible with Plone 5.
+- Package is now compatible with Plone 5.0 and Plone 5.1.
   [hvelarde]
 
 
