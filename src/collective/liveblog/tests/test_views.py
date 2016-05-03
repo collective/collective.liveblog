@@ -6,6 +6,7 @@ from datetime import datetime
 from datetime import timedelta
 from plone import api
 from time import time
+from zExceptions import NotFound
 from zope.interface import alsoProvides
 
 import unittest
@@ -50,6 +51,34 @@ class DefaultViewTestCase(ViewTestCase):
         self.assertIn(comment, self.view())
         api.content.transition(self.liveblog, 'inactivate')
         self.assertIn(comment, self.view())
+
+
+class MicroUpdateViewTestCase(ViewTestCase):
+
+    def test_no_timestamp_raises_bad_request(self):
+        self.request.path = []
+        view = api.content.get_view('microupdate', self.liveblog, self.request)
+        self.assertEqual(view(), '')
+        self.assertEqual(self.request.RESPONSE.getStatus(), 400)
+
+    def test_invalid_timestamp_raises_not_found(self):
+        self.request.path = ['asdf']
+        view = api.content.get_view('microupdate', self.liveblog, self.request)
+        with self.assertRaises(NotFound):
+            view.publishTraverse(self.request, 'asdf')
+
+    def test_rendered(self):
+        _create_microupdates(self.liveblog, 1)
+        timestamp = self.liveblog.get_microupdates()[0]['timestamp']
+        self.request.path = [timestamp]
+        view = api.content.get_view('microupdate', self.liveblog, self.request)
+        view.publishTraverse(self.request, timestamp)
+        rendered = view()
+        self.assertIn('itemtype="http://schema.org/BlogPosting"', rendered)
+        self.assertIn('<span property="rnews:author">test_user_1_</span>', rendered)
+        self.assertIn('<span property="rnews:datePublished">', rendered)
+        self.assertNotIn('<span property="rnews:dateModified">', rendered)
+        self.assertIn('data-timestamp="{0}"'.format(timestamp), rendered)
 
 
 class UpdateViewTestCase(ViewTestCase):

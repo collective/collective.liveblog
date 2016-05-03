@@ -4,6 +4,10 @@ Changelog
 1.1b2 (unreleased)
 ------------------
 
+- Micro-updates are now traversable;
+  this allows to share them as separate pieces of content (closes `#19`_).
+  [rodfersou, hvelarde]
+
 - Use POST as request method on form used to edit micro-updates.
   [hvelarde]
 
@@ -109,3 +113,4 @@ Changelog
 .. _`#7`: https://github.com/collective/collective.liveblog/issues/7
 .. _`#10`: https://github.com/collective/collective.liveblog/issues/10
 .. _`#14`: https://github.com/collective/collective.liveblog/issues/14
+.. _`#19`: https://github.com/collective/collective.liveblog/issues/19

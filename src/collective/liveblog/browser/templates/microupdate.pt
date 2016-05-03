@@ -1,0 +1,91 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xml:lang="en"
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    xmlns:metal="http://xml.zope.org/namespaces/metal"
+    metal:use-macro="context/main_template/macros/master"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    i18n:domain="collective.liveblog">
+  <head>
+    <metal:block metal:fill-slot="top_slot"
+        tal:define="dummy python:request.set('disable_border', 1)" />
+  </head>
+  <body>
+    <metal:block fill-slot="main">
+      <article itemscope
+          itemtype="http://schema.org/BlogPosting"
+          tal:define="update view/update">
+        <header>
+          <div tal:replace="structure provider:plone.abovecontenttitle" />
+
+          <h1 class="documentFirstHeading"
+              itemprop="headline"
+              tal:content="update/title"
+              tal:condition="update/title">
+            Title
+          </h1>
+
+          <div class="documentByLine"
+              id="plone-document-byline"
+              i18n:domain="plone"
+              tal:condition="view/show_byline">
+            <span class="documentAuthor" tal:condition="not:view/is_anonymous">
+              <tal:i18n i18n:translate="label_by_author">
+              by
+              <span property="rnews:author" tal:content="update/creator">
+                Roland Barthes
+              </span>
+              </tal:i18n>
+              &mdash;
+            </span>
+
+            <tal:dates define="published update/datetime;
+                               modified update/modified">
+              <span class="documentPublished">
+                <span i18n:translate="box_published">
+                  published
+                </span>
+                <span tal:content="published" property="rnews:datePublished">
+                  August 16, 2001 at 23:35:59
+                </span><tal:sep condition="modified">,</tal:sep>
+              </span>
+
+              <span class="documentModified" tal:condition="modified">
+                <span i18n:translate="box_last_modified">
+                  last modified
+                </span>
+                <span tal:content="modified" property="rnews:dateModified">
+                  August 16, 2001 at 23:35:59
+                </span>
+              </span>
+            </tal:dates>
+          </div>
+        </header>
+
+        <div tal:replace="structure provider:plone.abovecontentbody" />
+
+        <div id="content-core" itemprop="articleBody">
+          <section>
+            <article class="microupdate"
+                data-timestamp=""
+                itemprop="comment"
+                itemscope
+                itemtype="http://schema.org/Comment"
+                tal:attributes="data-timestamp update/timestamp">
+              <div class="microupdate-text"
+                  itemprop="text"
+                  tal:content="structure update/text" />
+            </article>
+          </section>
+        </div>
+
+        <div tal:replace="structure provider:plone.belowcontentbody" />
+
+        <div class="microupdate-back">
+          <span i18n:translate="" tal:omit-tag="">Extracted from:</span>
+          <a tal:attributes="href context/absolute_url"
+              tal:content="context/Title">Liveblog</a>
+        </div>
+      </article>
+    </metal:block>
+  </body>
+</html>

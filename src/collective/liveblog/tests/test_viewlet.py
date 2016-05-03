@@ -54,11 +54,23 @@ class ViewletTestCase(unittest.TestCase):
             viewlets, [u'plone.path_bar', u'collective.liveblog.header'])
 
     def test_viewlet_is_available(self):
+        from plone.namedfile.file import NamedBlobImage
         manager = self._get_viewlet_manager()
         manager.update()
         viewlet = manager[u'collective.liveblog.header']
         viewlet.update()
         self.assertFalse(viewlet.available())
-        from plone.namedfile.file import NamedBlobImage
         self.liveblog.image = NamedBlobImage()
         self.assertTrue(viewlet.available())
+
+        # default view
+        self.request['URL'] = 'http://nohost/plone/liveblog/view'
+        self.request['PARENTS'][0] = self.liveblog
+        self.assertTrue(viewlet.available())
+
+        # microupdate view
+        self.request.path = ['1462277979.55']
+        self.request['URL'] = 'http://nohost/plone/liveblog/microupdate/1462277979.55'
+        view = api.content.get_view('microupdate', self.liveblog, self.request)
+        self.request['PARENTS'][0] = view
+        self.assertFalse(viewlet.available())
