@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from collective.liveblog import _
+from plone.app.textfield import RichText
 from plone.namedfile.field import NamedBlobImage
 from zope.interface import Interface
 
@@ -18,5 +19,10 @@ class ILiveblog(Interface):
     image = NamedBlobImage(
         title=_(u'Image'),
         description=_(u'This image will be used as a header on the Liveblog.'),
+        required=False,
+    )
+
+    text = RichText(
+        title=_(u'Body text'),
         required=False,
     )

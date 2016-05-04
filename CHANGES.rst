@@ -4,6 +4,9 @@ Changelog
 1.1b2 (unreleased)
 ------------------
 
+- A new text field to describe the Liveblog was added.
+  [hvelarde]
+
 - Remove dependency on five.grok (closes `#5`_).
   [rodfersou]
 

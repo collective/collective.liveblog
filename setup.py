@@ -44,6 +44,7 @@ setup(
         'plone.api',
         'plone.app.dexterity',
         'plone.app.layout',
+        'plone.app.textfield',
         'plone.batching',
         'plone.dexterity',
         'plone.memoize',
