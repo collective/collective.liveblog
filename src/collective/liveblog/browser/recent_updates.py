@@ -67,7 +67,7 @@ class RecentUpdates(BrowserView, BaseView):
                     return True
         logger.debug(u'No If-Modified-Since header on the request.')
 
-    def update(self):
+    def __call__(self):
         logger.debug(
             u'Processing request from ' + self.request.environ['REMOTE_ADDR'])
 
@@ -86,6 +86,7 @@ class RecentUpdates(BrowserView, BaseView):
         self.request.RESPONSE.setHeader('Cache-Control', 'public')
         self.request.RESPONSE.setHeader('Expires', expires)
         self.request.RESPONSE.setHeader('Last-Modified', last_modified)
+        return self.index()
 
     # FIXME: caching this function will speed up the rendering of this
     #        view by at least an order of magnitude, but it will also
