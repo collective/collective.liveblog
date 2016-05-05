@@ -4,6 +4,9 @@ Changelog
 1.1b2 (unreleased)
 ------------------
 
+- Use POST as request method on form used to edit micro-updates.
+  [hvelarde]
+
 - A new text field to describe the Liveblog was added.
   [hvelarde]
 

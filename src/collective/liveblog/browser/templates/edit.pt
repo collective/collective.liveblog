@@ -9,7 +9,7 @@
 <body>
   <metal:block fill-slot="main">
     <h1 i18n:translate="">Edit micro-update</h1>
-    <form action="@@edit-microupdate"
+    <form action="@@edit-microupdate" method="post"
         tal:attributes="action string:${context/absolute_url}/@@edit-microupdate">
       <div class="field">
         <input placeholder="Title" title="Title" name="title" type="text" class="update-title"
