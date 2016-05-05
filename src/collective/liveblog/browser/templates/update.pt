@@ -18,6 +18,12 @@
             tal:content="context/Description">
           Description
         </div>
+        <div id="parent-fieldname-text" class=""
+            tal:define="text context/text/output|nothing"
+            tal:condition="text">
+          <div itemprop="articleBody"
+              tal:content="structure text">The body</div>
+        </div>
       </header>
 
       <div tal:replace="structure provider:plone.abovecontentbody" />
