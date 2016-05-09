@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: 2016-04-18 16:42+0000\n"
-"PO-Revision-Date: 2016-04-18 13:44-0300\n"
+"POT-Creation-Date: 2016-05-09 21:56+0000\n"
+"PO-Revision-Date: 2016-05-09 18:58-0300\n"
 "Last-Translator: Héctor Velarde <hector.velarde@gmail.com>\n"
 "Language-Team: Plone Collective\n"
 "MIME-Version: 1.0\n"
@@ -20,7 +20,7 @@ msgstr ""
 msgid "A liveblog is a blog post which is intended to provide a rolling textual coverage of an ongoing event."
 msgstr "Un blog en vivo es una entrada de blog que pretende proporcionar una cobertura amplia de un evento en curso."
 
-#: collective/liveblog/browser/templates/update.pt:29
+#: collective/liveblog/browser/templates/update.pt:35
 msgid "Add micro-update"
 msgstr "Agregar actualización"
 
@@ -28,17 +28,21 @@ msgstr "Agregar actualización"
 msgid "Adds a Liveblog content type to the site. A liveblog is a blog post which is intended to provide a rolling textual coverage of an ongoing event."
 msgstr "Adiciona un tipo de contenido Blog en vivo al sitio. Un blog en vivo es una entrada de blog que pretende proporcionar una cobertura amplia de un evento en curso."
 
+#: collective/liveblog/interfaces.py:26
+msgid "Body text"
+msgstr "Cuerpo del texto"
+
 #: collective/liveblog/browser/templates/recent_updates.pt:19
-#: collective/liveblog/browser/templates/update.pt:77
-#: collective/liveblog/browser/templates/view.pt:38
+#: collective/liveblog/browser/templates/update.pt:83
+#: collective/liveblog/browser/templates/view.pt:44
 msgid "By ${byline}"
 msgstr "Por ${byline}"
 
-#: collective/liveblog/browser/update.py:44
+#: collective/liveblog/browser/update.py:28
 msgid "Do you really want to delete this item?"
 msgstr "¿Está seguro de que quiere eliminar este elemento?"
 
-#: collective/liveblog/browser/microupdates.py:115
+#: collective/liveblog/browser/microupdates.py:145
 msgid "Edit cancelled."
 msgstr "Edición cancelada."
 
@@ -46,19 +50,23 @@ msgstr "Edición cancelada."
 msgid "Edit micro-update"
 msgstr "Editar actualización"
 
+#: collective/liveblog/browser/templates/microupdate.pt:84
+msgid "Extracted from:"
+msgstr "Extraído de:"
+
 #: collective/liveblog/interfaces.py:20
 msgid "Image"
 msgstr "Imagen"
 
-#: collective/liveblog/browser/microupdates.py:144
+#: collective/liveblog/browser/microupdates.py:174
 msgid "Item deleted."
 msgstr "Elemento eliminado."
 
-#: collective/liveblog/browser/microupdates.py:66
+#: collective/liveblog/browser/microupdates.py:96
 msgid "Item published."
 msgstr "Elemento publicado."
 
-#: collective/liveblog/browser/microupdates.py:111
+#: collective/liveblog/browser/microupdates.py:141
 msgid "Item saved."
 msgstr "Elemento guardado."
 
@@ -72,24 +80,24 @@ msgstr "Actualizando en vivo"
 msgid "Liveblog"
 msgstr "Blog en vivo"
 
-#: collective/liveblog/browser/microupdates.py:38
+#: collective/liveblog/browser/microupdates.py:68
 msgid "Micro-update id does not exist."
 msgstr "El id indica una actualización que no existe."
 
-#: collective/liveblog/browser/microupdates.py:33
+#: collective/liveblog/browser/microupdates.py:63
 msgid "Micro-update id is not an integer."
 msgstr "El id de la actualización no es un entero."
 
-#: collective/liveblog/browser/microupdates.py:26
+#: collective/liveblog/browser/microupdates.py:56
 msgid "No micro-update selected."
 msgstr "No se seleccionó una actualización."
 
-#: collective/liveblog/browser/templates/update.pt:94
-#: collective/liveblog/browser/templates/view.pt:55
+#: collective/liveblog/browser/templates/update.pt:100
+#: collective/liveblog/browser/templates/view.pt:64
 msgid "No micro-updates yet for this Liveblog."
 msgstr "Todavía no hay actualizaciones para este blog en vivo."
 
-#: collective/liveblog/browser/templates/update.pt:49
+#: collective/liveblog/browser/templates/update.pt:55
 msgid "Publish"
 msgstr "Publicar"
 
@@ -101,11 +109,11 @@ msgstr "Elimina Blog en vivo"
 msgid "Removes the Liveblog content type from the site."
 msgstr "Elimina el tipo de contenido Blog en vivo del sitio."
 
-#: collective/liveblog/browser/microupdates.py:56
+#: collective/liveblog/browser/microupdates.py:86
 msgid "Required text input is missing."
 msgstr "Falta texto requerido."
 
-#: collective/liveblog/browser/templates/update.pt:109
+#: collective/liveblog/browser/templates/update.pt:115
 msgid "Some micro-updates were edited or excluded from this liveblog. <a href=\"update\">Refresh</a> to update it."
 msgstr "Algunas actualizaciones fueron editadas o excluidas de este blog en vivo. <a href=\"update\">Atualice</a> la página para mostrar los cambios."
 
@@ -114,7 +122,7 @@ msgid "This image will be used as a header on the Liveblog."
 msgstr "Esta imagen será usada como encabezado del blog en vivo."
 
 #: collective/liveblog/browser/templates/edit.pt:15
-#: collective/liveblog/browser/templates/update.pt:31
+#: collective/liveblog/browser/templates/update.pt:37
 msgid "Title"
 msgstr "Título"
 
@@ -122,6 +130,6 @@ msgstr "Título"
 msgid "Update"
 msgstr "Actualizar"
 
-#: collective/liveblog/browser/update.py:29
+#: collective/liveblog/browser/update.py:43
 msgid "You must be on the first page of the batch to add micro-updates."
 msgstr "Para adicionar una actualización debe encontrarse en la primera página de la lista."
