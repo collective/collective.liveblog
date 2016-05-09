@@ -2,12 +2,42 @@
 from collective.liveblog import _
 from collective.liveblog.adapters import IMicroUpdateContainer
 from collective.liveblog.adapters import MicroUpdate
+from collective.liveblog.browser.base import BaseView
 from datetime import datetime
 from plone import api
 from Products.Five.browser import BrowserView
 from time import time
+from zExceptions import NotFound
 from zope.event import notify
 from zope.lifecycleevent import ObjectModifiedEvent
+
+
+class MicroUpdateView(BrowserView, BaseView):
+
+    """Default view for a Liveblog's micro-update."""
+
+    def __init__(self, context, request):
+        # do not allow accessing the view without a timestamp
+        if len(request.path) == 0:
+            request.RESPONSE.setStatus(400)
+        super(MicroUpdateView, self).__init__(context, request)
+
+    def __call__(self):
+        # return an empty page on Bad Request
+        if self.request.RESPONSE.getStatus() == 400:
+            return ''
+        return self.index()
+
+    def publishTraverse(self, request, timestamp):
+        """Get the selected micro-update."""
+        microupdates = self.context.get_microupdates()
+        update = [u for u in microupdates if u['timestamp'] == timestamp]
+        assert len(update) in (0, 1)
+        if len(update) == 0:
+            raise NotFound
+
+        self.update = update[0]
+        return self
 
 
 class BaseMicroUpdateView(BrowserView):

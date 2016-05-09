@@ -31,6 +31,15 @@
 
   <browser:page
       for="collective.liveblog.interfaces.ILiveblog"
+      name="microupdate"
+      class="collective.liveblog.browser.microupdates.MicroUpdateView"
+      permission="zope2.View"
+      layer="collective.liveblog.interfaces.IBrowserLayer"
+      template="templates/microupdate.pt"
+      />
+
+  <browser:page
+      for="collective.liveblog.interfaces.ILiveblog"
       name="view"
       class="collective.liveblog.browser.view.View"
       permission="zope2.View"
