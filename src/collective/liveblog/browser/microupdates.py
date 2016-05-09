@@ -9,9 +9,12 @@ from Products.Five.browser import BrowserView
 from time import time
 from zExceptions import NotFound
 from zope.event import notify
+from zope.interface import implementer
 from zope.lifecycleevent import ObjectModifiedEvent
+from zope.publisher.interfaces import IPublishTraverse
 
 
+@implementer(IPublishTraverse)
 class MicroUpdateView(BrowserView, BaseView):
 
     """Default view for a Liveblog's micro-update."""
