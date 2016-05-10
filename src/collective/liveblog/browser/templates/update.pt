@@ -137,6 +137,9 @@
             $.ajax({
                 url: "recent-updates",
                 success: function (data) {
+                    if (typeof data !== 'string') {
+                        data = '';
+                    }
                     $("#micro-updates").prepend(data).fadeIn("slow");
                     /* in some cases a micro-update could be duplicated; remove it */
                     var seen = {};
