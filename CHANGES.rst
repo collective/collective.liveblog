@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.1b2 (unreleased)
+1.1b2 (2016-05-10)
 ------------------
 
 - Micro-updates are now traversable;
