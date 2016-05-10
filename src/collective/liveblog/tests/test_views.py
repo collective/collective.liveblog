@@ -52,6 +52,13 @@ class DefaultViewTestCase(ViewTestCase):
         api.content.transition(self.liveblog, 'inactivate')
         self.assertIn(comment, self.view())
 
+    def test_rendered(self):
+        _create_microupdates(self.liveblog, 1)
+        timestamp = self.liveblog.get_microupdates()[0]['timestamp']
+        rendered = self.view()
+        link = 'http://nohost/plone/liveblog/microupdate/{0}'.format(timestamp)
+        self.assertIn('<a href="{0}">'.format(link), rendered)
+
 
 class MicroUpdateViewTestCase(ViewTestCase):
 

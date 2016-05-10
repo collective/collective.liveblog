@@ -4,7 +4,8 @@ Changelog
 1.1b3 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Use absolute paths to link to micro-updates.
+  [hvelarde]
 
 
 1.1b2 (2016-05-10)

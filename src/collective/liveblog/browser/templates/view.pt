@@ -51,7 +51,7 @@
                               data-date update/date;
                               data-time update/time;
                               data-timestamp update/timestamp">
-            <a tal:attributes="href string:microupdate/${update/timestamp}">
+            <a tal:attributes="href string:${context/absolute_url}/microupdate/${update/timestamp}">
               <span class="microupdate-time" tal:content="update/time" />
             </a>
           </time>
