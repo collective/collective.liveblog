@@ -23,6 +23,7 @@ Who is using it?
 These are some of the sites using ``collective.liveblog``:
 
 - `CartaCapital <http://www.cartacapital.com.br/>`_ (BR)
+- `Portal Brasil 2016 <http://www.brasil2016.gov.br/>`_ (BR)
 
 Mostly Harmless
 ===============
@@ -94,6 +95,14 @@ All people viewing your liveblog will receive automatic updates every minute.
 .. figure:: https://raw.github.com/collective/collective.liveblog/master/anonymous-view.png
     :align: center
     :height: 560px
+    :width: 640px
+
+Micro-updates can be viewed as separate pieces of content;
+this makes easy to share them in social networks.
+
+.. figure:: https://raw.github.com/collective/collective.liveblog/master/microupdate.png
+    :align: center
+    :height: 480px
     :width: 640px
 
 Many editors can update the liveblog safely.
