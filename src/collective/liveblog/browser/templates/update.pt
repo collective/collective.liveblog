@@ -30,7 +30,6 @@
       <div id="content-core" itemprop="articleBody">
 
       <form action="@@add-microupdate" method="post"
-          tal:condition="view/automatic_updates_enabled"
           tal:attributes="action string:${context/absolute_url}/@@add-microupdate">
         <h2 i18n:translate="">Add micro-update</h2>
         <div class="field">

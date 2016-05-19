@@ -16,35 +16,3 @@ msgstr ""
 "X-Generator: Poedit 1.5.4\n"
 "Language: Spanish\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-
-#: collective/liveblog/profiles/default/workflows/liveblog_workflow/definition.xml
-msgid "Inactivate"
-msgstr "Desactivar"
-
-#: collective/liveblog/profiles/default/workflows/liveblog_workflow/definition.xml
-msgid "Liveblog Workflow"
-msgstr "Flujo de trabajo para blog en vivo"
-
-#: collective/liveblog/profiles/default/workflows/liveblog_workflow/definition.xml
-msgid "Member retracts submission"
-msgstr "El miembro retrae el blog en vivo al estado privado"
-
-#: collective/liveblog/profiles/default/workflows/liveblog_workflow/definition.xml
-msgid "Publish and activate"
-msgstr "Publicar y activar"
-
-#: collective/liveblog/profiles/default/workflows/liveblog_workflow/definition.xml
-msgid "Retract"
-msgstr "Retraer"
-
-#: collective/liveblog/profiles/default/workflows/liveblog_workflow/definition.xml
-msgid "Reviewer makes the liveblog active"
-msgstr "El revisor activa el blog en vivo"
-
-#: collective/liveblog/profiles/default/workflows/liveblog_workflow/definition.xml
-msgid "Reviewer makes the liveblog inactive"
-msgstr "El revisor inactiva el blog en vivo"
-
-#: collective/liveblog/profiles/default/workflows/liveblog_workflow/definition.xml
-msgid "Simple workflow to be used with liveblogs. A liveblog starts on the private state and can be activated (published) to allow the addition of micro-updates. When the liveblog is no longer going to be updated, we just simply inactivate it."
-msgstr "Un flujo de trabajo sencillo para ser usado con blogs en vivo. Un blog en vivo comienza en estado privado y puede ser publicado y activado para permitir la adición de actualizaciones. Cuando el blog en vivo ya no va a ser actualizado, simplemente lo desactivamos."

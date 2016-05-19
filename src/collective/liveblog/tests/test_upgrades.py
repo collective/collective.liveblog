@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from collective.liveblog.testing import INTEGRATION_TESTING
+from plone import api
 
 import unittest
 
@@ -31,8 +32,8 @@ class UpgradeBaseTestCase(unittest.TestCase):
 
 class To1001TestCase(UpgradeBaseTestCase):
 
-    from_ = '1'
-    to_ = '2'
+    from_ = '1000'
+    to_ = '1001'
 
     def test_profile_version(self):
         version = self.setup.getLastVersionForProfile(self.profile_id)[0]
@@ -41,3 +42,35 @@ class To1001TestCase(UpgradeBaseTestCase):
     def test_registered_steps(self):
         steps = len(self.setup.listUpgrades(self.profile_id)[0])
         self.assertEqual(steps, 1)
+
+
+class To1002TestCase(UpgradeBaseTestCase):
+
+    from_ = '1001'
+    to_ = '1002'
+
+    def test_profile_version(self):
+        version = self.setup.getLastVersionForProfile(self.profile_id)[0]
+        self.assertEqual(version, self.from_)
+
+    def test_registered_steps(self):
+        steps = len(self.setup.listUpgrades(self.profile_id)[0])
+        self.assertEqual(steps, 1)
+
+    def test_remove_workflow(self):
+        title = u'Migrate liveblog workflow'
+        step = self._get_upgrade_step_by_title(title)
+        assert step is not None
+
+        # simulate (partially) state on previous version
+        wtool = api.portal.get_tool('portal_workflow')
+        wtool.setChainForPortalTypes(('Liveblog',), ('liveblog_workflow',))
+        assert wtool.getChainForPortalType('Liveblog') == ('liveblog_workflow',)
+
+        # execute upgrade step and verify changes were applied
+        self._do_upgrade(step)
+
+        self.assertEqual(
+            wtool.getChainForPortalType('Liveblog'),
+            ('simple_publication_workflow',)
+        )

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from collective.liveblog.browser.base import BaseView
-from plone import api
+from DateTime import DateTime
 from plone.memoize import ram
 from time import time
 from zope.publisher.browser import BrowserView
@@ -29,9 +29,10 @@ class View(BrowserView, BaseView):
     @property
     def automatic_updates_enabled(self):
         """Check if the Livelog must be updated automatically.
-        Automatic updates should be enabled in active state only.
+        Automatic updates are turned off if there have been no new
+        micro-updates in the last 24 hours.
         """
-        return api.content.get_state(self.context) == 'active'
+        return (DateTime() - self.context.modified()) < 1
 
     @property
     def now(self):

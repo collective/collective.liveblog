@@ -1,13 +1,9 @@
 # -*- coding:utf-8 -*-
+from collective.liveblog.logger import logger
 from plone import api
-from collective.liveblog.config import PROJECTNAME
-
-import logging
-
-logger = logging.getLogger(PROJECTNAME)
 
 
-def cook_css_resources(context):
+def cook_css_resources(context):  # pragma: no cover
     """Cook CSS resources."""
     css_tool = api.portal.get_tool('portal_css')
     css_tool.cookResources()

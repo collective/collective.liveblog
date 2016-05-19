@@ -1,14 +1,10 @@
 # -*- coding: utf-8 -*-
 from App.Common import rfc1123_date
 from collective.liveblog.browser.base import BaseView
-from collective.liveblog.config import PROJECTNAME
+from collective.liveblog.logger import logger
 from datetime import datetime
 from time import time
 from zope.publisher.browser import BrowserView
-
-import logging
-
-logger = logging.getLogger(PROJECTNAME)
 
 
 class RecentUpdates(BrowserView, BaseView):

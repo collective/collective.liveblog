@@ -16,35 +16,3 @@ msgstr ""
 "Language-Name: English\n"
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: plone\n"
-
-#: collective/liveblog/profiles/default/workflows/liveblog_workflow/definition.xml
-msgid "Inactivate"
-msgstr ""
-
-#: collective/liveblog/profiles/default/workflows/liveblog_workflow/definition.xml
-msgid "Liveblog Workflow"
-msgstr ""
-
-#: collective/liveblog/profiles/default/workflows/liveblog_workflow/definition.xml
-msgid "Member retracts submission"
-msgstr ""
-
-#: collective/liveblog/profiles/default/workflows/liveblog_workflow/definition.xml
-msgid "Publish and activate"
-msgstr ""
-
-#: collective/liveblog/profiles/default/workflows/liveblog_workflow/definition.xml
-msgid "Retract"
-msgstr ""
-
-#: collective/liveblog/profiles/default/workflows/liveblog_workflow/definition.xml
-msgid "Reviewer makes the liveblog active"
-msgstr ""
-
-#: collective/liveblog/profiles/default/workflows/liveblog_workflow/definition.xml
-msgid "Reviewer makes the liveblog inactive"
-msgstr ""
-
-#: collective/liveblog/profiles/default/workflows/liveblog_workflow/definition.xml
-msgid "Simple workflow to be used with liveblogs. A liveblog starts on the private state and can be activated (published) to allow the addition of micro-updates. When the liveblog is no longer going to be updated, we just simply inactivate it."
-msgstr ""

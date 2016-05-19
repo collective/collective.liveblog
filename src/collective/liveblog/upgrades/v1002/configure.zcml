@@ -1,0 +1,19 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    i18n_domain="collective.liveblog">
+
+  <genericsetup:upgradeSteps
+      source="1001"
+      destination="1002"
+      profile="collective.liveblog:default">
+
+    <genericsetup:upgradeStep
+        title="Migrate liveblog workflow"
+        description="Use simple_publication_workflow instead of liveblog_workflow."
+        handler=".migrate_liveblog_workflow"
+        />
+
+  </genericsetup:upgradeSteps>
+
+</configure>
