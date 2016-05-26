@@ -133,8 +133,13 @@
         /* keep page updated */
         setInterval(function () {
             "use strict";
+            // JavaScript URL parser: https://gist.github.com/jlong/2428561
+            var parser = document.createElement('a');
+            parser.href = location.href;
+            parser.pathname = parser.pathname.replace(/\/update*|\/view*/, '');
+            parser.pathname = parser.pathname + '/recent-updates';
             $.ajax({
-                url: "recent-updates",
+                url: parser.href,
                 success: function (data) {
                     if (typeof data !== 'string') {
                         data = '';
