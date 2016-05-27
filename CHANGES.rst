@@ -4,6 +4,9 @@ Changelog
 1.1b3 (unreleased)
 ------------------
 
+- Fix URL of AJAX call to get latest updates of a Liveblog (fixes `#32`_).
+  [rodfersou]
+
 - Liveblogs use now standard `simple_publication_workflow`;
   automatic updates in liveblogs are now turned off if there have been no new micro-updates in the last 24 hours;
   `liveblog_workflow` was removed (closes `#31`_).
@@ -127,3 +130,4 @@ Changelog
 .. _`#14`: https://github.com/collective/collective.liveblog/issues/14
 .. _`#19`: https://github.com/collective/collective.liveblog/issues/19
 .. _`#31`: https://github.com/collective/collective.liveblog/issues/31
+.. _`#32`: https://github.com/collective/collective.liveblog/issues/32
