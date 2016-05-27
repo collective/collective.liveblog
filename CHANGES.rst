@@ -4,6 +4,9 @@ Changelog
 1.1b3 (unreleased)
 ------------------
 
+- Liveblogs are now added to the list of linkable objects in TinyMCE at installation time.
+  [hvelarde]
+
 - Fix URL of AJAX call to get latest updates of a Liveblog (fixes `#32`_).
   [rodfersou]
 

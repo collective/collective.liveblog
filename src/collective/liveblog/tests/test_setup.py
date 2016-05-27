@@ -48,6 +48,11 @@ class InstallTestCase(unittest.TestCase):
             roles = [r['name'] for r in roles if r['selected']]
             self.assertListEqual(roles, permission['expected'])
 
+    @unittest.skipIf(IS_PLONE_5, 'Not needed in Plone 5')
+    def test_tinymce_is_linkable(self):
+        tinymce = self.portal['portal_tinymce']
+        self.assertIn('Liveblog', tinymce.linkable.split('\n'))
+
 
 class UninstallTestCase(unittest.TestCase):
 

@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from collective.liveblog.testing import INTEGRATION_TESTING
+from collective.liveblog.testing import IS_PLONE_5
 from plone import api
 
 import unittest
@@ -55,7 +56,7 @@ class To1002TestCase(UpgradeBaseTestCase):
 
     def test_registered_steps(self):
         steps = len(self.setup.listUpgrades(self.profile_id)[0])
-        self.assertEqual(steps, 1)
+        self.assertEqual(steps, 2)
 
     def test_remove_workflow(self):
         title = u'Migrate liveblog workflow'
@@ -74,3 +75,21 @@ class To1002TestCase(UpgradeBaseTestCase):
             wtool.getChainForPortalType('Liveblog'),
             ('simple_publication_workflow',)
         )
+
+    @unittest.skipIf(IS_PLONE_5, 'Not needed in Plone 5')
+    def test_make_liveblog_linkable(self):
+        title = u'Make Liveblog linkable on TinyMCE'
+        step = self._get_upgrade_step_by_title(title)
+        assert step is not None
+
+        # simulate state on previous version
+        tinymce = api.portal.get_tool('portal_tinymce')
+        linkable = tinymce.linkable.split('\n')
+        linkable.remove('Liveblog')
+        tinymce.linkable = '\n'.join(linkable)
+        assert 'Liveblog' not in tinymce.linkable.split('\n')
+
+        # execute upgrade step and verify changes were applied
+        self._do_upgrade(step)
+
+        self.assertIn('Liveblog', tinymce.linkable.split('\n'))
