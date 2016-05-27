@@ -70,7 +70,7 @@ Usage
 
 After installing the package you will see a new content type available: Liveblog.
 
-A liveblog has a title, a description and an image field.
+Liveblogs have title, description, image and text fields.
 The image field is used to set up a header on the liveblog.
 
 .. figure:: https://raw.github.com/collective/collective.liveblog/master/create-liveblog.png
@@ -78,7 +78,6 @@ The image field is used to set up a header on the liveblog.
     :height: 440px
     :width: 640px
 
-Before feeding the liveblog with micro-updates you will need to activate it.
 Now, go to the Update tab and start writing micro-updates.
 
 A micro-update is basically a text that should optionally have a title.
@@ -97,8 +96,9 @@ All people viewing your liveblog will receive automatic updates every minute.
     :height: 560px
     :width: 640px
 
-Micro-updates can be viewed as separate pieces of content;
-this makes easy to share them in social networks.
+Micro-updates can be viewed as separate pieces of content,
+using the link in their timestamp,
+making easy to share them in social networks.
 
 .. figure:: https://raw.github.com/collective/collective.liveblog/master/microupdate.png
     :align: center
@@ -119,19 +119,7 @@ This way we avoid interrupting editors from their work.
     :height: 500px
     :width: 640px
 
-When a liveblog is not going to be updated anymore you should deactivate it.
-
-Workflow
---------
-
-The package defines a workflow to be used with the content type (Liveblog Workflow).
-
-The workflow defines 3 states: private, active and inactive.
-Liveblogs are created in the private state.
-When activated, the liveblog will be published and automatic refresh of micro-updates will be enabled.
-When deactivated, the liveblog will remain public, but automatic refresh of micro-updates will be disabled.
-No micro-updates can be added to a liveblog in inactive state.
-To continue adding micro-updates, just activate the liveblog again.
+Automatic updates in liveblogs are turned off if there have been no new micro-updates in the last 24 hours.
 
 How does it work
 ----------------

@@ -2,6 +2,7 @@
 from collective.liveblog.interfaces import IBrowserLayer
 from collective.liveblog.testing import INTEGRATION_TESTING
 from collective.liveblog.tests.utils import _create_microupdates
+from DateTime import DateTime
 from datetime import datetime
 from datetime import timedelta
 from plone import api
@@ -37,19 +38,19 @@ class DefaultViewTestCase(ViewTestCase):
         self.assertTrue(self.view.has_updates)
 
     def test_automatic_updates_enabled(self):
-        self.assertFalse(self.view.automatic_updates_enabled)
-        api.content.transition(self.liveblog, 'activate')
         self.assertTrue(self.view.automatic_updates_enabled)
-        api.content.transition(self.liveblog, 'inactivate')
+        self.liveblog.modification_date = DateTime() - 3
         self.assertFalse(self.view.automatic_updates_enabled)
+        self.liveblog.modification_date = DateTime()
+        self.assertTrue(self.view.automatic_updates_enabled)
 
     def test_date_is_shown_in_microupdates_older_than_today(self):
         # comment inside the JS block that adds the dates
         comment = '/* show dates for micro-updates older than today */'
         self.assertIn(comment, self.view())
-        api.content.transition(self.liveblog, 'activate')
+        self.liveblog.modification_date = DateTime() - 3
         self.assertIn(comment, self.view())
-        api.content.transition(self.liveblog, 'inactivate')
+        self.liveblog.modification_date = DateTime()
         self.assertIn(comment, self.view())
 
     def test_rendered(self):
@@ -104,9 +105,9 @@ class UpdateViewTestCase(ViewTestCase):
         # comment inside the JS block that adds the dates
         comment = '/* show dates for micro-updates older than today */'
         self.assertIn(comment, self.view())
-        api.content.transition(self.liveblog, 'activate')
+        self.liveblog.modification_date = DateTime() - 3
         self.assertIn(comment, self.view())
-        api.content.transition(self.liveblog, 'inactivate')
+        self.liveblog.modification_date = DateTime()
         self.assertIn(comment, self.view())
 
 
