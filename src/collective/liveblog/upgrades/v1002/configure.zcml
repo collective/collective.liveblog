@@ -14,6 +14,13 @@
         handler=".migrate_liveblog_workflow"
         />
 
+    <genericsetup:upgradeDepends
+        title="Make Liveblog linkable on TinyMCE"
+        description=""
+        import_steps="tinymce_settings"
+        run_deps="false"
+        />
+
   </genericsetup:upgradeSteps>
 
 </configure>
