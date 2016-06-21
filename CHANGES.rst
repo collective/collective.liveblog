@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.1b3 (unreleased)
+1.2b1 (2016-06-21)
 ------------------
 
 - Liveblogs are now added to the list of linkable objects in TinyMCE at installation time.

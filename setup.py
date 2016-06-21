@@ -2,7 +2,7 @@
 from setuptools import find_packages
 from setuptools import setup
 
-version = '1.1b3.dev0'
+version = '1.2b1'
 description = 'A liveblogging solution for Plone.'
 long_description = (
     open('README.rst').read() + '\n' +
