@@ -7,6 +7,7 @@ from plone.browserlayer.utils import registered_layers
 
 import unittest
 
+
 CSS = '++resource++collective.liveblog/styles.css'
 
 ADD_PERMISSIONS = (
