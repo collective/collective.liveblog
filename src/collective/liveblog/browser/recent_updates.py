@@ -82,6 +82,12 @@ class RecentUpdates(BrowserView, BaseView):
         self.request.RESPONSE.setHeader('Cache-Control', 'public')
         self.request.RESPONSE.setHeader('Expires', expires)
         self.request.RESPONSE.setHeader('Last-Modified', last_modified)
+
+        # https://github.com/plone/plone.protect/issues/64
+        self.latest_microupdates = self.get_latest_microupdates()
+        if len(self.latest_microupdates) == 0:
+            return ''
+
         return self.index()
 
     # FIXME: caching this function will speed up the rendering of this

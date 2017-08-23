@@ -4,7 +4,8 @@ Changelog
 1.2b2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Avoid ``AttributeError`` on transform chain caused by invalid output on ``recent-updates`` view when there are no new micro-updates available (refs. `plone.protect#64 <https://github.com/plone/plone.protect/issues/64>`_).
+  [rodfersou]
 
 
 1.2b1 (2016-06-21)
