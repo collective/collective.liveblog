@@ -1,10 +1,11 @@
 Changelog
 =========
 
-1.2b3 (unreleased)
+1.3b1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Drop support for Plone 5.0.
+  [hvelarde]
 
 
 1.2b2 (2017-08-23)
