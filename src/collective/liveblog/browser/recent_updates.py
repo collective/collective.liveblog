@@ -21,17 +21,15 @@ class RecentUpdates(BrowserView, BaseView):
         """
         if self.context._last_microupdate_edition > str(time() - 60):
             logger.debug(
-                u'A micro-update was deleted withing the last minute. '
-                u'Setting status code 205.'
-            )
+                'A micro-update was deleted withing the last minute. '
+                'Setting status code 205.')
             self.request.RESPONSE.setStatus(205)
             return True
 
         if self.context._last_microupdate_deletion > str(time() - 60):
             logger.debug(
-                u'A micro-update was edited withing the last minute. '
-                u'Setting status code 205.'
-            )
+                'A micro-update was edited withing the last minute. '
+                'Setting status code 205.')
             self.request.RESPONSE.setStatus(205)
             return True
 

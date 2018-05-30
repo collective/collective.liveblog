@@ -12,7 +12,7 @@ def migrate_liveblog_workflow(context):
             'private': 'private',
             'active': 'published',
             'inactive': 'published',
-        }
+        },
     }
 
     catalog = api.portal.get_tool('portal_catalog')

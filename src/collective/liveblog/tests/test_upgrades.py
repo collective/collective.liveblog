@@ -73,8 +73,7 @@ class To1002TestCase(UpgradeBaseTestCase):
 
         self.assertEqual(
             wtool.getChainForPortalType('Liveblog'),
-            ('simple_publication_workflow',)
-        )
+            ('simple_publication_workflow',))
 
     @unittest.skipIf(IS_PLONE_5, 'Not needed in Plone 5')
     def test_make_liveblog_linkable(self):
