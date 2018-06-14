@@ -139,11 +139,12 @@ class RecentUpdatesViewTestCase(ViewTestCase):
     def test_not_modified(self):
         RFC1123 = '%a, %d %b %Y %H:%M:%S GMT'
         # calling the method without header will return False
-        assert not self.request.get_header('If-Modified-Since')
+        self.assertFalse(self.request.get_header('If-Modified-Since'))
         self.assertFalse(self.view._not_modified())
         # invalid date return False
         self.request.environ['IF_MODIFIED_SINCE'] = 'invalid'
-        assert self.request.get_header('If-Modified-Since') == 'invalid'
+        self.assertEqual(
+            self.request.get_header('If-Modified-Since'), 'invalid')
         self.assertFalse(self.view._not_modified())
         # modified, return False as we must update
         if_modified_since = datetime.utcnow() - timedelta(seconds=60)

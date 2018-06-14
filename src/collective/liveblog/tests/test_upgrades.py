@@ -61,12 +61,13 @@ class To1002TestCase(UpgradeBaseTestCase):
     def test_remove_workflow(self):
         title = u'Migrate liveblog workflow'
         step = self._get_upgrade_step_by_title(title)
-        assert step is not None
+        self.assertIsNotNone(step)
 
         # simulate (partially) state on previous version
         wtool = api.portal.get_tool('portal_workflow')
         wtool.setChainForPortalTypes(('Liveblog',), ('liveblog_workflow',))
-        assert wtool.getChainForPortalType('Liveblog') == ('liveblog_workflow',)
+        self.assertEqual(
+            wtool.getChainForPortalType('Liveblog'), ('liveblog_workflow',))
 
         # execute upgrade step and verify changes were applied
         self._do_upgrade(step)
@@ -79,14 +80,14 @@ class To1002TestCase(UpgradeBaseTestCase):
     def test_make_liveblog_linkable(self):
         title = u'Make Liveblog linkable on TinyMCE'
         step = self._get_upgrade_step_by_title(title)
-        assert step is not None
+        self.assertIsNotNone(step)
 
         # simulate state on previous version
         tinymce = api.portal.get_tool('portal_tinymce')
         linkable = tinymce.linkable.split('\n')
         linkable.remove('Liveblog')
         tinymce.linkable = '\n'.join(linkable)
-        assert 'Liveblog' not in tinymce.linkable.split('\n')
+        self.assertNotIn('Liveblog', tinymce.linkable.split('\n'))
 
         # execute upgrade step and verify changes were applied
         self._do_upgrade(step)
